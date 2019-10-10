@@ -462,66 +462,71 @@ model</ColNames>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="104" parent="16" name="portfolio_site">
+    <column id="104" parent="16" name="profile_pic">
       <Position>2</Position>
-      <DataType>varchar(200)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="105" parent="16" name="profile_pic">
-      <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="106" parent="16" name="user_id">
-      <Position>4</Position>
+    <column id="105" parent="16" name="user_id">
+      <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="107" parent="16" name="sqlite_autoindex_signup_userprofileinfo_1">
+    <column id="106" parent="16" name="dob">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="16" name="gender">
+      <Position>5</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="108" parent="16" name="sqlite_autoindex_signup_userprofileinfo_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="108" parent="16">
+    <key id="109" parent="16">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="109" parent="16">
+    <key id="110" parent="16">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_signup_userprofileinfo_1</UnderlyingIndexName>
     </key>
-    <foreign-key id="110" parent="16">
+    <foreign-key id="111" parent="16">
       <ColNames>user_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="111" parent="17" name="type">
+    <column id="112" parent="17" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="112" parent="17" name="name">
+    <column id="113" parent="17" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="113" parent="17" name="tbl_name">
+    <column id="114" parent="17" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="114" parent="17" name="rootpage">
+    <column id="115" parent="17" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="115" parent="17" name="sql">
+    <column id="116" parent="17" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="116" parent="18" name="name">
+    <column id="117" parent="18" name="name">
       <Position>1</Position>
     </column>
-    <column id="117" parent="18" name="seq">
+    <column id="118" parent="18" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

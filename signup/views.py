@@ -11,18 +11,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'signup/index.html')
 
-
-@login_required
-def special(request):
-    return HttpResponse("You are logged in !")
-
-
-@login_required
-def user_logout(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('index'))
-
-
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -35,7 +23,6 @@ def register(request):
             profile = profile_form.save(commit=False)
             profile.user = user
             if 'profile_pic' in request.FILES:
-                print('found it')
                 profile.profile_pic = request.FILES['profile_pic']
             profile.save()
             registered = True
@@ -49,23 +36,24 @@ def register(request):
                    'profile_form': profile_form,
                    'registered': registered})
 
-
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        #identity = User.objects.only('id').get(username=username).id
-        user = authenticate(username=username, password=password)
-        if user:
-            if user.is_active:
-                login(request, user)
-                #userprofileinfo = UserProfileInfo.objects.filter(user_id=identity)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                return HttpResponse("Your account was inactive.")
-        else:
-            print("Someone tried to login and failed.")
-            print("They used username: {} and password: {}".format(username, password))
-            return HttpResponse("Invalid login details given")
-    else:
-        return render(request, 'signup/login.html', {})
+#
+# def user_login(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#         #identity = User.objects.only('id').get(username=username).id
+#         #print(identity)
+#         user = authenticate(username=username, password=password)
+#         if user:
+#             if user.is_active:
+#                 login(request, user)
+#                 #userprofileinfo = UserProfileInfo.objects.filter(user_id=identity)
+#                 return HttpResponseRedirect(reverse('index'))
+#             else:
+#                 return HttpResponse("Your account was inactive.")
+#         else:
+#             print("Someone tried to login and failed.")
+#             print("They used username: {} and password: {}".format(username, password))
+#             return HttpResponse("Invalid login details given")
+#     else:
+#         return render(request, 'signup/login.html', {})

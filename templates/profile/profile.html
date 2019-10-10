@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "signup/base.html" %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome to the Friendsbook!</h1>
+            <img src="{{ user_profile.profile_pic.url }}" alt="{{ user.first_name }} {{ user.last_name }}">
+            <h2>User ID {{ user.id }}</h2>
+            <h2>Name {{ user.first_name}} {{ user.last_name }}</h2>
+            <h2>Hello {{ user.username }}</h2>
+            <h2>Email {{ user.email }}</h2>
+            <h2>Date Joined {{ user.date_joined }}</h2>
+            <h2>DOB: {{ user_profile.dob }}</h2>
+        </div>
+    </div>
+{% endblock %}

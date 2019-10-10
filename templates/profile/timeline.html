@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "signup/base.html" %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome to the Friendsbook!</h1>
+            <h2>{{ user.first_name}} {{ user.last_name }}</h2>
+            <h2>This is your timeline, Use wisely</h2>
+        </div>
+    </div>
+{% endblock %}

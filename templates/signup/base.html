@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
     <!--BootStrap Links-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+{#    <link rel="stylesheet" href="{% static "CSS/login.css" %}">#}
     <!--External CSS File-->
 </head>
 <body>
@@ -17,13 +18,14 @@
         <ul class="nav navbar-nav">
             {# Django Home Link / Admin Link / Register Link#}
             <li><a class="navbar-brand" href="{% url 'index' %}">FSB</a></li>
-            <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-            <li><a class="navbar-link" href="{% url 'signup:register' %}">Register</a></li>
+            <li><a class="navbar-link" href="/admin/">Admin</a></li>
             {# Some logic on what to display for last item#}
             {% if user.is_authenticated %}
+                <li><a href="/profile/">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a class="navbar-link" href="{% url 'signup:user_login' %}">Login</a></li>
+                <li><a class="navbar-link" href="/signup/">Register</a></li>
+                <li><a class="navbar-link" href="/login/">Login</a></li>
             {% endif %}
         </ul>
     </div>

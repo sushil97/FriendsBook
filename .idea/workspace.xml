@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="" />
+    <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SNS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SNS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bb985b9e-c5e1-462d-9cf8-8e401878acb1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bb985b9e-c5e1-462d-9cf8-8e401878acb1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +65,13 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="auth_user: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
         <item name="signup_userprofileinfo: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
       <path>
@@ -62,6 +94,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="signup_userprofileinfo: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -71,14 +110,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RxokYJAI1SiHFHbYz3m6N1T8ig" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/signup" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -87,6 +134,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -163,22 +211,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@dbe291e3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@dbe291e3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@38829045" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@dbe291e3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1c0aecc1" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -199,12 +232,29 @@
       <workItem from="1570619662392" duration="5241000" />
       <workItem from="1570624975350" duration="2288000" />
       <workItem from="1570627264812" duration="19904000" />
-      <workItem from="1570689764649" duration="1018000" />
+      <workItem from="1570689764649" duration="1867000" />
+      <workItem from="1570718669043" duration="27501000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SNS$Test__SNS_signup.coverage" NAME="Test: SNS.signup Coverage Results" MODIFIED="1570619352299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

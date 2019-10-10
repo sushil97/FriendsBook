@@ -15,19 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url,include
-
+from django.conf.urls import url, include
+import login
+import signup
+import user_account
+from user_account import views
 from SNS import settings
 from signup import views
+from login import views
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$',views.index,name='index'),
-    url(r'^special/',views.special,name='special'),
-    url(r'^signup/',include('signup.urls')),
-    url(r'^logout/$', views.user_logout, name='logout'),
+    url(r'^$', signup.views.index, name='index'),
+    url(r'^special/$', login.views.special, name='special'),
+    url(r'^signup/$', signup.views.register, name="signup"),
+    url(r'^login/$', login.views.user_login, name="login"),
+    url(r'^profile/$',user_account.views.my_account,name='profile'),
+    url(r'^logout/$', login.views.user_logout, name='logout'),
 ]
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_DIR)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    #urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_DIR)
