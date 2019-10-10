@@ -1,0 +1,51 @@
+{% extends "signup/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+
+    <div class="container">
+        <div class="jumbotron">
+            {% if registered %}
+                <h1>Thank you for registering!</h1>
+            {% else %}
+                <div class="container" id="wrap">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3"><h1>Sign Up</h1>
+                            <h3>Just fill out the form.</h3>
+
+                            <form enctype="multipart/form-data" method="POST" class="form" role="form">
+                                {% csrf_token %}
+                                <input type="text" id="id_username" name="username" required class="form-control input-lg" placeholder="Username"  /><br />
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-6">
+                                        <input type="text" id="id_first_name" name="first_name"  class="form-control input-lg" placeholder="First Name"/>
+                                    </div>
+                                    <div class="col-xs-6 col-md-6">
+                                        <input type="text" id="id_last_name" name="last_name" class="form-control input-lg" placeholder="Last Name"/>
+                                    </div>
+                                </div><br />
+
+                                <input type="password" id="id_password" name="password" required class="form-control input-lg" placeholder="Password"  /><br />
+                                <input type="email" id="id_email" name="email" required class="form-control input-lg" placeholder="Your Email"  /><br />
+                                <label>Birth Date</label>
+                                <input type="date" name="dob" id="id_dob" onkeydown="return false"  class="form-control input-lg" placeholder="Enter your date of birth" /><br />
+                                <label for="id_profile_pic">Profile pic:</label>
+                                <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">
+                                <br />
+                                <label>Gender : </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" checked value="Male" id=signup[isMale] />Male</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" value="Female" id=signup[isFemale] />Female</label>
+                                <br /><br />
+                                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create my account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+

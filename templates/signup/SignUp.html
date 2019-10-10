@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HomePage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+  <body>
+    
+    <!--BootStrap Links-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+    <!--External CSS File-->
+    <link rel="stylesheet" href="../../static/CSS/login.css">
+    
+    <!--Here Begins the header code-->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <div class="navbar-brand">Group 8</div>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+
+            <!--Put the action command here for login Page-->  
+            <form action="#" id="signin" method ="POST" class="navbar-form navbar-right" role="form">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="login[email]" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="login[password]" type="password" class="form-control" name="password" value="" placeholder="Password">   
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+          </ul>
+        </div>
+      </div>    
+    </nav>
+
+    <!--SignUP page code Starts Here-->
+    <div class="container" id="wrap">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <!--Put action command here for Singup page-->
+          <form action="#" method="post" accept-charset="utf-8" class="form" role="form">   <legend>Sign Up</legend>
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+                <input type="text" id="signup[firstName]" name="firstname" required class="form-control input-lg" placeholder="First Name"/>
+              </div>
+              <div class="col-xs-6 col-md-6">
+                <input type="text" id="signup[lastName]" name="lastname" required class="form-control input-lg" placeholder="Last Name"/>                        
+              </div>
+            </div>
+            <div class="input-group">
+              <input type="email" id="signup[email]" name="email" required class="form-control input-lg" placeholder="Your Email"  />
+              <input type="password" id="signup[password]" name="password" required class="form-control input-lg" placeholder="Password"  />
+              <input type="password" id="signup[confirmPassword]" name="confirm_password" required class="form-control input-lg" placeholder="Confirm Password"  />
+              <label>Birth Date</label>
+              <input type="date" name="Date of Birth" id="signup[dateOfBirth]" onkeydown="return false" required="required" class="form-control input-lg" placeholder="Enter your date of birth" />
+            </div>
+            <label>Gender : </label>                    
+            <label class="radio-inline">
+            <input type="radio" name="gender" checked="M" id=signup[isMale] />Male</label>
+            <label class="radio-inline">
+            <input type="radio" name="gender" value="F" id=signup[isFemale] />Female</label>
+            <br />
+            <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create my account</button>
+            <br />
+          </form>          
+        </div>
+      </div>            
+    </div>
+  </body>
+</html>
