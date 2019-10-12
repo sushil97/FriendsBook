@@ -6,15 +6,7 @@
             <div class="container emp-profile">
                 <div class="row">
                     <form method="post">
-                        <div class="col-md-4">
-                            {% comment %}<div class="profile-img">
-                                <img src="{{ user_profile.profile_pic.url }}"
-                                     alt="{{ user.first_name }} {{ user.last_name }}"/>
-                                <div class="upload-btn-wrapper">
-                                    <button class="btn">Upload a new profile picture</button>
-                                    <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic"/>
-                                </div>
-                            </div>{% endcomment %}
+                        <div class="col-md-3">
                             <div class="profile-img">
                                 <img src="{{ user_profile.profile_pic.url }}">
                                 <div class="upload-btn-wrapper">
@@ -25,47 +17,35 @@
                             </div>
                         </div>
                     </form>
-                    <div class="col-md-5" id="profile_div">
-                        <div class="profile-head">
-                            <h3><i class="glyphicon glyphicon-link"></i> <input type="text" value="{{ user.username }}"
-                                                                                readonly></h3>
-                            <h3><i class="glyphicon glyphicon-user"></i> <input type="text"
-                                                                                value="{{ user.first_name }} {{ user.last_name }}"
-                                                                                readonly></h3>
-                            <h3><i class="glyphicon glyphicon-envelope"></i> <input type="text" value="{{ user.email }}"
-                                                                                    readonly></h3>
-                            <h3><i class="glyphicon glyphicon-gift"></i> <input type="text"
-                                                                                value="{{ user_profile.dob }}" readonly>
-                            </h3>
-                            <div class="col-md-2">
-{#                                <input type="button" class="profile-edit-btn" name="edit_profile" value="Edit Profile"#}
-{#                                       onclick=""/>#}
-                                <div class="upload-btn-wrapper">
-                                    <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
-                                        <button class="btn">Edit Profile</button>
-                                    </a>
-                                </div>
+                        <div class="col-md-4" id="profile_div">
+                            <div class="profile-head">
+                                <h4><i class="glyphicon glyphicon-link"></i> <input type="text" value="{{ user.username }}"
+                                                                                    readonly></h4>
+                                <h4><i class="glyphicon glyphicon-user"></i> <input type="text"
+                                                                                    value="{{ user.first_name }} {{ user.last_name }}"
+                                                                                    readonly></h4>
+                                <h4><i class="glyphicon glyphicon-envelope"></i> <input type="text" value="{{ user.email }}"
+                                                                                        readonly></h4>
+                                <h4><i class="glyphicon glyphicon-gift"></i> <input type="text" value="{{ user_profile.dob }}" readonly>
+                                </h4>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="bio-head">
-                            <label id="bio"><p align="justify">Bio: {{ user_profile.biography }}</p></label>
-                            <div class="upload-btn-wrapper">
-                                    <a href="#" data-toggle="modal" data-target="#update-bio-modal">
-                                        <button class="btn">Edit Bio</button>
-                                    </a>
-                                </div>
+                        <div class="col-md-5">
+                            <div class="bio-head">
+                                <h3>About</h3><br>
+                                <textarea class="form-control" rows="5" id="comment" readonly>{{ user_profile.biography }}</textarea>
+                            </div>
+                            <br>
                         </div>
+                        <br><br>
+                    <div class="upload-btn-wrapper">
+                        <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
+                            <button class="btn">Edit Profile</button>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#update-bio-modal">
+                            <button class="btn">Edit Bio</button>
+                        </a>
                     </div>
-                    {#                    <div class="col-md-2">#}
-                    {#                        <input type="button" class="profile-edit-btn" name="edit_profile" value="Edit Profile"#}
-                    {#                               onclick=""/>#}
-                    {#                    </div>#}
-                    {#                    <div class="col-md-2">#}
-                    {#                        <input type="button" class="bio-edit-btn" name="edit_bio" value="Edit Bio"#}
-                    {#                               onclick=""/>#}
-                    {#                    </div>#}
                 </div>
             </div>
         </div>
@@ -83,12 +63,12 @@
                     </button>
                 </div>
                 <form action="{% url 'update_bio' %}" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
                     <div class="modal-body">
-                        {% csrf_token %}
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <input id="id_biography" type="text" class="form-control input-lg" name="biography">
-{#                                <img id="profile_pic_preview" class="img-preview" src="">#}
                             </div>
                         </div>
                     </div>
@@ -111,9 +91,9 @@
                             aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'update_profile_pic' %}" enctype="multipart/form-data" method="post">
+                <form action="{% url 'update_profile_pic' %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
                     <div class="modal-body">
-                        {% csrf_token %}
                         <div class="row">
                             <div class="col-sm-12">
                                 <input id="profile_pic" type="file" class="btn btn-sm btn-secondary" name="profile_pic">

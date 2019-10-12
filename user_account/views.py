@@ -40,7 +40,6 @@ def my_timeline(request):
     else:
         return HttpResponseRedirect('/login')
 
-
 @csrf_exempt
 def update_profile_pic(request):
     user = request.user
