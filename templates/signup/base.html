@@ -5,34 +5,41 @@
     <meta charset="utf-8">
     <title>FriendsBook</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--BootStrap Links-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-{#    <link rel="stylesheet" href="{% static "CSS/login.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "CSS/login.css" %}">#}
     <!--External CSS File-->
+    <link rel="stylesheet" href="{% static "CSS/profiling.css" %}">
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-inverse">
     <div class="container">
         <ul class="nav navbar-nav">
             {# Django Home Link / Admin Link / Register Link#}
             <li><a class="navbar-brand" href="{% url 'index' %}">FSB</a></li>
             <li><a class="navbar-link" href="/admin/">Admin</a></li>
             {# Some logic on what to display for last item#}
-            {% if user.is_authenticated %}
-                <li><a href="/profile/">Profile</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li><a class="navbar-link" href="/signup/">Register</a></li>
-                <li><a class="navbar-link" href="/login/">Login</a></li>
-            {% endif %}
         </ul>
+        {% if user.is_authenticated and not registered %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/accounts/profile/">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        {% else %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        {% endif %}
     </div>
 </nav>
 <div class="container">
     {% block body_block %}
     {% endblock %}
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="{% static "js/signup.js" %}"></script>
 </body>
 </html>

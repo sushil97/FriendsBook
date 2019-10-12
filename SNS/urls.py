@@ -24,7 +24,6 @@ from SNS import settings
 from signup import views
 from login import views
 from django.contrib.staticfiles.urls import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,8 +31,12 @@ urlpatterns = [
     url(r'^special/$', login.views.special, name='special'),
     url(r'^signup/$', signup.views.register, name="signup"),
     url(r'^login/$', login.views.user_login, name="login"),
-    url(r'^profile/$',user_account.views.my_account,name='profile'),
+    url(r'^accounts/profile/$',user_account.views.my_account,name='profile'),
+    url(r'^settings/', include('django_mfa.urls'), name="mfa"),
+    url(r'^accounts/timeline/$', user_account.views.my_timeline, name='timeline'),
     url(r'^logout/$', login.views.user_logout, name='logout'),
+    url(r'^update_profile_pic/$', user_account.views.update_profile_pic, name='update_profile_pic'),
+    url(r'^update_bio/$', user_account.views.update_bio, name='update_bio'),
 ]
 
 if settings.DEBUG:

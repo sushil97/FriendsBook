@@ -21,7 +21,7 @@
   display: inline-block;
 }
 
-.btn {
+.profile-img .btn, .profile-head .btn, .bio-head .btn {
   border: 2px solid gray;
   color: gray;
   background-color: white;
@@ -41,17 +41,21 @@
 .profile-head h3{
     color: #0062cc;
 }
-.profile-edit-btn{
-    border: none;
-    border-radius: 1.5rem;
-    width: 70%;
-    padding: 2%;
-    font-weight: 600;
-    color: #6c757d;
-    cursor: pointer;
-}
+/*.profile-edit-btn, .bio-edit-btn{*/
+/*    border: none;*/
+/*    border-radius: 1.5rem;*/
+/*    !*width: 70%;*!*/
+/*    padding: 2%;*/
+/*    font-weight: 600;*/
+/*    color: #6c757d;*/
+/*    cursor: pointer;*/
+/*}*/
 #bio{
     color: #0062cc;
     font-size: 20.8px;
 }
-input[type="text"] { border: none; }
+/*input[type="text"] { border: none; }*/
+
+#profile_div input[type="text"]{
+    border: none;
+}

@@ -36,8 +36,8 @@ def user_login(request):
                 }
                 #userprofileinfo = UserProfileInfo.objects.filter(user_id=identity)
                 # return HttpResponseRedirect(reverse('index'), context)
-                # return HttpResponseRedirect('/profile')
-                return render_to_response('profile/timeline.html', context)
+                return HttpResponseRedirect('/timeline')
+                #return render_to_response('profile/timeline.html', context)
             else:
                 return HttpResponse("Your account was inactive.")
         else:

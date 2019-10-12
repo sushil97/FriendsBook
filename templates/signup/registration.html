@@ -14,20 +14,23 @@
 
                             <form enctype="multipart/form-data" method="POST" class="form" role="form">
                                 {% csrf_token %}
-                                <input type="text" id="id_username" name="username" required class="form-control input-lg" placeholder="Username"  /><br />
+                                <input type="text" id="id_username" name="username" required class="form-control input-lg" placeholder="Username"  autocomplete="off"/><br />
                                 <div class="row">
                                     <div class="col-xs-6 col-md-6">
-                                        <input type="text" id="id_first_name" name="first_name"  class="form-control input-lg" placeholder="First Name"/>
+                                        <input type="text" id="id_first_name" required name="first_name"  class="form-control input-lg" placeholder="First Name" autocomplete="off"/>
                                     </div>
                                     <div class="col-xs-6 col-md-6">
-                                        <input type="text" id="id_last_name" name="last_name" class="form-control input-lg" placeholder="Last Name"/>
+                                        <input type="text" id="id_last_name" required name="last_name" class="form-control input-lg" placeholder="Last Name" autocomplete="off"/>
                                     </div>
                                 </div><br />
 
-                                <input type="password" id="id_password" name="password" required class="form-control input-lg" placeholder="Password"  /><br />
-                                <input type="email" id="id_email" name="email" required class="form-control input-lg" placeholder="Your Email"  /><br />
+                                <input type="password" id="id_password" name="password" required class="form-control input-lg" placeholder="Password"  onkeyup="validatepass()" autocomplete="off"/>
+                                <span class="form-row" id="pass_strength" ></span><br/>
+                                <input type="password" id="id_password1" name="password1" required class="form-control input-lg" placeholder="Re-Enter Password"  onkeyup="checkpass()" autocomplete="off"/>
+                                <span class="form-row" id="pass_match_error"></span><br/>
+                                <input type="email" id="id_email" name="email" required class="form-control input-lg" placeholder="Your Email"  autocomplete="off"/><br />
                                 <label>Birth Date</label>
-                                <input type="date" name="dob" id="id_dob" onkeydown="return false"  class="form-control input-lg" placeholder="Enter your date of birth" /><br />
+                                <input type="date" name="dob" id="id_dob" class="form-control input-lg" placeholder="Enter your date of birth" autocomplete="off" required/><br />
                                 <label for="id_profile_pic">Profile pic:</label>
                                 <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">
                                 <br />
@@ -37,7 +40,7 @@
                                 <label class="radio-inline">
                                     <input type="radio" name="gender" value="Female" id=signup[isFemale] />Female</label>
                                 <br /><br />
-                                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create my account</button>
+                                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create my account</button><br /><br />
                             </form>
                         </div>
                     </div>
@@ -46,5 +49,7 @@
         </div>
     </div>
 {% endblock %}
+
+
 
 
