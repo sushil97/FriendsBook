@@ -31,7 +31,7 @@ def my_account(request):
 def my_timeline(request):
     if request.user.is_authenticated:
         user = User.objects.get(id=request.user.id)
-        user_profile = UserProfileInfo.objects.get(id=user.id)
+        user_profile = UserProfileInfo.objects.get(user_id=user.id)
         context ={
             'user': user,
             'user_profile': user_profile
@@ -47,7 +47,7 @@ def update_profile_pic(request):
     if request.user.is_authenticated:
         image_form = ProfilePicUpdateForm(request.POST, request.FILES)
         if request.method == 'POST' and image_form.is_valid():
-            profile = UserProfileInfo.objects.get(id=user.id)
+            profile = UserProfileInfo.objects.get(user_id=user.id)
             profile.profile_pic.delete(False)
             profile.profile_pic = image_form.cleaned_data['profile_pic']
             profile.save()
