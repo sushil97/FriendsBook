@@ -14,8 +14,11 @@ from user_account.forms import ProfilePicUpdateForm, BioUpdateForm
 
 def my_account(request):
     if request.user.is_authenticated:
+        print("Request USER ID ", request.user.id)
         user = User.objects.get(id=request.user.id)
-        user_profile = UserProfileInfo.objects.get(id=user.id)
+        print("Request USER ID ",user)
+        user_profile = UserProfileInfo.objects.get(user_id=user.id)
+
         context = {
             'user': user,
             'user_profile': user_profile,
@@ -48,7 +51,7 @@ def update_profile_pic(request):
             profile.profile_pic.delete(False)
             profile.profile_pic = image_form.cleaned_data['profile_pic']
             profile.save()
-        return HttpResponseRedirect('/accounts/profile/')
+        return HttpResponseRedirect('/profile/')
 
     return HttpResponseRedirect('/login/')
 
@@ -63,5 +66,5 @@ def update_bio(request):
             # delattr(profile, 'biography')
             # setattr(profile,'biography',bio_form)
             # profile.save()
-        return HttpResponseRedirect('/accounts/profile/')
+        return HttpResponseRedirect('/profile/')
     return HttpResponseRedirect('/login/')

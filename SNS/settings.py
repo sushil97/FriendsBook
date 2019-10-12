@@ -56,10 +56,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django_mfa.middleware.MfaMiddleware'
     'django_mfa.middleware.MfaMiddleware'
 ]
 
 ROOT_URLCONF = 'SNS.urls'
+
+MFA_ISSUER_NAME = "Google Authenticator"
+
+MFA_REMEMBER_MY_BROWSER = True
+MFA_REMEMBER_DAYS = 90
 
 TEMPLATES = [
     {
@@ -79,7 +85,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'SNS.wsgi.application'
-
+LOGIN_REDIRECT_URL = '/profile/'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 

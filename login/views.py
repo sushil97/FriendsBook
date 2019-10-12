@@ -5,7 +5,6 @@ from django.shortcuts import render, render_to_response
 
 # Create your views here.
 from django.urls import reverse
-
 from signup.models import UserProfileInfo
 
 
@@ -36,7 +35,7 @@ def user_login(request):
                 }
                 #userprofileinfo = UserProfileInfo.objects.filter(user_id=identity)
                 # return HttpResponseRedirect(reverse('index'), context)
-                return HttpResponseRedirect('/timeline')
+                return HttpResponseRedirect('/profile/')
                 #return render_to_response('profile/timeline.html', context)
             else:
                 return HttpResponse("Your account was inactive.")

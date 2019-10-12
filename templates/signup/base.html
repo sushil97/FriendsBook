@@ -23,7 +23,7 @@
         </ul>
         {% if user.is_authenticated and not registered %}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/accounts/profile/">Profile</a></li>
+                <li><a href="/profile/">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
         {% else %}
