@@ -1,0 +1,5 @@
+cryptography>=1.2
+six
+
+[u2f_server]
+WebOb
