@@ -1,15 +1,17 @@
 import os
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
+from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 
 from signup.models import UserProfileInfo
 
 
 # Create your views here.
-from user_account.forms import ProfilePicUpdateForm, BioUpdateForm
+from user_account.forms import ProfilePicUpdateForm, ProfileUpdateForm
 
 
 def my_account(request):
@@ -38,7 +40,7 @@ def my_timeline(request):
         }
         return render_to_response('profile/timeline.html',context)
     else:
-        return HttpResponseRedirect('/login')
+        return HttpResponseRedirect('/login/')
 
 @csrf_exempt
 def update_profile_pic(request):
@@ -51,17 +53,21 @@ def update_profile_pic(request):
             profile.profile_pic = image_form.cleaned_data['profile_pic']
             profile.save()
         return HttpResponseRedirect('/profile/')
-
     return HttpResponseRedirect('/login/')
 
 @csrf_exempt
 def update_bio(request):
     user = request.user
+    obj = get_object_or_404(UserProfileInfo,user_id=user.id)
     if request.user.is_authenticated:
-        bio_form = BioUpdateForm(request.POST, request.FILES)
+        bio_form = ProfileUpdateForm(request.POST, instance=obj)
+        context={
+            'bio_form': bio_form
+        }
         if request.method == 'POST' and bio_form.is_valid():
-            profile = UserProfileInfo.objects.get(id=user.id)
-            print(bio_form)
+            # profile = UserProfileInfo.objects.get(user_id=user.id)
+            obj=bio_form.save(commit=False)
+            obj.save()
             # delattr(profile, 'biography')
             # setattr(profile,'biography',bio_form)
             # profile.save()

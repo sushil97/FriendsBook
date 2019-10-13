@@ -10,9 +10,9 @@ class ProfilePicUpdateForm(ModelForm):
         model = UserProfileInfo
         fields = ('profile_pic',)
 
-class BioUpdateForm(ModelForm):
+class ProfileUpdateForm(ModelForm):
     biography = forms.TextInput()
 
     class Meta:
         model = UserProfileInfo
-        fields = ('biography',)
+        fields = ('biography','country','mobile','dob')

@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/IMG_20190921_183847.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signup/migrations/0014_auto_20191012_2212.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/svg/svg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/svg/lavatory.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/profiling.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/profiling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/signup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,8 +90,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -208,7 +219,7 @@
       <workItem from="1570718669043" duration="28750000" />
       <workItem from="1570778964339" duration="39369000" />
       <workItem from="1570843451912" duration="2590000" />
-      <workItem from="1570881909955" duration="21813000" />
+      <workItem from="1570881909955" duration="40786000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

@@ -71,7 +71,6 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function () {
-    return $('input[type=text]').change($('#id_biography').value('').innerHTML);
-});
-
+function validate_username() {
+    
+}

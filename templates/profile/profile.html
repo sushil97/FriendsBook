@@ -1,49 +1,56 @@
 {% extends "signup/base.html" %}
+{% load static %}
 {% block body_block %}
     <div class="container">
         <div class="jumbotron">
-            <h1>Welcome to Friendsbook!</h1>
+            <h1>Profile Card</h1>
             <div class="container emp-profile">
                 <div class="row">
-                    <form method="post">
-                        <div class="col-md-3">
-                            <div class="profile-img">
+                    <div class="col-md-3 col-eq">
+                        <div class="profile-img">
+                            <div>
                                 <img src="{{ user_profile.profile_pic.url }}">
-                                <div class="upload-btn-wrapper">
-                                    <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
-                                        <button class="btn">Update Profile Pic</button>
-                                    </a>
-                                </div>
+                            </div>
+                            <div class="upload-btn-wrapper">
+                                <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
+                                    <button class="btn edit">Update Profile Pic</button>
+                                </a>
                             </div>
                         </div>
-                    </form>
-                        <div class="col-md-4" id="profile_div">
-                            <div class="profile-head">
-                                <h4><i class="glyphicon glyphicon-link"></i> <input type="text" value="{{ user.username }}"
+                    </div>
+                    <div class="col-md-4 col-eq" id="profile_div">
+                        <div class="profile-head">
+                            <h4><i class="glyphicon glyphicon-link"></i> <input type="text" value="{{ user.username }}"
+                                                                                readonly></h4>
+                            <h4><i class="glyphicon glyphicon-user"></i> <input type="text"
+                                                                                value="{{ user.first_name }} {{ user.last_name }}"
+                                                                                readonly></h4>
+                            <h4><i class="glyphicon glyphicon-envelope"></i> <input type="text" value="{{ user.email }}"
                                                                                     readonly></h4>
-                                <h4><i class="glyphicon glyphicon-user"></i> <input type="text"
-                                                                                    value="{{ user.first_name }} {{ user.last_name }}"
-                                                                                    readonly></h4>
-                                <h4><i class="glyphicon glyphicon-envelope"></i> <input type="text" value="{{ user.email }}"
-                                                                                        readonly></h4>
-                                <h4><i class="glyphicon glyphicon-gift"></i> <input type="text" value="{{ user_profile.dob }}" readonly>
-                                </h4>
-                            </div>
+                            <h4><i class="glyphicon glyphicon-gift"></i> <input type="text" value="{{ user_profile.dob }}" readonly></h4>
+                            {% if user_profile.country %}
+                                <h4><i class="glyphicon glyphicon-flag"></i> <input type="text" value="{{ user_profile.country }}" readonly></h4>
+                            {% endif %}
+                            {% if user_profile.mobile %}
+                                <h4><i class="glyphicon glyphicon-phone"></i> <input type="text" value="{{ user_profile.mobile }}" readonly></h4>
+                            {% endif %}
+                            <h4><img src="{% static "media/svg/lavatory.png" %}"><input type="text" value=" {{ user_profile.gender }}" readonly></h4>
                         </div>
-                        <div class="col-md-5">
-                            <div class="bio-head">
-                                <h3>About</h3><br>
-                                <textarea class="form-control" rows="5" id="comment" readonly>{{ user_profile.biography }}</textarea>
-                            </div>
-                            <br>
+                    </div>
+                    <div class="col-md-5 col-eq">
+                        <div class="bio-head">
+                            <h4>About</h4><br>
+                            <textarea class="form-control" rows="8" id="comment" readonly>{{ user_profile.biography }}</textarea>
                         </div>
-                        <br><br>
-                    <div class="upload-btn-wrapper">
-                        <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
-                            <button class="btn">Edit Profile</button>
-                        </a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="float: right">
+                    <div class="upload-btn-wrapper-submit">
                         <a href="#" data-toggle="modal" data-target="#update-bio-modal">
-                            <button class="btn">Edit Bio</button>
+                            <button class="btn edit">Edit Bio & Details</button>
                         </a>
                     </div>
                 </div>
@@ -57,7 +64,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Update Biography Text</h5>
+                    <h5 class="modal-title" id="myModalLabel">Update Your Profile</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
                     </button>
@@ -68,7 +75,14 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <input id="id_biography" type="text" class="form-control input-lg" name="biography">
+                                <label>About</label>
+                                <input id="id_biography" type="text" class="form-control input-lg" name="biography" value="{{ user_profile.biography }}"><br>
+                                <label>Country</label>
+                                <input id="id_country" type="text" class="form-control input-lg" name="country" value="{{ user_profile.country }}"><br>
+                                <label>Mobile</label>
+                                <input id="id_mobile" type="text" class="form-control input-lg" name="mobile" value="{{ user_profile.mobile }}"><br>
+                                <label>Date of Birth</label>
+                                <input id="id_dob" type="date" class="form-control input-lg" name="dob" value="{{ user_profile.dob }}" required><br>
                             </div>
                         </div>
                     </div>

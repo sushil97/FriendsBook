@@ -16,45 +16,48 @@
     margin-bottom: 10px;
 }
 .upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
 }
 
-.profile-img .btn, .profile-head .btn, .bio-head .btn {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bold;
+.upload-btn-wrapper-submit {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    float: right;
+}
+
+.edit{
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }
 .profile-head h3{
     color: #0062cc;
 }
-/*.profile-edit-btn, .bio-edit-btn{*/
-/*    border: none;*/
-/*    border-radius: 1.5rem;*/
-/*    !*width: 70%;*!*/
-/*    padding: 2%;*/
-/*    font-weight: 600;*/
-/*    color: #6c757d;*/
-/*    cursor: pointer;*/
-/*}*/
+
 #bio{
     color: #0062cc;
     font-size: 20.8px;
 }
-/*input[type="text"] { border: none; }*/
+
+.transparent-input{
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
 
 #profile_div input[type="text"]{
     border: none;
