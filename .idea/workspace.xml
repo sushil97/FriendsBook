@@ -2,20 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/profile_pics/IMG_20190921_183847.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signup/migrations/0014_auto_20191012_2212.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/svg/svg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/svg/lavatory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/CSS/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/CSS/profiling.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/profiling.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/configure.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/configure.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/disable_mfa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/disable_mfa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/enable_mfa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/enable_mfa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/login_verify.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/login_verify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/recovery_codes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/recovery_codes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/security.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/security.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/verify_second_factor.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/verify_second_factor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/verify_second_factor_mfa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/verify_second_factor_mfa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/add_key.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/key_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/verify_second_factor_u2f.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f_base.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,9 +96,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -107,7 +115,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -117,14 +126,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/CSS" />
       <recent name="$PROJECT_DIR$/django_mfa" />
       <recent name="$PROJECT_DIR$/media/profile_pics" />
       <recent name="$PROJECT_DIR$/templates/signup" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -219,7 +229,9 @@
       <workItem from="1570718669043" duration="28750000" />
       <workItem from="1570778964339" duration="39369000" />
       <workItem from="1570843451912" duration="2590000" />
-      <workItem from="1570881909955" duration="40786000" />
+      <workItem from="1570881909955" duration="41568000" />
+      <workItem from="1570928481300" duration="623000" />
+      <workItem from="1570981871378" duration="5020000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

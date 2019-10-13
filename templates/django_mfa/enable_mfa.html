@@ -5,7 +5,7 @@
     <title>Enable MFA</title>
   </head>
   <body>
-    <form method="post" action=".">
+    <form method="post" action="">
       {% csrf_token %}
       <input type="hidden" name="otp_type" value="hotp">
       <button type="submit">SetUp with App</button>

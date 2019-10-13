@@ -73,3 +73,12 @@ def update_bio(request):
             # profile.save()
         return HttpResponseRedirect('/profile/')
     return HttpResponseRedirect('/login/')
+
+@csrf_exempt
+def search(request):
+    user = request.user
+    if user.is_authenticated:
+        context={
+            'user': user
+        }
+        return render_to_response('profile/search.html',context)

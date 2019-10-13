@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^logout/$', login.views.user_logout, name='logout'),
     url(r'^update_profile_pic/$', user_account.views.update_profile_pic, name='update_profile_pic'),
     url(r'^update_bio/$', user_account.views.update_bio, name='update_bio'),
+    url(r'^search/$', user_account.views.search, name='search')
 ]
 
 if settings.DEBUG:
