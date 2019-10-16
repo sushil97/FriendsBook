@@ -36,6 +36,16 @@ def register(request):
                    'profile_form': profile_form,
                    'registered': registered})
 
+
+def validate_username(request):
+    username = request.GET.get('username', None)
+    if User.objects.filter(username__iexact=username).exists():
+        print("Username NOT available")
+        return HttpResponse(True)
+    else:
+        print("Username Available")
+        return HttpResponse(False)
+
 #
 # def user_login(request):
 #     if request.method == 'POST':

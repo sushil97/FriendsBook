@@ -2,27 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/CSS/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/8.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/random_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/requests_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_friendship-1.8.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/0002_block.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/0003_block_unique_together.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/south_migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/south_migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/blocked_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/blockers_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/blocking_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/remove.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/followers_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/following_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/remove.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/request.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/requests_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/user_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/blockers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/blocking.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/followers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/following.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_count.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_rejected_count.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_request_count.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_requests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friends.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/user_actions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templatetags/friendshiptags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/blockers_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/blocking_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/remove.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/followers_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/following_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/remove.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/request.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/requests_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/user_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/followers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/following.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/friend_request_count.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/friend_requests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/friends.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/user_actions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SNS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SNS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/configure.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/configure.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/disable_mfa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/disable_mfa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/enable_mfa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/enable_mfa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/login_verify.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/login_verify.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/recovery_codes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/recovery_codes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/security.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/security.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/verify_second_factor.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/verify_second_factor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/django_mfa/verify_second_factor_mfa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/verify_second_factor_mfa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/add_key.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/key_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f/verify_second_factor_u2f.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_mfa/templates/u2f_base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/DSC_0862.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,21 +132,14 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="auth_user: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="friendship_friend: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="django_mfa_userotp: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="signup_userprofileinfo: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="friendship_friendshiprequest: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -97,9 +159,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -115,7 +177,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/profile" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -123,18 +185,20 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/profile" />
       <recent name="$PROJECT_DIR$/static/CSS" />
       <recent name="$PROJECT_DIR$/django_mfa" />
       <recent name="$PROJECT_DIR$/media/profile_pics" />
       <recent name="$PROJECT_DIR$/templates/signup" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -178,7 +242,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="SNS.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -187,13 +251,17 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django server.SNS" />
+      <item itemvalue="Django tests.Test: SNS.signup" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Django tests.Test: SNS.signup" />
@@ -231,7 +299,13 @@
       <workItem from="1570843451912" duration="2590000" />
       <workItem from="1570881909955" duration="41568000" />
       <workItem from="1570928481300" duration="623000" />
-      <workItem from="1570981871378" duration="5020000" />
+      <workItem from="1570981871378" duration="5054000" />
+      <workItem from="1571030205127" duration="5480000" />
+      <workItem from="1571065173552" duration="37702000" />
+      <workItem from="1571137822085" duration="4641000" />
+      <workItem from="1571153279755" duration="10149000" />
+      <workItem from="1571202720043" duration="190000" />
+      <workItem from="1571226239322" duration="852000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

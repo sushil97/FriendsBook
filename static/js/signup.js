@@ -74,3 +74,34 @@ $(document).ready(function () {
 function validate_username() {
     
 }
+
+/* Check whether username is available */
+
+$("#id_username").keyup(function () {
+    var username = $(this).val();
+    if (username.length > 0) {
+        $.ajax({
+            url: '/validate_username/',
+            data: {
+                'username': username
+            },
+            success: function (data) {
+                if (data === 'True') {
+                    $("#username_status").css({"display": "block"});
+                }
+                else {
+                    $("#username_status").css({"display": "none"});
+                }
+            }
+        });
+    }
+
+});
+/*$("#username").change(function () {
+    if ($('#username').hasClass('valid')) {
+        $('#username').removeClass('valid');
+        $('#username').parent().find('span').remove();
+    }
+});*/
+
+

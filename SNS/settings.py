@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'signup',
     'login',
     'user_account',
-    'django_mfa'
+    'django_mfa',
+    'friendship'
 ]
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -32,12 +32,19 @@ urlpatterns = [
     url(r'^signup/$', signup.views.register, name="signup"),
     url(r'^login/$', login.views.user_login, name="login"),
     url(r'^profile/$',user_account.views.my_account,name='profile'),
+    url(r'^profile/(?P<username>.+)/$', login.views.show_profile, name="show_profile"),
+    url(r'^friendship/', include('friendship.urls')),
     url(r'^settings/', include('django_mfa.urls'), name="mfa"),
     url(r'^timeline/$', user_account.views.my_timeline, name='timeline'),
     url(r'^logout/$', login.views.user_logout, name='logout'),
     url(r'^update_profile_pic/$', user_account.views.update_profile_pic, name='update_profile_pic'),
     url(r'^update_bio/$', user_account.views.update_bio, name='update_bio'),
-    url(r'^search/$', user_account.views.search, name='search')
+    url(r'^search/$', user_account.views.search, name='search'),
+    # url(r"^friends/(?P<username>[\w-]+)/$",user_account.views.view_friends,"friendship_view_friends"),
+    # url(r"^add/(?P<to_username>[\w-]+)/$",user_account.views.add_friend, name="add_friend"),
+    # url(r"^friend/requests/$",user_account.views.friend_requestlist,name="friend_requestlist"),
+    url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
+    # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 ]
 
 if settings.DEBUG:
