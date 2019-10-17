@@ -138,6 +138,7 @@ def create_post(request):
     user=request.user
     if request.method == 'POST':
         post_form = PostForm(data=request.POST)
+        print(post_form)
         if user.is_authenticated:
             post_form = PostForm(data=request.POST)
             print(post_form)
@@ -150,6 +151,13 @@ def create_post(request):
         else:
             return HttpResponseRedirect("/login/")
     return HttpResponseRedirect("/timeline/")
+
+
+def accountsettings(request):
+    if request.user.is_authenticated:
+        return render(request,'settings/account_settings.html')
+    else:
+        return HttpResponseRedirect('/timeline/')
 
 # @csrf_exempt
 # def add_friend(

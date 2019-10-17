@@ -19,6 +19,7 @@ from django.conf.urls import url, include
 import login
 import signup
 import user_account
+import django_mfa
 from user_account import views
 from SNS import settings
 from signup import views
@@ -44,11 +45,12 @@ urlpatterns = [
     # url(r"^add/(?P<to_username>[\w-]+)/$",user_account.views.add_friend, name="add_friend"),
     # url(r"^friend/requests/$",user_account.views.friend_requestlist,name="friend_requestlist"),
     url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
-    url(r'^create_post/$',user_account.views.create_post,name='create_post')
+    url(r'^create_post/$',user_account.views.create_post,name='create_post'),
+    url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings")
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-    #urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_DIR)
+    #urlpatterns += static(setting.STATIC_URL, document_root=setting.STATIC_ROOT)
+# urlpatterns += static(setting.MEDIA_URL, document_root=setting.MEDIA_DIR)

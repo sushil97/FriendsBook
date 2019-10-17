@@ -256,5 +256,3 @@ def recovery_codes_download(request):
     response['Content-Disposition'] = 'attachment; filename=%s' % 'recovery_codes.txt'
     return response
 
-
-
