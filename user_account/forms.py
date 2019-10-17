@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-
+from user_account.models import Post
 from signup.models import UserProfileInfo
 
 class ProfilePicUpdateForm(ModelForm):
@@ -9,6 +9,11 @@ class ProfilePicUpdateForm(ModelForm):
     class Meta:
         model = UserProfileInfo
         fields = ('profile_pic',)
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'text')
 
 class ProfileUpdateForm(ModelForm):
     biography = forms.TextInput()

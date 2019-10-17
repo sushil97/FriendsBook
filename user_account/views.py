@@ -7,6 +7,8 @@ from django.shortcuts import render, render_to_response, get_object_or_404, redi
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
+from user_account.models import Post
+from user_account.forms import PostForm
 from friendship.exceptions import AlreadyExistsError
 from django.conf import settings
 from signup.models import UserProfileInfo
@@ -31,14 +33,48 @@ def my_account(request):
     else:
         return HttpResponseRedirect('/login/')
 
-
+@csrf_exempt
 def my_timeline(request):
     if request.user.is_authenticated:
         user = User.objects.get(id=request.user.id)
         user_profile = UserProfileInfo.objects.get(user_id=user.id)
+        friends_list = Friend.objects.friends(request.user)
+        print(friends_list)
+        friend_users=[]
+        friend_users=friends_list.copy() #copy to prevent the change of list of friends
+        friend_users.insert(0,user)
+        print(friend_users)
+        print(friends_list)
+        # for i in friends_list:
+        #     friend_users = User.objects.filter(Q(username=i))
+        # print(friend_users)
+        # original_user = User.objects.filter(id=request.user.id)
+        #
+        # print(friend_user_list)
+        # for j in friend_user_list:
+        #     friendship_ids.append(j.id)
+        # print(friendship_ids)
+        # friendship_ids.append(request.user.id)
+        # print(friendship_ids)
+        # for i in friendship_ids:
+        #     posts_list = Post.objects.filter(Q(author_id=i)).order_by('created_date')
+        # print(posts_list)
+        # for i in posts_list:
+        #     posts_ids.append(i.author_id)
+        # print(posts_ids)
+        # for i in posts_ids:
+        #     posts_user = User.objects.filter(Q(id=i))
+        # print(posts_user)
+        # for friend_user in friend_user_list:
+        #     friend_id=friend_user.id
+        posts_list=Post.objects.all().order_by('-created_date')
+        print(posts_list)
         context ={
             'user': user,
-            'user_profile': user_profile
+            'user_profile': user_profile,
+            'friends_list':friends_list,
+            'post_lists':posts_list,
+            'friend_users':friend_users
         }
         return render_to_response('profile/timeline.html',context)
     else:
@@ -95,6 +131,25 @@ def search(request):
         return render_to_response('profile/search.html',context)
     else:
         return HttpResponseRedirect('/login')
+
+
+@csrf_exempt
+def create_post(request):
+    user=request.user
+    if request.method == 'POST':
+        post_form = PostForm(data=request.POST)
+        if user.is_authenticated:
+            post_form = PostForm(data=request.POST)
+            print(post_form)
+            if post_form.is_valid():
+                post = post_form.save(commit=False)
+                post.author=user
+                post.save()
+            else:
+                print(post_form.errors)
+        else:
+            return HttpResponseRedirect("/login/")
+    return HttpResponseRedirect("/timeline/")
 
 # @csrf_exempt
 # def add_friend(

@@ -1,7 +1,7 @@
 {% extends "signup/base.html" %}
 {% load static %}
 {% block body_block %}
-    <div class="container">
+    <div class="container" style="margin-top: 60px">
         <div class="jumbotron">
             <h1>Profile Card</h1>
             <div class="container emp-profile">
@@ -10,7 +10,7 @@
                         <div class="profile-img">
                             <img src="{{ user_profile.profile_pic.url }}">
                         </div>
-                        {% if friends.created %}
+                        {% if friends %}
                             <div class="profile-img">
 
                                 <a href="#">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            {% if not friends.created %}
+            {% if not friends %}
                 <div class="row">
                     <div class="col-md-3" style="float: right">
                         <div class="upload-btn-wrapper-submit">

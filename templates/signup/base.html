@@ -8,58 +8,73 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--BootStrap Links-->
-    {#    <link rel="stylesheet" href="{% static "CSS/login.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "CSS/base.css" %}">#}
     <!--External CSS File-->
-    <link rel="stylesheet" href="{% static "CSS/search.css" %}">
     <link rel="stylesheet" href="{% static "CSS/profiling.css" %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static "CSS/timeline.css" %}">
+    <link rel="stylesheet" href="{% static "CSS/search.css" %}">
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <ul class="nav navbar-nav">
-            {# Django Home Link / Admin Link / Register Link#}
-            <li><a class="navbar-brand" href="{% url 'index' %}">FSB</a></li>
-            <li><a class="navbar-link" href="/admin/">Admin</a></li>
-            {# Some logic on what to display for last item#}
-        </ul>
-        {% if user.is_authenticated and not registered %}
+<div class="container-fluid">
+<div class="row">
+<nav class="navbar navbar-inverse" style="width:100%;position: fixed;z-index: 2;top: 0;left: 0;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'index' %}"><i font-size="30px"> FSB</i></a>
             <ul class="nav navbar-nav">
-                <li><a href="/profile/">Profile</a></li>
+                <li><a class="navbar-link" href="/admin/">Admin</a></li>
             </ul>
-            <form method="get" class="navbar-form navbar-left" action="{% url 'search' %}">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" name="search">
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            {% if user.is_authenticated and not registered %}
+                <ul class="nav navbar-nav">
+                    <li><a href="/timeline/">Timeline</a></li>
+                </ul>
+                <div class="nav navbar-nav">
+                    <form class="navbar-form" action="{% url 'search' %}">
+                        <div style="overflow: auto">
+                            <input type="text" class="form-control" placeholder="Search" name="search">
+                            <button type="submit" class="btn btn-default"> Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="/settings/">Settings</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/settings/account/">Account Settings</a></li>
-                        <li><a href="/settings/security/">Security Settings</a></li>
-                        <li><a href="/aboutus/">About Us</a></li>
-                    </ul>
-                </li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-        {% elif not user.is_authenticated %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-        {% endif %}
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="/profile/"> Profile</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/settings/">Settings</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/settings/account/">Account Settings</a></li>
+                            <li><a href="/settings/security/">Security Settings</a></li>
+                            <li><a href="/aboutus/">About Us</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            {% endif %}
+        </div>
     </div>
 </nav>
-<div class="container">
+</div>
+<div class="row">
     {% block body_block %}
     {% endblock %}
 </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="{% static "js/signup.js" %}"></script>
-<script src="{% static "js/profile.js" %}"></script>
+{#<script src="{% static "js/profile.js" %}"></script>#}
 <script src="{% static "js/svg/svg.js" %}"></script>
 </body>
 </html>

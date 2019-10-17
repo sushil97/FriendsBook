@@ -44,6 +44,7 @@ urlpatterns = [
     # url(r"^add/(?P<to_username>[\w-]+)/$",user_account.views.add_friend, name="add_friend"),
     # url(r"^friend/requests/$",user_account.views.friend_requestlist,name="friend_requestlist"),
     url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
+    url(r'^create_post/$',user_account.views.create_post,name='create_post')
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 ]
 

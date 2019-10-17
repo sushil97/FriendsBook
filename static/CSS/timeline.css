@@ -1,0 +1,120 @@
+.container .timeline{
+    width: 100%;
+}
+.sidebar-offcanvas-right{
+    position: fixed;
+    right: 5px;
+    height: 100%;
+    overflow-x: hidden;
+    margin-top: 60px;
+    width:20%;
+}
+#profile_pic1
+{
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: initial;
+}
+.sidebar-offcanvas-left {
+    position: fixed;
+	height: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    width:300px;
+}
+#feedSection{
+    width: 57%;
+    margin-left: -3em;
+}
+.user_information .timeline_name
+{
+    color: black;
+    font-size: 30px;
+    font-variant: small-caps;
+    text-align: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.timeline_name:hover
+{
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+.user_information .timeline_username
+{
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 28px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.timeline_username:hover
+{
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+.user_information .timeline_email
+{
+    color: black;
+    font-size: 20px;
+    margin-left: 28px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.timeline_email:hover{
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+.user_information .timeline_country
+{
+    color:black;
+    -ms-text-overflow: ellipsis;
+    font-size: 20px;
+    margin-left: 28px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.timeline_country:hover
+{
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+#updatepost{
+    resize: none;
+    border-radius: 10px;
+    height: 100px;
+    margin-top: 10px;
+}
+.group
+{
+    color: rgba(30, 45, 255, 0.66);
+    font-size: 20px;
+    margin-left: 28px;
+    margin-bottom: 15px;
+    white-space: normal;
+}
+#list\ of\ group
+{
+    background-color: transparent;
+    border: black;
+    width: 350px;
+    word-wrap: break-word;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

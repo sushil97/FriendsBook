@@ -70,9 +70,9 @@ def show_profile(request, username=None):
         if User.objects.filter(username=username).exists():
             this_user = User.objects.get(username=username)
             profile = UserProfileInfo.objects.get(user_id=this_user.id)
-            friends=[]
+            friends=False
             if Friend.objects.are_friends(request.user, this_user) == True:
-                friends = Friend.objects.get(from_user_id=request.user.id)
+                friends = True
             context = {
                 'user': this_user,
                 'friends': friends,

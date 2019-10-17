@@ -1,10 +1,84 @@
 {% extends "signup/base.html" %}
 {% block body_block %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Welcome to the Friendsbook!</h1>
-            <h2>{{ user.first_name}} {{ user.last_name }}</h2>
-            <h2>This is your timeline, Use wisely</h2>
+    <div class="container-fluid" style="margin-top: 52px">
+        <div class="row">
+            <div class="col-sm-3 sidebar-offcanvas-left affix">
+
+                <div class="profile-img">
+                    <img src="{{ user_profile.profile_pic.url }}" id="profile_pic1">
+                </div>
+                <div class="user_information">
+                    <div class="timeline_name">{{ user.first_name }} {{ user.last_name }}</div>
+                    <div class="timeline_username"><i class="glyphicon glyphicon-link"></i> {{ user.username }}</div>
+                    <div class="timeline_email"><i class="glyphicon glyphicon-envelope"></i> {{ user.email }}</div>
+                    {% if user_profile.country %}
+                        <div class= "timeline_country"><i class="glyphicon glyphicon-map-marker"></i> {{ user_profile.country }}</div>
+                    {% endif %}
+                </div>
+                <div class="group">
+                    <h3><i class="glyphicon glyphicon-plus"></i> Create Group</h3>
+                    <h3><i class="glyphicon glyphicon-chevron-down"></i> List of Groups</h3>
+                    <select size="7" id="list of group">
+                        <option value="1"><h4>group1</h4></option>
+                        <option value="2"><h4>group2</h4></option>
+                        <option value="3"><h4>group3</h4></option>
+                        <option value="3"><h4>group4</h4></option>
+                        <option value="3"><h4>group5</h4></option>
+                        <option value="3"><h4>group6</h4></option>
+                        <option value="3"><h4>group7</h4></option>
+                        <option value="3"><h4>group8</h4></option>
+                        <option value="3"><h4>group9</h4></option>
+                        <option value="3"><h4>group10</h4></option>
+                    </select>
+                </div>
+
+                <!--/sidebar-nav-fixed -->
+            </div>
+            <!--/span-->
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7" style="margin-left: 2%">
+                <br>
+                <form action="{% url 'create_post' %}" class="form-horizontal" role="form" method="post">
+                    {% csrf_token %}
+                    <h4>What's New</h4>
+                    <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title" name="title" required style="width: 75%">
+                    <br><br>
+                    <div class="form-group" style="margin-left: 0%;width: 75%">
+                        <textarea class="form-control input-lg" placeholder="Update your status" name="text" id="id_text"></textarea>
+                    </div><br>
+                    <button class="btn btn-primary" type="submit">Create Post</button>
+                </form>
+                <br><br><br>
+
+                {#                {% for post_user in post_users %}#}
+                {% for post in post_lists %}
+                    {% if post.author in friend_users %}
+                        <div class="jumbotron">
+                            <h3>Author: {{ post.author}}</h3>
+                            <h3>Title: {{ post.title }}</h3>
+                            <h4>Content: {{ post.text }}</h4>
+                            <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {#                {% endfor %}#}
+
+
+                <br>
+            </div>
+            <!--/span-->
+            <div class="col-sm-4 sidebar-offcanvas-right">
+                <h2 class="nav-header">Friends</h2>
+                <ul class="nav ">
+                    {% for friends in friends_list %}
+                        <li><h2><a href="/profile/{{ friends.username }}">{{ friends.username }}</a></h2></li>
+                    {% endfor %}
+                </ul>
+
+                <!--/sidebar-nav-fixed -->
+            </div>
+            <!--/span-->
         </div>
+        <!--/row-->
     </div>
 {% endblock %}
