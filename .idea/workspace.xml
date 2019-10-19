@@ -2,139 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/friendship/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/migrations/0002_block.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/migrations/0003_block_unique_together.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/south_migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/south_migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/block/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/block/blocked_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/block/blockers_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/block/blocking_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/block/remove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/follow/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/follow/followers_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/follow/following_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/follow/remove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/friend/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/friend/request.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/friend/requests_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/friend/user_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/blockers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/blocking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/followers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/following.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/friend_count.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/friend_rejected_count.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/friend_request_count.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/friend_requests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/templatetags/friends.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templates/friendship/user_actions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/templatetags/friendshiptags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/block/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/block/blockers_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/block/blocking_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/block/remove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/follow/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/follow/followers_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/follow/following_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/follow/remove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/friend/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/friend/request.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/friend/requests_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/friend/user_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/templatetags/followers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/templatetags/following.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/templatetags/friend_request_count.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/templatetags/friend_requests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/templatetags/friends.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/templates/friendship/user_actions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/tests/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friendship/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/fields.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ar/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ar/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/cs/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/cs/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/da/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/da/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/de/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/de/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/el/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/el/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/es/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/es/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/es_AR/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/es_AR/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/eu/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/eu/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/fa/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/fa/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/fr/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/fr/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/id/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/id/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/it/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/it/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ko/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ko/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/lt/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/lt/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/nl/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/nl/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/pl/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/pl/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/pt_BR/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/pt_BR/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ro/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ro/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/zh_CN/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/locale/zh_CN/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/management.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/migrations/0002_auto_20160607_0852.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/migrations/0003_auto_20190617_1316.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_deleted/full.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_deleted/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_received/full.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_received/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_received/short.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_recovered/full.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_recovered/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_replied/full.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_replied/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_reply_received/full.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_reply_received/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_reply_received/short.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_sent/full.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templates/notification/messages_sent/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/templatetags/inbox.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_messages/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/compose.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/inbox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/new_message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/outbox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/trash.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/django_messages/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_messages-0.6.0.dist-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/0002_block.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/0003_block_unique_together.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/signals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/south_migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/south_migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/blocked_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/blockers_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/blocking_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/block/remove.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/followers_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/following_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/follow/remove.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/request.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/requests_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/friend/user_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/blockers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/blocking.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/followers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/following.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_count.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_rejected_count.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_request_count.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friend_requests.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/templatetags/friends.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templates/friendship/user_actions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templatetags/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/templatetags/friendshiptags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/blockers_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/blocking_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/block/remove.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/followers_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/following_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/follow/remove.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/request.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/requests_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/friend/user_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/followers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/following.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/friend_request_count.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/friend_requests.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/templatetags/friends.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/templates/friendship/user_actions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/tests/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/friendship/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +133,7 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="user_account_post: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="django_messages_message: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -212,7 +171,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/friendship" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -226,14 +185,15 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/templates/friendship" />
       <recent name="$PROJECT_DIR$/static" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/django_messages" />
       <recent name="$PROJECT_DIR$/friendship" />
       <recent name="$PROJECT_DIR$/friendships" />
       <recent name="$PROJECT_DIR$/media/profile_pics" />
       <recent name="$PROJECT_DIR$/static/CSS" />
-      <recent name="$PROJECT_DIR$/templates/profile" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -345,7 +305,7 @@
       <workItem from="1571292405972" duration="258000" />
       <workItem from="1571292680108" duration="4475000" />
       <workItem from="1571301317387" duration="1156000" />
-      <workItem from="1571409591285" duration="2677000" />
+      <workItem from="1571409591285" duration="11847000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

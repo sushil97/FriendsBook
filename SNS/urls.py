@@ -46,7 +46,8 @@ urlpatterns = [
     # url(r"^friend/requests/$",user_account.views.friend_requestlist,name="friend_requestlist"),
     url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
     url(r'^create_post/$',user_account.views.create_post,name='create_post'),
-    url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings")
+    url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings"),
+    url(r'^messages/', include('django_messages.urls'))
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 ]
 
