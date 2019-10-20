@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
 <h1>{% trans "Two Factor Settings" %}</h1>
-<a href="{{prev_url}}" style="color:blue" class="btn btn-default">{% trans '&larr; Back to setting' %}</a>
+<a href="{{prev_url}}" style="color:blue" class="btn btn-default">{% trans '&larr; Back to Profile' %}</a>
 <br>
 <br>
 <div class="panel panel-default">
@@ -20,7 +20,7 @@
         </svg>
       </span>
     </p>
-    <a href="{% url 'mfa:disable_mfa' %}" class="btn btn-default">Disable MFA</a>
+    <a href="{% url 'mfa:disable_mfa' %}" class="btn btn-default">Disable 2 Step Authentication</a>
   </div>
   {% else %}
   <div class="panel-body">

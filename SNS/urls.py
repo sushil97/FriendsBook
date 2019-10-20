@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from django.contrib.sites.models import Site
 import login
 import signup
 import user_account
@@ -27,7 +28,7 @@ from login import views
 from django.contrib.staticfiles.urls import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^$', signup.views.index, name='index'),
     url(r'^special/$', login.views.special, name='special'),
     url(r'^signup/$', signup.views.register, name="signup"),
@@ -47,11 +48,12 @@ urlpatterns = [
     url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
     url(r'^create_post/$',user_account.views.create_post,name='create_post'),
     url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings"),
-    url(r'^messages/', include('django_messages.urls'))
+    url(r'^messages/', include('django_messages.urls')),
+    url(r'^settings/privacy/$',user_account.views.privacy_info, name='privacy_info')
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
     #urlpatterns += static(setting.STATIC_URL, document_root=setting.STATIC_ROOT)
-# urlpatterns += static(setting.MEDIA_URL, document_root=setting.MEDIA_DIR)
+    # urlpatterns += static(setting.MEDIA_URL, document_root=setting.MEDIA_DIR)

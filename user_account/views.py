@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from user_account.models import Post
 from user_account.forms import PostForm
+from user_account.forms import PrivacyInfoForm
 from friendship.exceptions import AlreadyExistsError
 from django.conf import settings
 from signup.models import UserProfileInfo
@@ -112,6 +113,22 @@ def update_bio(request):
         return HttpResponseRedirect('/profile/')
     return HttpResponseRedirect('/login/')
 
+@csrf_exempt
+def privacy_info(request):
+    user = request.user
+    obj = get_object_or_404(UserProfileInfo, user_id=user.id)
+
+    if request.user.is_authenticated:
+        privacy_form = PrivacyInfoForm(request.POST,instance=obj)
+        print(privacy_form.is_valid())
+        if privacy_form.is_valid() and request.method == 'POST':
+            obj = privacy_form.save(commit=False)
+            obj.save()
+        else:
+            print(privacy_form.errors)
+    else:
+        privacy_form = PrivacyInfoForm()
+    return render(request, 'settings/privacy.html')
 
 def search(request):
     if request.user.is_authenticated and request.method == 'GET':
@@ -158,6 +175,9 @@ def accountsettings(request):
         return render(request,'settings/account_settings.html')
     else:
         return HttpResponseRedirect('/timeline/')
+
+
+
 
 # @csrf_exempt
 # def add_friend(

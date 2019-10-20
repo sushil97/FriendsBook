@@ -9,7 +9,10 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    return render(request, 'signup/index.html')
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('/timeline/')
+    else:
+        return render(request, 'signup/index.html')
 
 def register(request):
     registered = False
@@ -35,6 +38,7 @@ def register(request):
                   {'user_form': user_form,
                    'profile_form': profile_form,
                    'registered': registered})
+
 
 
 def validate_username(request):

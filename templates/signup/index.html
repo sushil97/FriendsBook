@@ -3,12 +3,13 @@
     <div class="container" style="margin-top: 60px">
         <div class="jumbotron">
             <h1>Welcome to the Friendsbook!</h1>
-            {% if user.is_authenticated %}
-                <h2>Hello {{ user.first_name}} {{ user.last_name }}</h2>
-                <h2>You, are currently logged in</h2>
-            {% else %}
-                <h2>Register or Login if you'd like to</h2>
-            {% endif %}
+            <h2>Register or Login if you'd like to</h2>
+{#            {% if user.is_authenticated %}#}
+{#                <h2>Hello {{ user.first_name}} {{ user.last_name }}</h2>#}
+{#                <h2>You, are currently logged in</h2>#}
+{#            {% else %}#}
+{#                <h2>Register or Login if you'd like to</h2>#}
+{#            {% endif %}#}
         </div>
     </div>
 {% endblock %}

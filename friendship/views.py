@@ -80,6 +80,7 @@ def friendship_reject(request, friendship_request_id):
         f_request = get_object_or_404(
             request.user.friendship_requests_received, id=friendship_request_id
         )
+        print(f_request)
         f_request.reject()
         return redirect("friendship_request_list")
 
@@ -109,6 +110,7 @@ def friendship_request_list(
 ):
     """ View unread and read friendship requests """
     friendship_requests = Friend.objects.requests(request.user)
+
     # This shows all friendship requests in the database
     # friendship_requests = FriendshipRequest.objects.filter(rejected__isnull=True)
 

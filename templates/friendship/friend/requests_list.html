@@ -1,7 +1,15 @@
-<ul>
-{% for friendship_request in requests %}
-    <li>{{ friendship_request.from_user }} to {{ friendship_request.to_user }} <a href="{% url 'friendship_requests_detail' friendship_request.id %}">view</a></li>
-{% empty %}
-</ul>
-<div>no requests :(</div>
-{% endfor %}
+{% extends "signup/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+    <div class="container" style="margin-top: 60px">
+        <div class="jumbotron">
+            <ul>
+                {% for friendship_request in requests %}
+                    <li>{{ friendship_request.from_user }} to {{ friendship_request.to_user }} <a href="{% url 'friendship_requests_detail' friendship_request.id %}">view</a></li>
+                {% empty %}
+                    <div>no requests :(</div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

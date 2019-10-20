@@ -10,6 +10,10 @@ class UserProfileInfo(models.Model):
     biography = models.TextField(max_length=200, blank=True)
     country = models.CharField(max_length=50, blank=True)
     mobile = models.CharField(max_length=15, blank=True)
+    privacy_email = models.CharField(max_length=10, default="Everyone")
+    privacy_dob = models.CharField(max_length=10, default="Everyone")
+    privacy_phone = models.CharField(max_length=10, default="Everyone")
+    privacy_posts = models.CharField(max_length=10, default="Everyone")
 
 def __str__(self):
     return self.user.username

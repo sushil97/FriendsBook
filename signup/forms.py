@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 GENDER_CHOICES = [('Male', 'Male'),
                   ('Female', 'Female')]
 
-
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 

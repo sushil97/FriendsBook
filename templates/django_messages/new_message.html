@@ -1,13 +1,16 @@
 {% load i18n %}
+<div class="container">
+    <div class="jumbotron">
+        {% blocktrans with recipient=message.recipient sender=message.sender %}Hello {{ recipient }},
 
-{% blocktrans with recipient=message.recipient sender=message.sender %}Hello {{ recipient }},
+            you received a private message from {{ sender }} with
+            the following contents:{% endblocktrans %}
 
-you received a private message from {{ sender }} with
-the following contents:{% endblocktrans %}
-
-{{ message.body|safe }}
-
---
-{% blocktrans %}Sent from {{ site_url }}{% endblocktrans %}
-{% trans "Inbox" %}: {{ site_url }}{% url 'messages_inbox' %}
-{% trans "Reply" %}: {{ site_url }}{% url 'messages_reply' message.pk %}
+        {{ message.body|safe }}
+    
+        --
+        {% blocktrans %}Sent from {{ site_url }}{% endblocktrans %}
+        {% trans "Inbox" %}: {{ site_url }}{% url 'messages_inbox' %}
+        {% trans "Reply" %}: {{ site_url }}{% url 'messages_reply' message.pk %}
+    </div>
+</div>

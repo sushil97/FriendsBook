@@ -1,0 +1,22 @@
+.panel-privacy {
+    margin-top: 200px;
+    border-color: #ccc;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+#privacy-button {
+    background-color: #1CB94E;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    padding: 14px 0;
+    border-color: #1CB94A;
+}
+#head{
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-right: 30px;
+}

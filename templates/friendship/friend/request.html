@@ -1,11 +1,20 @@
-<div>{{ friendship_request.from_user }} wants to be friends with {{ friendship_request.to_user }}</div>
+{% extends "signup/base.html" %}
+{% load staticfiles %}
+{% load friendshiptags %}
+{% block body_block %}
+    <div class="container" style="margin-top: 60px">
+        <div class="jumbotron">
+            <div>{{ friendship_request.from_user }} wants to be friends with {{ friendship_request.to_user }}</div>
 
-<form method="post" action="{% url 'friendship_accept' friendship_request.pk %}">
-{% csrf_token %}
-<input type="submit" value="accept" />
-</form>
+            <form method="post" action="{% url 'friendship_accept' friendship_request.pk %}">
+                {% csrf_token %}
+                <input type="submit" value="accept" />
+            </form>
 
-<form method="post" action="{% url 'friendship_reject' friendship_request.pk %}">
-{% csrf_token %}
-<input type="submit" value="reject" />
-</form>
+            <form method="post" action="{% url 'friendship_reject' friendship_request.pk %}">
+                {% csrf_token %}
+                <input type="submit" value="reject" />
+            </form>
+        </div>
+    </div>
+{% endblock %}
