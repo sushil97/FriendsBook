@@ -19,6 +19,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <form id="account-form" action="#" method="post" role="form" style="display: block;">
+                                    {% csrf_token %}
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="First Name" required>
                                     </div>
@@ -42,6 +43,7 @@
                                 </form>
                                 <form id="password-change-form" action="#" method="post" role="form"
                                       style="display: none;">
+                                    {% csrf_token %}
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Existing Password" required>
                                     </div>

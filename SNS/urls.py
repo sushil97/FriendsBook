@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^login/$', login.views.user_login, name="login"),
     url(r'^profile/$',user_account.views.my_account,name='profile'),
     url(r'^profile/(?P<username>.+)/$', login.views.show_profile, name="show_profile"),
+    url(r'^create_post/(?P<username>.+)/$', user_account.views.create_profile_post, name="save_profile_post"),
     url(r'^friendship/', include('friendship.urls')),
     url(r'^settings/', include('django_mfa.urls'), name="mfa"),
     url(r'^timeline/$', user_account.views.my_timeline, name='timeline'),
@@ -49,7 +50,8 @@ urlpatterns = [
     url(r'^create_post/$',user_account.views.create_post,name='create_post'),
     url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings"),
     url(r'^messages/', include('django_messages.urls')),
-    url(r'^settings/privacy/$',user_account.views.privacy_info, name='privacy_info')
+    url(r'^settings/privacy/$',user_account.views.privacy_info, name='privacy_info'),
+    url(r'^remove_friend/(?P<username>.+)/$',user_account.views.remove_friend, name='remove_friend')
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 ]
 

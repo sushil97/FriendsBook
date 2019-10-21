@@ -13,11 +13,9 @@
                         </div>
                         {% if friends %}
                             <div class="profile-img">
-
-                                <a href="#">
+                                <strong style="color: blue">
                                     Friends
-                                </a>
-
+                                </strong>
                             </div>
                         {% endif %}
                     </div>
@@ -65,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            {% if not friends %}
+            {% if not friends and not request_status%}
                 <div class="row">
                     <div class="col-md-3" style="float: right">
                         <div class="upload-btn-wrapper-submit">
@@ -80,7 +78,61 @@
                         </div>
                     </div>
                 </div>
+            {% elif not friends and request_status %}
+                <div class="row">
+                    <div class="col-md-3" style="float: right">
+                        <div class="upload-btn-wrapper-submit">
+                            <form method="post" action="{% url 'friendship_cancel' friendship_id %}">
+                                {% csrf_token %}
+                                <button class="btn edit" type="submit" id="removefriend">Cancel Request</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% elif  friends%}
+                <div class="row">
+                    <div class="col-md-3" style="float: right">
+                        <div class="upload-btn-wrapper-submit">
+                            <form method="post" action="{% url 'remove_friend' user.username%}">
+                                {% csrf_token %}
+                                <button class="btn edit" type="submit" id="removefriend">Remove friend</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
+
         </div>
     </div>
+    {% if friends %}
+        <div class="container">
+            <div class="jumbotron">
+                <form action="/create_post/{{ user.username }}/" class="form-horizontal" role="form" method="post">
+                    {% csrf_token %}
+                    <h3><strong>Post on {{ user.first_name }} {{ user.last_name }}'s Timeline</strong></h3>
+                    <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title" name="title" required style="width: 100%">
+                    <br><br>
+                    <div class="form-group" style="margin-left: 0%;width: 100%">
+                        <textarea class="form-control input-lg" placeholder="Update your status" name="text" id="id_text"></textarea>
+                    </div><br>
+                    <button class="btn btn-primary" type="submit">Create Post</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    {% for post in post_lists %}
+        {% if friends %}
+            <div class="container">
+                <div class="jumbotron">
+
+                    <h3>Author: {{ post.author}}</h3>
+                    <h3>Title: {{ post.title }}</h3>
+                    <h4>Content: {{ post.text }}</h4>
+                    <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
 {% endblock %}

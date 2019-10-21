@@ -920,89 +920,124 @@ to_user_id</ColNames>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="201" parent="24" name="sqlite_autoindex_signup_userprofileinfo_1">
+    <column id="201" parent="24" name="privacy_dob">
+      <Position>9</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="202" parent="24" name="privacy_email">
+      <Position>10</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="203" parent="24" name="privacy_phone">
+      <Position>11</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="204" parent="24" name="privacy_posts">
+      <Position>12</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="205" parent="24" name="sqlite_autoindex_signup_userprofileinfo_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="202" parent="24">
+    <key id="206" parent="24">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="203" parent="24">
+    <key id="207" parent="24">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_signup_userprofileinfo_1</UnderlyingIndexName>
     </key>
-    <foreign-key id="204" parent="24">
+    <foreign-key id="208" parent="24">
       <ColNames>user_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="205" parent="25" name="type">
+    <column id="209" parent="25" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="206" parent="25" name="name">
+    <column id="210" parent="25" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="207" parent="25" name="tbl_name">
+    <column id="211" parent="25" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="208" parent="25" name="rootpage">
+    <column id="212" parent="25" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="209" parent="25" name="sql">
+    <column id="213" parent="25" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="210" parent="26" name="name">
+    <column id="214" parent="26" name="name">
       <Position>1</Position>
     </column>
-    <column id="211" parent="26" name="seq">
+    <column id="215" parent="26" name="seq">
       <Position>2</Position>
     </column>
-    <column id="212" parent="27" name="id">
+    <column id="216" parent="27" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="213" parent="27" name="title">
+    <column id="217" parent="27" name="title">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="214" parent="27" name="text">
+    <column id="218" parent="27" name="text">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="215" parent="27" name="created_date">
+    <column id="219" parent="27" name="created_date">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="216" parent="27" name="author_id">
+    <column id="220" parent="27" name="author_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="217" parent="27" name="user_account_post_author_id_600a03cc">
+    <column id="221" parent="27" name="receiver_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <index id="222" parent="27" name="user_account_post_author_id_600a03cc">
       <ColNames>author_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="218" parent="27">
+    <index id="223" parent="27" name="user_account_post_receiver_id_a237a8d9">
+      <ColNames>receiver_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="224" parent="27">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="219" parent="27">
+    <foreign-key id="225" parent="27">
       <ColNames>author_id</ColNames>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="226" parent="27">
+      <ColNames>receiver_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>

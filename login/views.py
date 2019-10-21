@@ -5,10 +5,11 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.views.decorators.csrf import csrf_exempt
-from friendship.models import Friend,Follow,Block
+from friendship.models import Friend, FriendshipRequest
 # Create your views here.
 from django.urls import reverse
 from signup.models import UserProfileInfo
+from user_account.models import Post
 
 
 @login_required
@@ -59,10 +60,12 @@ def show_profile(request, username=None):
         user = User.objects.get(id=request.user.id)
         profile = UserProfileInfo.objects.get(user_id=user.id)
         friend_requests = Friend.objects.unread_requests(user=request.user)
+        posts_list = Post.objects.filter(receiver_id=user.id).order_by('-created_date')
         context = {
             'user': user,
             'friend_requests':friend_requests,
             'user_profile': profile,
+            'post_lists': posts_list
         }
         return render_to_response('profile/profile.html',context)
 
@@ -70,16 +73,28 @@ def show_profile(request, username=None):
         if User.objects.filter(username=username).exists():
             this_user = User.objects.get(username=username)
             profile = UserProfileInfo.objects.get(user_id=this_user.id)
+            posts_list = Post.objects.filter(receiver_id=this_user.id).order_by('-created_date')
+
             friends=False
+            request_status=False
+            friendship_id=-1
             if Friend.objects.are_friends(request.user, this_user) == True:
                 friends = True
+            if FriendshipRequest.objects.filter(to_user=this_user,from_user=request.user).exists():
+                friendship_request = FriendshipRequest.objects.filter(to_user=this_user,from_user=request.user)
+                request_status = friendship_request[0].created
+                friendship_id = friendship_request[0].id
+                print(request_status)
             context = {
                 'user': this_user,
                 'friends': friends,
                 'user_profile': profile,
+                'post_lists': posts_list,
+                'request_status':request_status,
+                'friendship_id': friendship_id
             }
             return render_to_response('profile/random_profile.html', context)
         else:
-            return HttpResponse('Sorry! User not found')
+            return HttpResponseRedirect('/profile/')
     else:
         return HttpResponseRedirect('/login')

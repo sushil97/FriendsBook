@@ -2,7 +2,9 @@
 {% block body_block %}
     <div class="container" style="margin-top: 100px">
             {% for friendship_request in requests %}
+{#                {% if not friendship_request.rejected %}#}
                 <div class="jumbotron" style="font-size: 25px">{{ friendship_request.from_user }} has sent you a friend request <a href="{% url 'friendship_requests_detail' friendship_request.id %}">view</a></div>
+{#                {% endif %}#}
             {% empty %}
                 <div>no requests :(</div>
                 </div>

@@ -3,7 +3,6 @@
     <div class="container-fluid" style="margin-top: 60px">
         <div class="row">
             <div class="col-sm-3 sidebar-offcanvas-left affix">
-
                 <div class="profile-img">
                     <img src="{{ user_profile.profile_pic.url }}" id="profile_pic1">
                 </div>
@@ -24,35 +23,28 @@
                         <option value="3"><h4>group3</h4></option>
                         <option value="3"><h4>group4</h4></option>
                         <option value="3"><h4>group5</h4></option>
-                        <option value="3"><h4>group6</h4></option>
-                        <option value="3"><h4>group7</h4></option>
-                        <option value="3"><h4>group8</h4></option>
-                        <option value="3"><h4>group9</h4></option>
-                        <option value="3"><h4>group10</h4></option>
                     </select>
                 </div>
-
-                <!--/sidebar-nav-fixed -->
             </div>
-            <!--/span-->
             <div class="col-sm-2"></div>
             <div class="col-sm-7" style="margin-left: 2%">
                 <br>
+            <div class="jumbotron">
                 <form action="{% url 'create_post' %}" class="form-horizontal" role="form" method="post">
                     {% csrf_token %}
                     <h4>What's New</h4>
-                    <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title" name="title" required style="width: 75%">
+                    <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title" name="title" required style="width: 100%">
                     <br><br>
-                    <div class="form-group" style="margin-left: 0%;width: 75%">
+                    <div class="form-group" style="margin-left: 0%;width: 100%">
                         <textarea class="form-control input-lg" placeholder="Update your status" name="text" id="id_text"></textarea>
                     </div><br>
                     <button class="btn btn-primary" type="submit">Create Post</button>
                 </form>
-                <br><br><br>
-
+            </div>
+                <br><br>
                 {#                {% for post_user in post_users %}#}
                 {% for post in post_lists %}
-                    {% if post.author in friend_users %}
+                    {% if post.author in friend_users and post.receiver_id == user.id %}
                         <div class="jumbotron">
                             <h3>Author: {{ post.author}}</h3>
                             <h3>Title: {{ post.title }}</h3>
@@ -62,11 +54,8 @@
                     {% endif %}
                 {% endfor %}
                 {#                {% endfor %}#}
-
-
                 <br>
             </div>
-            <!--/span-->
             <div class="col-sm-4 sidebar-offcanvas-right">
                 <h2 class="nav-header">Friends</h2>
                 <ul class="nav ">
@@ -74,11 +63,7 @@
                         <li><h2><a href="/profile/{{ friends.username }}">{{ friends.username }}</a></h2></li>
                     {% endfor %}
                 </ul>
-
-                <!--/sidebar-nav-fixed -->
             </div>
-            <!--/span-->
         </div>
-        <!--/row-->
     </div>
 {% endblock %}

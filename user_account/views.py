@@ -13,7 +13,7 @@ from user_account.forms import PrivacyInfoForm
 from friendship.exceptions import AlreadyExistsError
 from django.conf import settings
 from signup.models import UserProfileInfo
-from friendship.models import Friend, Follow, Block, FriendshipRequest
+from friendship.models import Friend, FriendshipRequest
 
 # Create your views here.
 from user_account.forms import ProfilePicUpdateForm, ProfileUpdateForm
@@ -25,10 +25,11 @@ def my_account(request):
         user = User.objects.get(id=request.user.id)
         print("Request USER ID ",user)
         user_profile = UserProfileInfo.objects.get(user_id=user.id)
-
+        posts_list = Post.objects.filter(receiver_id=user.id).order_by('-created_date')
         context = {
             'user': user,
             'user_profile': user_profile,
+            'post_lists': posts_list
         }
         return render_to_response('profile/profile.html', context)
     else:
@@ -162,12 +163,33 @@ def create_post(request):
             if post_form.is_valid():
                 post = post_form.save(commit=False)
                 post.author=user
+                post.receiver=user
                 post.save()
             else:
                 print(post_form.errors)
         else:
             return HttpResponseRedirect("/login/")
     return HttpResponseRedirect("/timeline/")
+
+@csrf_exempt
+def create_profile_post(request,username=None):
+    user=request.user
+    print(username)
+    if user.is_authenticated:
+        if request.method == 'POST' and request.user.username!=username and User.objects.filter(username=username).exists():
+            this_user = User.objects.get(username=username)
+            post_form = PostForm(data=request.POST)
+            if post_form.is_valid():
+                post = post_form.save(commit=False)
+                post.author=user
+                post.receiver=this_user
+                post.save()
+            else:
+                print(post_form.errors)
+            return HttpResponseRedirect('/profile/'+username+'/')
+        return HttpResponseRedirect('/timeline/')
+    else:
+        return HttpResponseRedirect("/timeline/")
 
 
 def accountsettings(request):
@@ -176,7 +198,20 @@ def accountsettings(request):
     else:
         return HttpResponseRedirect('/timeline/')
 
-
+@csrf_exempt
+def remove_friend(request,username=None):
+    if request.user.is_authenticated and request.method=='POST':
+        if username==None or username==request.user.username:
+            return HttpResponseRedirect('/profile/')
+        elif User.objects.filter(username=username).exists():
+            friend_user = User.objects.get(username=username)
+            user = User.objects.filter(username=request.user.username)
+            Friend.objects.remove_friend(request.user,friend_user)
+            return HttpResponseRedirect('/profile/'+username+'/')
+        else:
+            return HttpResponseRedirect('/profile/')
+    else:
+        return HttpResponseRedirect('/profile/')
 
 
 # @csrf_exempt
@@ -216,17 +251,6 @@ def accountsettings(request):
 #     f_request = get_object_or_404(FriendshipRequest, id=friendship_request_id)
 #
 #     return render(request, template_name, {"friendship_request": f_request})
-
-
-
-
-
-
-
-
-
-
-
 
 # def add_friend(
 #     request, to_username, template_name="profile/random_profile.html"

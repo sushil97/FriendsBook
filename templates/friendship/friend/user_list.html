@@ -4,9 +4,15 @@
 {% block body_block %}
     <div class="container" style="margin-top: 60px">
         <div class="jumbotron">
-            <h1>Your Friends</h1>
-            {% get_by_name friendship_context_object_name as var %}
-            {% friends var %}
+            <h2 style="color: #117a8b"><strong>Your Friends</strong></h2>
+            {% for friend in friends %}
+                <div>
+                    <h3><strong>Friend Username: <i style="color: red">{{ friend.username }}</i></strong></h3>
+                    <h3>Click <a href="/profile/{{ friend.username }}/">here</a> to view profile of {{ friend.username }}</h3>
+                </div>
+            {% endfor %}
+{#            {% get_by_name friendship_context_object_name as var %}#}
+{#            {% friends var %}#}
         </div>
     </div>
 {% endblock %}

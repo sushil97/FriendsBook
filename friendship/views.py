@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+from django.http import HttpResponseRedirect
 
 try:
     from django.contrib.auth import get_user_model
@@ -28,20 +29,27 @@ def view_friends(request, username, template_name="friendship/friend/user_list.h
     """ View the friends of a user """
     user = get_object_or_404(user_model, username=username)
     friends = Friend.objects.friends(user)
+    # return render(
+    #     request,
+    #     template_name,
+    #     {
+    #         get_friendship_context_object_name(): user,
+    #         "friendship_context_object_name": get_friendship_context_object_name(),
+    #     },
+    # )
     return render(
         request,
         template_name,
         {
-            get_friendship_context_object_name(): user,
-            "friendship_context_object_name": get_friendship_context_object_name(),
+            'user': user,
+            'friends':friends
         },
     )
 
 
 @csrf_exempt
 def friendship_add_friend(
-    request, to_username, template_name="friendship/friend/add.html"
-):
+    request, to_username):
     """ Create a FriendshipRequest """
     ctx = {"to_username": to_username}
 
@@ -53,10 +61,9 @@ def friendship_add_friend(
         except AlreadyExistsError as e:
             ctx["errors"] = ["%s" % e]
         else:
-            return redirect("friendship_request_list")
+            return HttpResponseRedirect('/profile/'+to_username+'/')
 
-    return render(request, template_name, ctx)
-
+    return HttpResponseRedirect('/profile/'+to_username+'/')
 
 @login_required
 def friendship_accept(request, friendship_request_id):
@@ -89,15 +96,18 @@ def friendship_reject(request, friendship_request_id):
     )
 
 
-@login_required
+@csrf_exempt
 def friendship_cancel(request, friendship_request_id):
     """ Cancel a previously created friendship_request_id """
     if request.method == "POST":
+        profile = FriendshipRequest.objects.filter(id=friendship_request_id)
+        username = profile[0].to_user.username
         f_request = get_object_or_404(
             request.user.friendship_requests_sent, id=friendship_request_id
         )
+
         f_request.cancel()
-        return redirect("friendship_request_list")
+        return HttpResponseRedirect('/profile/'+username+'/')
 
     return redirect(
         "friendship_requests_detail", friendship_request_id=friendship_request_id
@@ -109,10 +119,9 @@ def friendship_request_list(
     request, template_name="friendship/friend/requests_list.html"
 ):
     """ View unread and read friendship requests """
-    friendship_requests = Friend.objects.requests(request.user)
-
+    #friendship_requests = Friend.objects.requests(request.user)
     # This shows all friendship requests in the database
-    # friendship_requests = FriendshipRequest.objects.filter(rejected__isnull=True)
+    friendship_requests = FriendshipRequest.objects.filter(to_user=request.user,rejected__isnull=True)
 
     return render(request, template_name, {"requests": friendship_requests})
 

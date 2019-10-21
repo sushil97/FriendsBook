@@ -4,17 +4,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 sidebar-offcanvas-left">
-                    <div class="navbar" style="font-size: 20px; margin-top: 60px;">
-                        <div><a href="{% url 'messages_inbox' %} ">&raquo;&nbsp;Inbox</a></div>
-                        <div><a href="{% url 'messages_outbox' %} ">&raquo;&nbsp;Sent Messages</a></div>
-                        <div><a href="{% url 'messages_compose' %} ">&raquo;&nbsp;New Message</a></div>
-                        <div><a href="{% url 'messages_trash' %} ">&raquo;&nbsp;Trash</a></div>
-                    </div>
+                <div class="navbar" style="font-size: 20px; margin-top: 60px;">
+                    <div><a href="{% url 'messages_inbox' %} ">&raquo;&nbsp;Inbox</a></div>
+                    <div><a href="{% url 'messages_outbox' %} ">&raquo;&nbsp;Sent Messages</a></div>
+                    <div><a href="{% url 'messages_compose' %} ">&raquo;&nbsp;New Message</a></div>
+                    <div><a href="{% url 'messages_trash' %} ">&raquo;&nbsp;Trash</a></div>
                 </div>
             </div>
-            </div>
-            <div class="col-sm-6" style="margin-left: 300px; margin-top: 60px">
-               {% block content %}
-                {% endblock %}
-            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" style="margin-left: 300px; margin-top: 60px">
+        {% block content %}
+        {% endblock %}
+    </div>
 {% endblock %}
