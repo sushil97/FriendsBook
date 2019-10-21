@@ -9,12 +9,14 @@
     margin-top: 60px;
     width:20%;
 }
-#profile_pic1
+.profile-img #profile_pic1
 {
     width:200px;
     height: 200px;
     border-radius: 50%;
     object-fit: initial;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 .sidebar-offcanvas-left {
     position: fixed;

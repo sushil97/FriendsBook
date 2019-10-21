@@ -1,7 +1,12 @@
 {% extends "signup/base.html" %}
 {% load staticfiles %}
 {% block body_block %}
-
+    <style>
+    input[type=date]::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        display: none;
+    }
+    </style>
     <div class="container" style="margin-top: 60px">
         <div class="jumbotron">
             {% if registered %}
@@ -31,7 +36,7 @@
                                 <span class="form-row" id="pass_match_error"></span><br/>
                                 <input type="email" id="id_email" name="email" required class="form-control input-lg" placeholder="Your Email"  autocomplete="off"/><br />
                                 <label>Birth Date</label>
-                                <input type="date" name="dob" id="id_dob" class="form-control input-lg" placeholder="Enter your date of birth" autocomplete="off" required/><br />
+                                <input type="date" name="dob" id="id_dob" class="form-control input-lg" onkeydown="return false" placeholder="Enter your date of birth" autocomplete="off" required/><br />
                                 <label for="id_profile_pic">Profile pic:</label>
                                 <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">
                                 <br />

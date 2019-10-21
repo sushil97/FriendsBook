@@ -8,11 +8,10 @@
 .profile-img{
     text-align: center;
 }
-.profile-img img{
-    width: 70%;
-    height: 100%;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
+.profile-img #profile_photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     margin-bottom: 10px;
 }
 .upload-btn-wrapper {

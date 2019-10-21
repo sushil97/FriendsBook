@@ -8,9 +8,7 @@
                 <div class="row">
                     <div class="col-md-3 col-eq">
                         <div class="profile-img">
-                            <div>
-                                <img src="{{ user_profile.profile_pic.url }}">
-                            </div>
+                            <img src="{{ user_profile.profile_pic.url }}" id="profile_photo">
                             <div class="upload-btn-wrapper">
                                 <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
                                     <button class="btn edit">Update Profile Pic</button>
@@ -117,7 +115,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <input id="profile_pic" type="file" class="btn btn-sm btn-secondary" name="profile_pic">
+                                <input id="profile_pic" type="file" accept="image/*" class="btn btn-sm btn-secondary" name="profile_pic">
                                 <img id="profile_pic_preview" class="img-preview" src="">
                             </div>
 
