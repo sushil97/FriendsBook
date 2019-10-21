@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/media/profile_pics/MSN.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/CSS/accountsetting.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/account.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/media/profile_pics/Kishan_hCC8xIy.jpg" beforeDir="false" />
@@ -19,6 +21,7 @@
       <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/random_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/random_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/settings/account_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings/account_settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/settings/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings/privacy.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/SignUp.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
@@ -74,10 +77,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -93,7 +96,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/CSS" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -105,19 +108,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/django_messages" />
-      <recent name="$PROJECT_DIR$/friendship" />
-      <recent name="$PROJECT_DIR$/friendships" />
-      <recent name="$PROJECT_DIR$/media/profile_pics" />
-      <recent name="$PROJECT_DIR$/static/CSS" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/settings" />
       <recent name="$PROJECT_DIR$/static/CSS" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/templates/friendship" />
       <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/CSS" />
+      <recent name="$PROJECT_DIR$/django_messages" />
+      <recent name="$PROJECT_DIR$/friendship" />
+      <recent name="$PROJECT_DIR$/friendships" />
+      <recent name="$PROJECT_DIR$/media/profile_pics" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -242,7 +245,7 @@
       <workItem from="1571409591285" duration="11847000" />
       <workItem from="1571510570036" duration="396000" />
       <workItem from="1571555372269" duration="29014000" />
-      <workItem from="1571645594310" duration="3689000" />
+      <workItem from="1571645594310" duration="4020000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

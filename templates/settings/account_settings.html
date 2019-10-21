@@ -1,8 +1,73 @@
 {% extends "signup/base.html" %}
 {% block body_block %}
-    <div class="container" style="margin-top: 60px">
-        <div class="jumbotron">
-            <h1>Account Settings Page</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel panel-account">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="#" class="active" id="edit_details">Edit details</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" id="change_password_setting">Change Password</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form id="account-form" action="#" method="post" role="form" style="display: block;">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder=Email Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Mobile Number">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" class="form-control btn btn-save"
+                                                       value="SAVE CHANGES">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="password-change-form" action="#" method="post" role="form"
+                                      style="display: none;">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Existing Password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="account_password" onkeyup="validateAccountPassword()" autocomplete="off"
+                                               placeholder="New Password" required>
+                                        <span class="form-row" id="account_strength" ></span><br/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="account_password1" placeholder="Confirm Password" onkeyup="checkRepassword()" autocomplete="off" required>
+                                        <span class="form-row" id="account_matching_error"></span><br/>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" class="form-control btn btn-save"
+                                                       value="SAVE CHANGES">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
