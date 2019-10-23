@@ -99,7 +99,7 @@ def friendship_reject(request, friendship_request_id):
 @csrf_exempt
 def friendship_cancel(request, friendship_request_id):
     """ Cancel a previously created friendship_request_id """
-    if request.method == "POST":
+    if request.method == "POST" and FriendshipRequest.objects.filter(id=friendship_request_id).exists():
         profile = FriendshipRequest.objects.filter(id=friendship_request_id)
         username = profile[0].to_user.username
         f_request = get_object_or_404(
@@ -108,10 +108,10 @@ def friendship_cancel(request, friendship_request_id):
 
         f_request.cancel()
         return HttpResponseRedirect('/profile/'+username+'/')
-
-    return redirect(
-        "friendship_requests_detail", friendship_request_id=friendship_request_id
-    )
+    else:
+        return redirect(
+            "friendship_view_friends", request.user.username
+        )
 
 
 @login_required

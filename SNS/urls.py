@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.sites.models import Site
+
+import groups
 import login
 import signup
 import user_account
 import django_mfa
+from groups import views
 from user_account import views
 from SNS import settings
 from signup import views
@@ -51,8 +54,10 @@ urlpatterns = [
     url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings"),
     url(r'^messages/', include('django_messages.urls')),
     url(r'^settings/privacy/$',user_account.views.privacy_info, name='privacy_info'),
-    url(r'^remove_friend/(?P<username>.+)/$',user_account.views.remove_friend, name='remove_friend')
+    url(r'^remove_friend/(?P<username>.+)/$',user_account.views.remove_friend, name='remove_friend'),
+    url(r'^create_group/$',groups.views.create_group, name='create_group'),
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
+
 ]
 
 if settings.DEBUG:

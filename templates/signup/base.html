@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static "CSS/search.css" %}">
     <link rel="stylesheet" href="{% static "CSS/privacy.css" %}">
     <link rel="stylesheet" href="{% static "CSS/accountsetting.css" %}">
+    <link rel="stylesheet" href="{% static "CSS/jkeyboard.css" %}">
 </head>
 <body>
 <div class="container-fluid">
@@ -46,6 +47,7 @@
                     </form>
                 </div>
                 <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="/messages/"> Messages</a></li>
                     <li><a href="/profile/"> Profile</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/setting/">Settings</a>
@@ -79,5 +81,9 @@
 {#<script src="{% static "js/profile.js" %}"></script>#}
 <script src="{% static "js/svg/svg.js" %}"></script>
 <script src="{% static "js/account.js" %}"></script>
+<script src="{% static "js/register.js" %}"></script>
+<script src="{% static "js/jkeyboard.js" %}"></script>
+<script src="{% static "js/mykeyboard.js" %}"></script>
+<script src="{% static "js/login.js" %}"></script>
 </body>
 </html>

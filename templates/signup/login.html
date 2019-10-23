@@ -10,19 +10,21 @@
                             <h1>Login here </h1><br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="login[email]" type="text" class="form-control input-lg" name="username" value="" placeholder="Username">
+                                <input id="login[email]" required type="text" class="form-control input-lg" name="username" value="" onfocusin="hidekeyboard()" onclick="hidekeyboard()" placeholder="Username">
                             </div>
                             <br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="login[password]" type="password" class="form-control input-lg" name="password" value="" placeholder="Password">
+{#                                make id=login to work with virtual keyboard#}
+                                <input id="login" required type="password" class="form-control input-lg" name="password" value="" placeholder="Password" onclick="showkeyboard()" onfocusin="showkeyboard()" onkeydown="return false;">
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-lg btn-primary btn-block signup-btn" value="Login">Login</button><br /><br />
+                            <button type="submit" class="btn btn-lg btn-primary btn-block signup-btn" value="Login" onfocusin="hidekeyboard()" onclick="hidekeyboard()">Login</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    <div id="keyboard" style="display: none"></div>
     </div>
 {% endblock %}

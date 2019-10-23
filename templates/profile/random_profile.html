@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-3 col-eq">
                         <div class="profile-img">
-                            <img src="{{ user_profile.profile_pic.url }}" id="profile_photo">
+                            <img src="{{ user_profile.profile_pic.url }}" id="profile_photo" style=" width: 200px;height: 200px;border-radius: 50%;margin-bottom: 10px;">
                         </div>
                         {% if friends %}
                             <div class="profile-img">
@@ -62,7 +62,6 @@
                         <br>
                     </div>
                 </div>
-            </div>
             {% if not friends and not request_status%}
                 <div class="row">
                     <div class="col-md-3" style="float: right">
@@ -96,6 +95,15 @@
                             <form method="post" action="{% url 'remove_friend' user.username%}">
                                 {% csrf_token %}
                                 <button class="btn edit" type="submit" id="removefriend">Remove friend</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3" style="float: left; margin-left: -25px">
+                        <div class="upload-btn-wrapper-submit">
+                            <form method="get" action="{% url 'friendship_view_friends' user.username %}">
+                            {% csrf_token %}
+                            <button class="btn edit">{{ user.first_name }}'s friendlist</button>
                             </form>
                         </div>
                     </div>
