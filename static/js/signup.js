@@ -101,35 +101,44 @@ $("#id_username").keyup(function () {
     }
 });*/
 
+// function showfeecolumn()
+// {
+//     document.getElementById('id_fee').disabled=false;
+// }
+// function hidefeecolumn()
+// {
+//     document.getElementById('id_fee').disabled=true;
+//     document.getElementById('id_fee').value=0;
+// }
 
 /* Add Group */
-$(document).on('click', '#create_group_btn', function () {
-    var user_name = $('#create_group_btn').attr('data-username');
-    var group_name = $('#group_name').val().trim();
-    // console.log(group_name);
-
-    if (group_name !== '')
-    {
-        $.ajax({
-            type: 'POST',
-            url: '/create_group/',
-            data: {
-                username: user_name,
-                group_name: group_name,
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-            },
-            success: function (response) {
-                if (response === 'True') {
-                    console.log("Group Created...");
-                } else if (response === 'Group Already Exists') {
-                    console.log("Group Aleady...!");
-                } else {
-                    console.log("!!!...Group Creation Error...!!!");
-                }
-            }
-        });
-    }
-});
+// $(document).on('click', '#create_group_btn', function () {
+//     var user_name = $('#create_group_btn').attr('data-username');
+//     var group_name = $('#group_name').val().trim();
+//     // console.log(group_name);
+//
+//     if (group_name !== '')
+//     {
+//         $.ajax({
+//             type: 'POST',
+//             url: '/create_group/',
+//             data: {
+//                 username: user_name,
+//                 group_name: group_name,
+//                 csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+//             },
+//             success: function (response) {
+//                 if (response === 'True') {
+//                     console.log("Group Created...");
+//                 } else if (response === 'Group Already Exists') {
+//                     console.log("Group Aleady...!");
+//                 } else {
+//                     console.log("!!!...Group Creation Error...!!!");
+//                 }
+//             }
+//         });
+//     }
+// });
 
 
 

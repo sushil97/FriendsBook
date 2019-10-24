@@ -1,0 +1,41 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container" style="margin-top: 60px">
+        <div class="jumbotron">
+            {% if created %}
+                <h1>Thank you for registering!</h1>
+            {% else %}
+            <div class="container" id="wrap">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3"><h1>Create group</h1><br>
+                        <form method="POST" class="form" action="/create_group/">
+                            {% csrf_token %}
+                            <input type="text" id="id_name" name="name" required class="form-control input-lg" placeholder="Group Name"  autocomplete="off"/><br />
+                            <label >Group Description</label>
+                            <textarea placeholder="Group Discription" class="form-control input-lg" rows="5" id="id_biography" name="biography" required></textarea><br>
+                            <label for="id_group_profile_pic">Group Profile pic:</label>
+                            <input type="file" name="group_pic" accept="image/*" id="id_group_pic">
+                            <br/>
+                            <label>Group type : </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="type" value="Public" id="id_type" required/>Public</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="type" value="Private" id="id_type"/>Private</label>
+                            <br><br>
+                            <div id="fee">
+                                <input type="number" id="id_fee" name="fee"
+                                       class="form-control input-lg" placeholder="Group fee" required/><br/>
+                            </div>
+                            <br>
+                            <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create group
+                            </button>
+                            <br/><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

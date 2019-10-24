@@ -1,7 +1,9 @@
 window.onload = function() {
  const myInput = document.getElementById('login[password]');
- myInput.onpaste = function(e) {
-   e.preventDefault();
+ if (myInput!=null) {
+     myInput.onpaste = function (e) {
+         e.preventDefault();
+     }
  }
 }
 function showkeyboard() {

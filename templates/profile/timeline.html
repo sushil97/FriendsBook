@@ -17,37 +17,35 @@
                 </div>
                 <div class="group">
                     {#                    <h3><i class="glyphicon glyphicon-plus"></i> Create Group</h3>#}
-                    <p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                           aria-expanded="false" aria-controls="collapseExample">
+                    <p><form action="/launch_create_group/">
+                    {% csrf_token %}
+                        <button class="btn btn-primary" role="button" type="submit">
                             <i class="glyphicon glyphicon-plus"></i>
                             Create Group
-                        </a>
+                        </button>
+                    </form>
                     </p>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            <div>
-                                {% csrf_token %}
-                                <div class="form-group row">
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="group_name"
-                                               placeholder="Enter group name">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <button class="btn btn-primary" id="create_group_btn" data-username="{{ user.username }}">Add</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{#                    <div class="collapse" id="collapseExample">#}
+{#                        <div class="card card-body">#}
+{#                            <div>#}
+{#                                {% csrf_token %}#}
+{#                                <div class="form-group row">#}
+{#                                    <div class="col-sm-8">#}
+{#                                        <input type="text" class="form-control" id="group_name"#}
+{#                                               placeholder="Enter group name">#}
+{#                                    </div>#}
+{#                                    <div class="col-sm-4">#}
+{#                                        <button class="btn btn-primary" id="create_group_btn" data-username="{{ user.username }}">Add</button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                     <h3><i class="glyphicon glyphicon-chevron-down"></i> List of Groups</h3>
-                    <select size="7" id="list of group">
-                        <option value="1"><h4>group1</h4></option>
-                        <option value="2"><h4>group2</h4></option>
-                        <option value="3"><h4>group3</h4></option>
-                        <option value="3"><h4>group4</h4></option>
-                        <option value="3"><h4>group5</h4></option>
-                    </select>
+
+                        {% for group in group_lists %}
+                            <strong><a href="/group_profile/{{ group.name }}/" style="text-decoration: none"><h3>{{ group.name }}</h3></a></strong>
+                        {% endfor %}
                 </div>
             </div>
             <div class="col-sm-2"></div>

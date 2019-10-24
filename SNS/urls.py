@@ -55,7 +55,15 @@ urlpatterns = [
     url(r'^messages/', include('django_messages.urls')),
     url(r'^settings/privacy/$',user_account.views.privacy_info, name='privacy_info'),
     url(r'^remove_friend/(?P<username>.+)/$',user_account.views.remove_friend, name='remove_friend'),
+    url(r'^launch_create_group/$',groups.views.launch_create_group, name='launch_create_group'),
     url(r'^create_group/$',groups.views.create_group, name='create_group'),
+    url(r'^group_profile/(?P<name>.+)/$', groups.views.profile, name='group_profile'),
+    # url(r'^update_group_bio/(?P<name>.+)/$', groups.views.update_group_bio, name='update_group_bio'),
+    url(r'^update_group_profile_pic/(?P<name>.+)/$', groups.views.update_group_profile_pic, name='update_group_profile_pic'),
+    url(r'^group_requests/(?P<name>.+)/$', groups.views.groups_requests,name='group_requests'),
+    url(r'^cancel_requests/(?P<name>.+)/$', groups.views.cancel_requests, name='cancel_requests'),
+    # url(r'^view_group_requests/(?P<name>.+)/$', groups.views.groups_requests, name='view_group_requests'),
+
     # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
 
 ]

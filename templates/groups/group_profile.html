@@ -1,0 +1,165 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container" style="margin-top: 60px">
+        <div class="jumbotron">
+            <h1 style="color: rgba(6,26,167,0.8)"><strong>{{ group.name }}</strong></h1>
+            <div class="container group-profile">
+                <div class="row">
+                    <div class="col-md-3 col-eq">
+                        <div class="group_profile-img">
+                            <img src="{{ groupprofileinfo.group_pic.url }}" id="group_profile_photo">
+                            {% if user.id == groupprofileinfo.admin_id %}
+                                <div class="upload-btn-wrapper">
+                                    <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
+                                        <button class="btn edit">Update Profile Pic</button>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-eq" id="profile_div">
+                        <div class="profile-head">
+                            <h4><i class="glyphicon glyphicon-link"></i><strong> Admin Username </strong><br><a
+                                    href="/profile/{{ admin.username }}/" style="text-decoration: none"><input
+                                    type="text" value="{{ admin.username }}"
+                                    readonly></a></h4>
+                            <h4><i class="glyphicon glyphicon-user"></i><strong> Admin Name </strong><br><input
+                                    type="text"
+                                    value="{{ admin.first_name }} {{ admin.last_name }}"
+                                    readonly></h4>
+                            <h4><i class="glyphicon glyphicon-phone"></i><strong> Fee </strong><br><input type="text"
+                                                                                                          value="{{ groupprofileinfo.fee }}"
+                                                                                                          readonly></h4>
+                            <h4><i class="glyphicon glyphicon-gift"></i><strong> Type </strong><br><input type="text"
+                                                                                                          value="{{ groupprofileinfo.type }}"
+                                                                                                          readonly></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-eq" id="group_profile_div">
+                        <div class=".group-profile-head">
+                            <div class="bio-head">
+                                <h4>Group Description</h4><br>
+                                <textarea class="form-control" rows="8" id="comment"
+                                          readonly>{{ groupprofileinfo.biography }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div style="float: left; margin-left: 15px">
+                    <div class="upload-btn-wrapper-submit">
+                        <form method="get" action="">
+                            {% csrf_token %}
+                            <button class="btn edit">View Group Members</button>
+                        </form>
+                    </div>
+                </div>
+                {% if user.id == groupprofileinfo.admin_id %}
+                    <div style="float: left; margin-left: 30px">
+                        <div class="upload-btn-wrapper-submit">
+                            <form method="get" action="">
+                                {% csrf_token %}
+                                <button class="btn edit">View requests</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float: right">
+                        <div class="upload-btn-wrapper-submit">
+                            <a href="#" data-toggle="modal" data-target="#update-bio-modal">
+                                <button class="btn edit">Edit Group Details</button>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if user not in group_members %}
+                    <div class="col-md-3" style="float: right">
+                        <div class="upload-btn-wrapper-submit">
+                            {% if not request_status %}
+                                <form method="post" action="{% url 'group_requests' group.name %}">
+                                    <button class="btn edit">Join Request</button>
+                                </form>
+                                {% elif request_status %}
+                                <form method="post" action="{% url 'cancel_requests' group.name %}">
+                                    <button class="btn edit">Cancel Request</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Biography Modal -->
+    <div class="modal fade" id="update-bio-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Update Group Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'update_bio' %}" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Group Name</label>
+                                <input id="" type="text" class="form-control input-lg" required name="name"
+                                       value="{{ group.name }}"><br>
+                                <label>Group Description</label>
+                                <textarea id="" class="form-control input-lg" value="" name="biography"
+                                          required>{{ groupprofileinfo.biography }}</textarea><br>
+                                {% if groupprofileinfo.type == 'Private' %}
+                                    <label>Fee</label>
+                                    <input id="" type="text" class="form-control input-lg" required name="fee"
+                                           value="{{ groupprofileinfo.fee }}"><br>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Avatar Modal -->
+    <div class="modal fade" id="update-avatar-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Update Profile Photo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'update_group_profile_pic' group.name %}" enctype="multipart/form-data"
+                      method="POST">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input id="group_pic" type="file" accept="image/*" class="btn btn-sm btn-secondary"
+                                       name="group_pic">
+                                <img id="profile_pic_preview" class="img-preview" src="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

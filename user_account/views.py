@@ -1,7 +1,8 @@
 import os
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group
+from groups.models import GroupRequestInfo,GroupProfileInfo
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
@@ -70,12 +71,15 @@ def my_timeline(request):
         # for friend_user in friend_user_list:
         #     friend_id=friend_user.id
         posts_list=Post.objects.all().order_by('-created_date')
+        group_list=Group.objects.filter(user=request.user)
         print(posts_list)
+        print(group_list)
         context ={
             'user': user,
             'user_profile': user_profile,
             'friends_list':friends_list,
             'post_lists':posts_list,
+            'group_lists':group_list,
             'friend_users':friend_users
         }
         return render_to_response('profile/timeline.html',context)

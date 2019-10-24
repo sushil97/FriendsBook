@@ -2,34 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/groups/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/CSS/jkeyboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jkeyboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/mykeyboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0002_groupprofileinfo_fee.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0003_auto_20191023_2110.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0004_auto_20191023_2233.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0005_auto_20191023_2238.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0006_auto_20191023_2310.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0007_auto_20191023_2311.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0008_auto_20191023_2314.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0009_auto_20191023_2315.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0010_auto_20191023_2317.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0011_auto_20191023_2324.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0012_auto_20191024_0109.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0013_grouprequestinfo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0014_auto_20191024_0337.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/group_profile_pics/MSN.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/CSS/group_profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/groups/group.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/groups/group_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friendship/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/friendship/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/CSS/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/django_messages/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_messages/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/django_messages/compose.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_messages/compose.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/django_mfa/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/django_mfa/configure.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_mfa/configure.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/friendship/friend/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friendship/friend/user_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/random_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/random_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/timeline.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +71,48 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="auth_group: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="auth_user: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="auth_user_groups: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="friendship_friendshiprequest: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="groups_groupprofileinfo: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="groups_grouprequestinfo: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
@@ -82,9 +128,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Python Script" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -100,7 +146,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/media/group_profile_pics" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -112,19 +158,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/CSS" />
+      <recent name="$PROJECT_DIR$/templates/groups" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/templates/settings" />
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/media/group_profile_pics" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/CSS" />
       <recent name="$PROJECT_DIR$/django_messages" />
       <recent name="$PROJECT_DIR$/friendship" />
-      <recent name="$PROJECT_DIR$/friendships" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/CSS" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/templates/settings" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/friendship" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,6 +289,9 @@
       <workItem from="1571658833979" duration="32849000" />
       <workItem from="1571737598821" duration="11404000" />
       <workItem from="1571808278591" duration="6240000" />
+      <workItem from="1571834857962" duration="27082000" />
+      <workItem from="1571866622167" duration="3254000" />
+      <workItem from="1571924840824" duration="13122000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

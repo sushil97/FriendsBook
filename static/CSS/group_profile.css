@@ -1,0 +1,53 @@
+.group-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.group_profile-img{
+    text-align: center;
+}
+.group_profile-img #group_profile_photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upload-btn-wrapper-submit {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    float: right;
+}
+
+.edit{
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.group-profile-head h3{
+    color: #0062cc;
+}
+
+#group_profile_div input[type="text"]{
+    border: none;
+}
