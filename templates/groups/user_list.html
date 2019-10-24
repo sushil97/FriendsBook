@@ -1,0 +1,53 @@
+{% extends "signup/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+    <div class="container" style="margin-top: 60px">
+        <h2 style="color: #117a8b"><strong>{{ group.name }} Admin</strong></h2>
+        <div class="jumbotron">
+            <h3><strong>Admin Username: <i style="color: red">{{ admin.username }}</i></strong></h3>
+            <h3>Click <a href="/profile/{{ admin.username }}/" style="text-decoration: none">here</a> to view profile of {{ admin.username }}</h3>
+        </div>
+
+    </div>
+    {% if admin_flag %}
+        <div class="container" style="margin-top: 60px">
+            <h2 style="color: #117a8b"><strong>{{ group.name }} Members</strong></h2>
+            {% for member in members %}
+                {% ifnotequal member.username admin.username %}
+                    <div class="jumbotron">
+                        <h3><strong>Member Username: <i style="color: red">{{ member.username }}</i></strong></h3>
+                        <h3>Click <a href="/profile/{{ member.username }}/" style="text-decoration: none">here</a> to view profile of {{ member.username }}
+                            <form type="POST" action="{% url 'remove_group_member' group.name member.username%}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-warning" style="float:right;">Remove</button>
+                            </form>
+                        </h3>
+                    </div>
+                {% endifnotequal %}
+            {% empty %}
+                <div>No members except You</div>
+            {% endfor %}
+        </div>
+    {% elif not admin_flag %}
+        <div class="container" style="margin-top: 60px">
+            <h2 style="color: #117a8b"><strong>{{ group.name }} Members</strong></h2>
+            {% for member in members %}
+                {% ifnotequal member.username admin.username %}
+                    <div class="jumbotron">
+                        <h3><strong>Member Username: <i style="color: red">{{ member.username }}</i></strong></h3>
+                        <h3>Click <a href="/profile/{{ member.username }}/" style="text-decoration: none">here</a> to view profile of {{ member.username }}
+                        </h3>
+                    </div>
+                {% else %}
+                    <div class="jumbotron">
+                        <h3><strong>Member Username: <i style="color: red">{{ member.username }} (ADMIN)</i></strong></h3>
+                        <h3>Click <a href="/profile/{{ member.username }}/" style="text-decoration: none">here</a> to view profile of {{ member.username }}
+                        </h3>
+                    </div>
+                {% endifnotequal %}
+            {% empty %}
+                <div>No members except You</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

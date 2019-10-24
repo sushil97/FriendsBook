@@ -7,7 +7,7 @@
             {% for friend in friends %}
                 <div class="jumbotron">
                     <h3><strong>Friend Username: <i style="color: red">{{ friend.username }}</i></strong></h3>
-                    <h3>Click <a href="/profile/{{ friend.username }}/">here</a> to view profile of {{ friend.username }}</h3>
+                    <h3>Click <a href="/profile/{{ friend.username }}/" style="text-decoration: none">here</a> to view profile of {{ friend.username }}</h3>
                 </div>
                 {% empty %}
                 <div>no friends</div>

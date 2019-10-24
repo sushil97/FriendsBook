@@ -50,16 +50,24 @@
             <div class="row">
                 <div style="float: left; margin-left: 15px">
                     <div class="upload-btn-wrapper-submit">
-                        <form method="get" action="">
+                        <form method="get" action="{% url 'show_group_members' group.name %}">
                             {% csrf_token %}
                             <button class="btn edit">View Group Members</button>
                         </form>
                     </div>
                 </div>
+                <div style="float: left; margin-left: 30px">
+                    <div class="upload-btn-wrapper-submit">
+                        <form method="get" action="{% url 'group_timeline' group.name %}">
+                            {% csrf_token %}
+                            <button class="btn edit">View Group Timeline</button>
+                        </form>
+                    </div>
+                </div>
                 {% if user.id == groupprofileinfo.admin_id %}
-                    <div style="float: left; margin-left: 30px">
+                    <div style="float: left; margin-left: 45px">
                         <div class="upload-btn-wrapper-submit">
-                            <form method="get" action="">
+                            <form action="{% url 'view_group_requests' group.name %}">
                                 {% csrf_token %}
                                 <button class="btn edit">View requests</button>
                             </form>
@@ -78,10 +86,12 @@
                         <div class="upload-btn-wrapper-submit">
                             {% if not request_status %}
                                 <form method="post" action="{% url 'group_requests' group.name %}">
+                                    {% csrf_token %}
                                     <button class="btn edit">Join Request</button>
                                 </form>
-                                {% elif request_status %}
+                            {% elif request_status %}
                                 <form method="post" action="{% url 'cancel_requests' group.name %}">
+                                    {% csrf_token %}
                                     <button class="btn edit">Cancel Request</button>
                                 </form>
                             {% endif %}

@@ -1,0 +1,66 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container-fluid" style="margin-top: 60px">
+        <div class="row">
+            <div class="col-sm-2" style="position: fixed">
+                <a style="text-decoration: none" href="/group_profile/{{ group.name }}/">
+                    <div class="group_timeline_profile-img" style="text-align: center">
+                        <img src="{{ group_profile.group_pic.url}}" id="group_timeline_profile_pic1">
+                    </div>
+                    <div class="group_timeline_name" style="text-align: center"><h2 style="color: #117a8b"><strong>{{ group.name }}</strong></h2></div>
+                </a>
+                <br>
+                <div class="group_timeline_information" style="text-align: center">
+                    <div class="timeline_type"><h4><strong>Group Type:</strong> {{group_profile.type}}</h4></div>
+                    <div class="timeline_username"><h4><strong>Admin:</strong> {{group_profile.admin}}</h4></div>
+                    <div class="timeline_email"><h4><strong>Entry Fee:</strong> {{ group_profile.fee }}</h4></div>
+                    <h3 style="text-align: center"><strong>About</strong></h3>
+                    <div class="group_timeline_desc" style="text-align: center"> <h4 style="justify-content: flex-start">{{ group_profile.biography }}</h4></div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7" style="margin-left: 2%">
+                <br>
+                <div class="jumbotron">
+                    <form action="{% url 'create_group_post' group.name user.username%}" class="form-horizontal" role="form" method="post">
+                        {% csrf_token %}
+                        <h4>Add group post</h4>
+                        <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title"
+                               name="title" required style="width: 100%">
+                        <br><br>
+                        <div class="form-group" style="margin-left: 0%;width: 100%">
+                            <textarea class="form-control input-lg" placeholder="Update your status" name="text"
+                                      id="id_text"></textarea>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="submit">Create Post</button>
+                    </form>
+                </div>
+                <br><br>
+                {% for post in group_posts %}
+                    <div class="jumbotron">
+                        <h3>Author: {{ post.author }}</h3>
+                        <h3>Title: {{ post.title }}</h3>
+                        <h4>Content: {{ post.text }}</h4>
+                        <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="col-sm-4 sidebar-offcanvas-right">
+                <h2 style="color: #117a8b"><strong>{{ group.name }} Members</strong></h2>
+                {% for member in members %}
+                    <i>
+                        <h2 class="nav-header">
+                            <a style="text-decoration: none" href="/profile/{{ member.username }}/">
+                                {{ member.username }}
+                            </a>
+
+                        </h2>
+                    </i>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

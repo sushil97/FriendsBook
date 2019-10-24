@@ -1,0 +1,39 @@
+.sidebar-offcanvas-right{
+    position: fixed;
+    right: 5px;
+    height: 100%;
+    overflow-x: hidden;
+    margin-top: 60px;
+    width:20%;
+}
+.group_timeline_profile-img #group_timeline_profile_pic1
+{
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: initial;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.sidebar-offcanvas-left {
+    position: fixed;
+	height: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    width:300px;
+}
+.group_timeline_information .group_timeline_name
+{
+    color: black;
+    font-size: 30px;
+    font-variant: small-caps;
+    text-align: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

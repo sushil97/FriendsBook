@@ -1,5 +1,5 @@
 from django import forms
-from groups.models import GroupProfileInfo, GroupRequestInfo
+from groups.models import GroupProfileInfo, GroupRequestInfo, GroupPost
 from django.contrib.auth.models import Group
 
 TYPE_CHOICES = [('Public', 'Public'),
@@ -28,3 +28,8 @@ class GroupRequestInfoForm(forms.ModelForm):
     class Meta:
         model = GroupRequestInfo
         fields =()
+
+class GroupPostForm(forms.ModelForm):
+    class Meta:
+        model = GroupPost
+        fields = ('title', 'text')

@@ -1,0 +1,20 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container" style="margin-top:250px; text-align: center;">
+        <div class="jumbotron">
+            <h3>{{ group_request.from_user.username }} wants to be join group</h3>
+            <div class="row">
+                <form method="post" action="{% url 'group_request_accept' group_request.group.name group_request.from_user.username %}" style="display:inline; margin-right:50px">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">Accept</button>
+                </form>
+
+                <form method="post" action="{% url 'group_request_reject' group_request.group.name group_request.from_user.username %}" style="display: inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-warning">Reject</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

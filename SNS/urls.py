@@ -62,9 +62,14 @@ urlpatterns = [
     url(r'^update_group_profile_pic/(?P<name>.+)/$', groups.views.update_group_profile_pic, name='update_group_profile_pic'),
     url(r'^group_requests/(?P<name>.+)/$', groups.views.groups_requests,name='group_requests'),
     url(r'^cancel_requests/(?P<name>.+)/$', groups.views.cancel_requests, name='cancel_requests'),
-    # url(r'^view_group_requests/(?P<name>.+)/$', groups.views.groups_requests, name='view_group_requests'),
-
-    # url(r"^friend/request/(?P<friendship_request_id>\d+)/$",user_account.views.friendship_requests_detail,name="friendship_requests_detail")
+    url(r'^view_group_requests/(?P<name>.+)/$', groups.views.view_group_requests, name='view_group_requests'),
+    url(r'^group_request_accept/(?P<name>.+)/(?P<username>.+)/$', groups.views.group_request_accept, name='group_request_accept'),
+    url(r'^group_request_reject/(?P<name>.+)/(?P<username>.+)/$', groups.views.group_request_reject, name='group_request_reject'),
+    url(r'^group_requests_detail/(?P<name>.+)/(?P<username>.+)/$', groups.views.group_requests_detail,name='group_requests_detail'),
+    url(r'^show_group_members/(?P<name>.+)/$',groups.views.show_group_members,name='show_group_members'),
+    url(r'^group_timeline/(?P<name>.+)/$',groups.views.group_timeline,name="group_timeline"),
+    url(r'^remove_group_member/(?P<name>.+)/(?P<username>.+)/$', groups.views.remove_group_member,name='remove_group_member'),
+    url(r'^create_group_post/(?P<name>.+)/(?P<username>.+)/$', groups.views.create_group_post,name='create_group_post'),
 
 ]
 
