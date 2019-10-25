@@ -8,7 +8,7 @@
                     <div class="group_timeline_profile-img" style="text-align: center">
                         <img src="{{ group_profile.group_pic.url}}" id="group_timeline_profile_pic1">
                     </div>
-                    <div class="group_timeline_name" style="text-align: center"><h2 style="color: #117a8b"><strong>{{ group.name }}</strong></h2></div>
+                    <div class="group_timeline_name" style="text-align: center"><h2 id="group_name" style="color: #117a8b"><strong>{{ group.name }}</strong></h2></div>
                 </a>
                 <br>
                 <div class="group_timeline_information" style="text-align: center">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-7" style="margin-left: 2%">
+            <div class="col-sm-6" style="margin-left: 2%">
                 <br>
                 <div class="jumbotron">
                     <form action="{% url 'create_group_post' group.name user.username%}" class="form-horizontal" role="form" method="post">
@@ -48,15 +48,26 @@
                 {% endfor %}
 
             </div>
-            <div class="col-sm-4 sidebar-offcanvas-right">
-                <h2 style="color: #117a8b"><strong>{{ group.name }} Members</strong></h2>
+            <div class="col-sm-5 sidebar-offcanvas-right">
+                {% if admin_flag %}
+                    <form>
+                        <div class="col-xs-8">
+                            <input type="text" id="id_invite_username" size="30" name="username" required class="form-control input-lg" placeholder="Enter username to invite"  autocomplete="off"/><br/>
+                        </div>
+                        <button class="btn-lg btn-primary" role="button" id="invite">Invite</button><br><br>
+                        <div id="username_avail" style="display: none; color: red; margin-left: 4%">There is no such user registered on FSB</div>
+                        <div id="group_signup" style="display: none; color: red; margin-left: 4%">Already in Group</div>
+                        <div id="already_sent" style="display: none; color: red; margin-left: 4%">Invitation already sent</div>
+                        <div id="sent" style="display: none; color: green; margin-left: 4%"><strong>Invitaion Sent</strong></div>
+                    </form><br>
+                {% endif %}
+                <h2 style="color: #117a8b"><strong><a id="group_name" style="text-decoration: none" href="">{{ group.name }}</a> Members</strong></h2>
                 {% for member in members %}
                     <i>
                         <h2 class="nav-header">
                             <a style="text-decoration: none" href="/profile/{{ member.username }}/">
                                 {{ member.username }}
                             </a>
-
                         </h2>
                     </i>
                 {% endfor %}

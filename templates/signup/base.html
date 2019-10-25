@@ -10,6 +10,8 @@
     <!--BootStrap Links-->
     {#    <link rel="stylesheet" href="{% static "CSS/base.css" %}">#}
     <!--External CSS File-->
+{#    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://apis.google.com">#}
+
     <link rel="stylesheet" href="{% static "CSS/profiling.css" %}">
     <link rel="stylesheet" href="{% static "CSS/timeline.css" %}">
     <link rel="stylesheet" href="{% static "CSS/search.css" %}">
@@ -50,6 +52,7 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right ">
                     <li><a href="/messages/"> Messages</a></li>
+                    <li><a href="/view_invitations/"> Check Friend Requests</a></li>
                     <li><a href="/profile/"> Profile</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/setting/">Settings</a>
@@ -80,7 +83,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="{% static "js/signup.js" %}"></script>
-{#<script src="{% static "js/profile.js" %}"></script>#}
+<script src="{% static "js/group.js" %}"></script>
 <script src="{% static "js/svg/svg.js" %}"></script>
 <script src="{% static "js/account.js" %}"></script>
 <script src="{% static "js/register.js" %}"></script>

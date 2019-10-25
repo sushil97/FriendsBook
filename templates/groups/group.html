@@ -12,6 +12,7 @@
                         <form method="POST" class="form" action="/create_group/">
                             {% csrf_token %}
                             <input type="text" id="id_name" name="name" required class="form-control input-lg" placeholder="Group Name"  autocomplete="off"/><br />
+                            <p id="groupname_status" style="display: none; color: red">Name already taken</p>
                             <label >Group Description</label>
                             <textarea placeholder="Group Discription" class="form-control input-lg" rows="5" id="id_biography" name="biography" required></textarea><br>
                             <label for="id_group_profile_pic">Group Profile pic:</label>
@@ -28,7 +29,7 @@
                                        class="form-control input-lg" placeholder="Group fee" required/><br/>
                             </div>
                             <br>
-                            <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Create group
+                            <button class="btn btn-lg btn-primary btn-block signup-btn" id="create_g" type="submit">Create group
                             </button>
                             <br/><br/>
                         </form>

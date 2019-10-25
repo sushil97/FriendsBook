@@ -1,40 +1,95 @@
 {% extends "signup/base.html" %}
 {% block body_block %}
     <div class="container c1">
-        {% if not this_user_list and not this_user_profile_list %}
-            <hgroup class="mb20">
-                <h1>Search Results</h1>
-                <h2 class="lead"><strong class="text-danger"></strong> No results found for <strong class="text-danger">{{query}}</strong></h2>
-            </hgroup>
-        {% else %}
-            <hgroup class="mb20">
-                <h1>Search Results</h1>
-                <h2 class="lead"><strong class="text-danger">{{ this_user_list|length }}</strong> results were found for the search for <strong class="text-danger">{{query}}</strong></h2>
-            </hgroup>
-            <section class="col-xs-12 col-sm-6 col-md-12">
-                {% for user_list in this_user_list %}
-                    {% for user_profile_list in this_user_profile_list %}
-                        <article class="search-result row">
-                            <div class="col-xs-12 col-sm-12 col-md-3">
-                                <a href="/profile/{{ user_list.username }}" title="{{user_list.first_name}} {{ user_list.last_name }}" class="thumbnail"><img src="{{user_profile_list.profile_pic.url}}" alt="{{user_list.username}}" /></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-2">
-                                <ul class="meta-search">
-                                    <li><i class="glyphicon glyphicon-calendar"></i> <span>{{user_profile_list.dob}}</span></li>
-                                    <li><i class="glyphicon glyphicon-phone"></i> <span>{{user_profile_list.mobile}}</span></li>
-                                    <li><i class="glyphicon glyphicon-flag"></i> <span>{{user_profile_list.country}}</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                                <h3><a href="/profile/{{ user_list.username }}" title="">{{user_list.first_name}} {{ user_list.last_name }}</a></h3>
-                                <p>{{ user_profile_list.biography }}</p>
-                                <span class="plus"><a href="#" title="Add friend"><i class="glyphicon glyphicon-plus"></i></a></span>
-                            </div>
-                            <span class="clearfix borda"></span>
-                        </article>
-                    {% endfor %}
-                {% endfor %}
-            </section>
-        {% endif %}
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#people">People</a></li>
+            <li><a data-toggle="tab" href="#groups">Groups</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="people" class="tab-pane fade in active">
+                {% if not this_user_list and not this_user_profile_list %}
+                    <hgroup class="mb20" style="margin-top: 1%">
+                        <h1>Search Results</h1>
+                        <h2 class="lead"><strong class="text-danger"></strong> No results found for <strong class="text-danger">{{query}}</strong></h2>
+                    </hgroup>
+                {% else %}
+                    <hgroup class="mb20" style="margin-top: 1%">
+                        <h1>Search Results</h1>
+                        <h2 class="lead"><strong class="text-danger">{{ this_user_list|length }}</strong> results were found for the search for <strong class="text-danger">{{query}}</strong></h2>
+                    </hgroup>
+                    <section class="col-xs-12 col-sm-6 col-md-12">
+                        {% for user_list in this_user_list %}
+                            {% for user_profile_list in this_user_profile_list %}
+                                {% ifequal user_list.id user_profile_list.user_id%}
+                                    <article class="search-result row">
+                                        <div class="col-xs-12 col-sm-12 col-md-3">
+                                            <a href="/profile/{{ user_list.username }}/" title="{{user_list.first_name}} {{ user_list.last_name }}" class="thumbnail"><img src="{{user_profile_list.profile_pic.url}}" alt="{{user_list.username}}" style="width: 150px;height: 150px" /></a>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-2">
+                                            <ul class="meta-search">
+                                                <li><i class="glyphicon glyphicon-calendar"></i> <span>{{user_profile_list.dob}}</span></li>
+                                                {% if user_profile_list.mobile %}
+                                                    <li><i class="glyphicon glyphicon-phone"></i> <span>{{user_profile_list.mobile}}</span></li>
+                                                {% endif %}
+                                                {% if user_profile_list.country %}
+                                                    <li><i class="glyphicon glyphicon-flag"></i> <span>{{user_profile_list.country}}</span></li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                                            <h3><a href="/profile/{{ user_list.username }}/" style="text-decoration: none;">{{user_list.first_name}} {{ user_list.last_name }}</a></h3>
+                                            <p>{{ user_profile_list.biography }}</p>
+                                            <span class="plus"><a href="#" title="Add friend"><i class="glyphicon glyphicon-plus"></i></a></span>
+                                        </div>
+                                        <span class="clearfix borda"></span>
+                                    </article>
+                                {% endifequal %}
+                            {% endfor %}
+                        {% endfor %}
+                    </section>
+                {% endif %}
+            </div>
+
+
+            <div id="groups" class="tab-pane fade">
+                {% if not groups_list and not groups_info_list %}
+                    <hgroup class="mb20" style="margin-top: 1%">
+                        <h1>Search Results</h1>
+                        <h2 class="lead"><strong class="text-danger"></strong> No results found for <strong class="text-danger">{{query}}</strong></h2>
+                    </hgroup>
+                {% else %}
+                    <hgroup class="mb20" style="margin-top: 1%">
+                        <h1>Search Results</h1>
+                        <h2 class="lead"><strong class="text-danger">{{ groups_list|length }}</strong> results were found for the search for <strong class="text-danger">{{query}}</strong></h2>
+                    </hgroup>
+                    <section class="col-xs-12 col-sm-6 col-md-12">
+                        {% for group in groups_list %}
+                            {% for group_profile in groups_info_list %}
+                                {% ifequal group.id group_profile.group_id%}
+                                    <article class="search-result row">
+                                        <div class="col-xs-12 col-sm-12 col-md-3">
+                                            <a href="/group_profile/{{ group.name }}/" title="{{group.name}}" class="thumbnail"><img src="{{group_profile.group_pic.url}}" alt="{{group.name}}" /></a>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-2">
+                                            <ul class="meta-search">
+                                                <li><i class="glyphicon glyphicon-gift"></i> <span>{{group_profile.type}}</span></li>
+                                                <li><i class="glyphicon glyphicon-phone"></i> <span>{{group_profile.fee}}</span></li>
+                                                <li><i>Admin</i> <span>{{group_profile.admin.username}}</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                                            <h3><a href="/group_profile/{{ group.name }}/" style="text-decoration: none">{{group.name}}</a></h3>
+                                            <p>{{ group_profile.biography }}</p>
+                                            <span class="plus"><a href="/group_profile/{{ group.name }}/" title="View Group Profile"><i class="glyphicon glyphicon-plus"></i></a></span>
+                                        </div>
+                                        <span class="clearfix borda"></span>
+                                    </article>
+                                {% endifequal %}
+                            {% endfor %}
+                        {% endfor %}
+                    </section>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}

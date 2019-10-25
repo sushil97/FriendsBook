@@ -1,0 +1,13 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container" style="margin-top: 100px">
+        {% for invitation in invitations %}
+            <div class="jumbotron" style="font-size: 25px">
+                {{ invitation.from_admin.username }} has invited you to join group {{ invitation.group.name }} <a href="{% url 'invitation_detail' invitation.group.name %}" style="text-decoration: none;float: right;color: green">View Request</a>
+            </div>
+        {% empty %}
+            <div class="jumbotron" style="font-size: 25px">No requests :(</div>
+        {% endfor %}
+    </div>
+{% endblock %}

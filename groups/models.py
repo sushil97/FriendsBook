@@ -25,5 +25,12 @@ class GroupPost(models.Model):
     created_date = models.DateTimeField(
         default=timezone.now)
 
+class GroupInvitation(models.Model):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    to_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='group_invitation_received')
+    from_admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name='group_invitation_sent')
+    created = models.DateTimeField(default=timezone.now)
+    rejected = models.DateTimeField(blank=True, null=True)
+
 def __str__(self):
     return self.group.name

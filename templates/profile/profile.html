@@ -54,6 +54,14 @@
                         </form>
                     </div>
                 </div>
+                <div style="float: left; margin-left: 15px">
+                    <div class="upload-btn-wrapper-submit">
+                        <form method="get" action="/view_invitations/">
+                            {% csrf_token %}
+                            <button class="btn edit">Check Group Requests</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="col-md-3" style="float: right">
                     <div class="upload-btn-wrapper-submit">
                         <a href="#" data-toggle="modal" data-target="#update-bio-modal">

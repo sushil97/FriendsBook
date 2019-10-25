@@ -56,20 +56,30 @@
                         </form>
                     </div>
                 </div>
-                <div style="float: left; margin-left: 30px">
-                    <div class="upload-btn-wrapper-submit">
-                        <form method="get" action="{% url 'group_timeline' group.name %}">
-                            {% csrf_token %}
-                            <button class="btn edit">View Group Timeline</button>
-                        </form>
+                {% if user in group_members %}
+                    <div style="float: left; margin-left:33px">
+                        <div class="upload-btn-wrapper-submit">
+                            <form method="get" action="{% url 'group_timeline' group.name %}">
+                                {% csrf_token %}
+                                <button class="btn edit">View Group Timeline</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
                 {% if user.id == groupprofileinfo.admin_id %}
-                    <div style="float: left; margin-left: 45px">
+                    <div style="float: left; margin-left: 34px">
                         <div class="upload-btn-wrapper-submit">
                             <form action="{% url 'view_group_requests' group.name %}">
                                 {% csrf_token %}
                                 <button class="btn edit">View requests</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="float: left; margin-left: 33px">
+                        <div class="upload-btn-wrapper-submit">
+                            <form action="{% url 'delete_group' group.name %}">
+                                {% csrf_token %}
+                                <button class="btn edit">Delete Group</button>
                             </form>
                         </div>
                     </div>
@@ -97,6 +107,15 @@
                             {% endif %}
                         </div>
                     </div>
+                {% elif user in group_members and user != admin %}
+                    <div class="col-md-3" style="float: right">
+                        <div class="upload-btn-wrapper-submit">
+                            <form method="post" action="{% url 'leave_group' group.name %}">
+                                {% csrf_token %}
+                                <button class="btn edit">Leave Group</button>
+                            </form>
+                        </div>
+                    </div>
                 {% endif %}
             </div>
         </div>
@@ -112,23 +131,30 @@
                             aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'update_bio' %}" enctype="multipart/form-data" method="post">
+                <form action="{% url 'update_group_bio' group.name%}" enctype="multipart/form-data" method="post">
                     {% csrf_token %}
                     <div class="modal-body">
-
                         <div class="row">
                             <div class="col-sm-12">
-                                <label>Group Name</label>
-                                <input id="" type="text" class="form-control input-lg" required name="name"
-                                       value="{{ group.name }}"><br>
                                 <label>Group Description</label>
                                 <textarea id="" class="form-control input-lg" value="" name="biography"
                                           required>{{ groupprofileinfo.biography }}</textarea><br>
-                                {% if groupprofileinfo.type == 'Private' %}
-                                    <label>Fee</label>
-                                    <input id="" type="text" class="form-control input-lg" required name="fee"
-                                           value="{{ groupprofileinfo.fee }}"><br>
-                                {% endif %}
+                                <label>Group Type</label><br>
+                                {% ifequal groupprofileinfo.type "Private" %}
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" value="Public" id="id_type" required/>Public</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" value="Private" id="id_type" checked/>Private</label>
+                                {% else %}
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" value="Public" checked id="id_type" required/>Public</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" value="Private" id="id_type" />Private</label>
+                                {% endifequal %}
+                                <br><br>
+                                <label>Fee</label>
+                                <input id="" type="text" class="form-control input-lg" required name="fee"
+                                       value="{{ groupprofileinfo.fee }}"><br>
                             </div>
                         </div>
                     </div>

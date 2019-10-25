@@ -86,8 +86,14 @@ $("#id_username").keyup(function () {
             success: function (data) {
                 if (data === 'True') {
                     $("#username_status").css({"display": "block"});
-                } else {
+                    $('#create_a').attr('disabled','disabled');
+
+                }
+
+                else {
                     $("#username_status").css({"display": "none"});
+                    $('#create_a').removeAttr('disabled');
+
                 }
             }
         });

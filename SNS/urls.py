@@ -50,6 +50,7 @@ urlpatterns = [
     # url(r"^add/(?P<to_username>[\w-]+)/$",user_account.views.add_friend, name="add_friend"),
     # url(r"^friend/requests/$",user_account.views.friend_requestlist,name="friend_requestlist"),
     url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
+    url(r'^validate_groupname/$', groups.views.validate_groupname, name='validate_groupname'),
     url(r'^create_post/$',user_account.views.create_post,name='create_post'),
     url(r'^settings/account/$',user_account.views.accountsettings, name="accountsettings"),
     url(r'^messages/', include('django_messages.urls')),
@@ -58,7 +59,7 @@ urlpatterns = [
     url(r'^launch_create_group/$',groups.views.launch_create_group, name='launch_create_group'),
     url(r'^create_group/$',groups.views.create_group, name='create_group'),
     url(r'^group_profile/(?P<name>.+)/$', groups.views.profile, name='group_profile'),
-    # url(r'^update_group_bio/(?P<name>.+)/$', groups.views.update_group_bio, name='update_group_bio'),
+    url(r'^update_group_bio/(?P<name>.+)/$', groups.views.update_group_bio, name='update_group_bio'),
     url(r'^update_group_profile_pic/(?P<name>.+)/$', groups.views.update_group_profile_pic, name='update_group_profile_pic'),
     url(r'^group_requests/(?P<name>.+)/$', groups.views.groups_requests,name='group_requests'),
     url(r'^cancel_requests/(?P<name>.+)/$', groups.views.cancel_requests, name='cancel_requests'),
@@ -70,6 +71,13 @@ urlpatterns = [
     url(r'^group_timeline/(?P<name>.+)/$',groups.views.group_timeline,name="group_timeline"),
     url(r'^remove_group_member/(?P<name>.+)/(?P<username>.+)/$', groups.views.remove_group_member,name='remove_group_member'),
     url(r'^create_group_post/(?P<name>.+)/(?P<username>.+)/$', groups.views.create_group_post,name='create_group_post'),
+    url(r'^delete_group/(?P<name>.+)/$', groups.views.delete_group, name='delete_group'),
+    url(r'^leave_group/(?P<name>.+)/$', groups.views.leave_group, name='leave_group'),
+    url(r'^group_invite/$', groups.views.group_invite, name='group_invite'),
+    url(r'^view_invitations/$',groups.views.view_invitations,name='view_invitations'),
+    url(r'^invitation_detail/(?P<name>.+)/$',groups.views.invitation_detail,name='invitation_detail'),
+    url(r'^accept_invitation/(?P<name>.+)/$', groups.views.accept_invitation, name='accept_invitation'),
+    url(r'^reject_invitation/(?P<name>.+)/$', groups.views.reject_invitation, name='reject_invitation')
 
 ]
 

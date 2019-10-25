@@ -1,0 +1,20 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container" style="margin-top:250px; text-align: center;">
+        <div class="jumbotron">
+            <h3>Join {{group.name}}</h3>
+            <div class="row">
+                <form method="post" action="{% url 'accept_invitation' group.name%}" style="display:inline; margin-right:50px">
+                    {% csrf_token %}
+                    <input type="submit" value="accept" class="btn btn-success"/>
+                </form>
+
+                <form method="post" action="{% url 'reject_invitation' group.name%}" style="display: inline">
+                    {% csrf_token %}
+                    <input type="submit" value="reject" class="btn btn-warning"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -139,16 +139,32 @@ def search(request):
     if request.user.is_authenticated and request.method == 'GET':
         user = request.user
         query = request.GET.get('search')
-        users_list = User.objects.filter(Q(username=query) | Q(email=query))
+        users_list = User.objects.filter(Q(username__contains=query) | Q(email=query) | Q(first_name__contains=query) | Q(last_name__contains=query),is_staff=False)
+        groups_list = Group.objects.filter(Q(name__contains=query))
         users_info_list=[]
+        groups_info_list=[]
+        print(users_list)
+        print(groups_list)
+        users_info_list = UserProfileInfo.objects.none()
+        groups_info_list = GroupProfileInfo.objects.none()
         for i in users_list:
             userid = i.id
-            users_info_list = UserProfileInfo.objects.filter(Q(user_id=userid))
+            queryset = UserProfileInfo.objects.filter(Q(user_id=userid))
+            users_info_list = users_info_list | queryset
+
+        for i in groups_list:
+            groupid = i.id
+            queryset = GroupProfileInfo.objects.filter(Q(group_id=groupid))
+            groups_info_list = groups_info_list | queryset
+        print(users_info_list)
+        print(groups_info_list)
         context={
             'user':user,
             'this_user_list': users_list,
             'this_user_profile_list':users_info_list,
-            'query':query
+            'query':query,
+            'groups_info_list':groups_info_list,
+            'groups_list':groups_list
         }
         return render_to_response('profile/search.html',context)
     else:
