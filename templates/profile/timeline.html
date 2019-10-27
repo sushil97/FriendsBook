@@ -17,34 +17,45 @@
                 </div>
                 <div class="group">
                     {#                    <h3><i class="glyphicon glyphicon-plus"></i> Create Group</h3>#}
-                    <p><form action="/launch_create_group/">
-                    {% csrf_token %}
+                    <p>
+                    <form action="/launch_create_group/">
+                        {% csrf_token %}
                         <button class="btn btn-primary" role="button" type="submit">
                             <i class="glyphicon glyphicon-plus"></i>
                             Create Group
                         </button>
                     </form>
                     </p>
-{#                    <div class="collapse" id="collapseExample">#}
-{#                        <div class="card card-body">#}
-{#                            <div>#}
-{#                                {% csrf_token %}#}
-{#                                <div class="form-group row">#}
-{#                                    <div class="col-sm-8">#}
-{#                                        <input type="text" class="form-control" id="group_name"#}
-{#                                               placeholder="Enter group name">#}
-{#                                    </div>#}
-{#                                    <div class="col-sm-4">#}
-{#                                        <button class="btn btn-primary" id="create_group_btn" data-username="{{ user.username }}">Add</button>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                    <p>
+                    <form action="{% url 'launch_create_page' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-primary" role="button" type="submit">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            Create Page
+                        </button>
+                    </form>
+                    </p>
+                    {#                    <div class="collapse" id="collapseExample">#}
+                    {#                        <div class="card card-body">#}
+                    {#                            <div>#}
+                    {#                                {% csrf_token %}#}
+                    {#                                <div class="form-group row">#}
+                    {#                                    <div class="col-sm-8">#}
+                    {#                                        <input type="text" class="form-control" id="group_name"#}
+                    {#                                               placeholder="Enter group name">#}
+                    {#                                    </div>#}
+                    {#                                    <div class="col-sm-4">#}
+                    {#                                        <button class="btn btn-primary" id="create_group_btn" data-username="{{ user.username }}">Add</button>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <h3><i class="glyphicon glyphicon-chevron-down"></i> List of Groups</h3>
-                        {% for group in group_lists %}
-                            <strong><a href="/group_profile/{{ group.name }}/" style="text-decoration: none"><h3>{{ group.name }}</h3></a></strong>
-                        {% endfor %}
+                    {% for group in group_lists %}
+                        <strong><a href="/group_profile/{{ group.name }}/" style="text-decoration: none">
+                            <h3>{{ group.name }}</h3></a></strong>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-sm-2"></div>

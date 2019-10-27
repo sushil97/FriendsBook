@@ -23,6 +23,8 @@ import login
 import signup
 import user_account
 import django_mfa
+import pages
+from pages import views
 from groups import views
 from user_account import views
 from SNS import settings
@@ -77,7 +79,14 @@ urlpatterns = [
     url(r'^view_invitations/$',groups.views.view_invitations,name='view_invitations'),
     url(r'^invitation_detail/(?P<name>.+)/$',groups.views.invitation_detail,name='invitation_detail'),
     url(r'^accept_invitation/(?P<name>.+)/$', groups.views.accept_invitation, name='accept_invitation'),
-    url(r'^reject_invitation/(?P<name>.+)/$', groups.views.reject_invitation, name='reject_invitation')
+    url(r'^reject_invitation/(?P<name>.+)/$', groups.views.reject_invitation, name='reject_invitation'),
+    url(r'^create_page/$',pages.views.create_page, name='create_page'),
+    url(r'^launch_create_page/$', pages.views.launch_create_page, name='launch_create_page'),
+    url(r'^page_timeline/(?P<page>.+)/$', pages.views.page_timeline, name='page_timeline'),
+    url(r'^create_page_post/(?P<page>.+)/$', pages.views.create_page_post, name='create_page_post'),
+    url(r'^update_page_pic/(?P<page>.+)/$', pages.views.update_page_pic, name='update_page_pic'),
+    url(r'^follow_page/(?P<page>.+)/$', pages.views.follow_page, name='follow_page'),
+    url(r'^unfollow_page/(?P<page>.+)/$', pages.views.unfollow_page, name='unfollow_page'),
 
 ]
 

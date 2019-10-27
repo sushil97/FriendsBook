@@ -1,0 +1,31 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container" style="margin-top: 60px">
+        <div class="jumbotron">
+            {% if created %}
+                <h1>Thank you for registering!</h1>
+                <h2>Click <a href="{% url 'page_timeline' page_name%}" style="text-decoration: none">here</a> to move to timeline of your page</h2>
+            {% else %}
+                <div class="container" id="wrap">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3"><h1>Create Page</h1><br>
+                            <form method="POST" enctype="multipart/form-data" action="{% url 'create_page' %}">
+                                {% csrf_token %}
+                                <input type="text" id="id_page" name="page" required class="form-control input-lg" placeholder="Page Name"  autocomplete="off"/><br />
+                                <label >Page Description</label>
+                                <textarea placeholder="Page Discription" class="form-control input-lg" rows="5" id="id_biography" name="biography" required></textarea><br>
+                                <label for="id_group_profile_pic">Page Logo</label>
+                                <input type="file" name="page_pic" accept="image/*" id="id_page_pic" required>
+                                <br/>
+                                <button class="btn btn-lg btn-primary btn-block signup-btn" id="#" type="submit">Create page
+                                </button>
+                                <br/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

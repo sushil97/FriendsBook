@@ -1,0 +1,120 @@
+{% extends "signup/base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container-fluid" style="margin-top: 60px">
+        <div class="row">
+            <div class="col-sm-2 sidebar-offcanvas-left" style="position: fixed">
+                <a style="text-decoration: none" href="#">
+                    <div class="page_logo_img" style="text-align: center">
+                        <img src="{{ pages.page_pic.url }}" id="page_logo_id">
+                        {% if admin_status %}
+                            <div class="upload-btn-wrapper">
+                                <a href="#" data-toggle="modal" data-target="#update-avatar-modal">
+                                    <button class="btn edit">Update Profile Pic</button>
+                                </a>
+                            </div>
+                        {% elif not follower_status %}
+                            <div class="upload-btn-wrapper">
+                                <form method="post" action="{% url 'follow_page' pages.page%}">
+                                    {% csrf_token %}
+                                    <button class="btn edit">Follow</button>
+                                </form>
+                            </div>
+                        {% elif follower_status %}
+                            <div class="upload-btn-wrapper">
+                                <form method="post" action="{% url 'unfollow_page' pages.page%}">
+                                    {% csrf_token %}
+                                    <button class="btn edit">Unfollow</button>
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="page_timeline_name" style="text-align: center"><h2 id="#" style="color: #117a8b"><strong>{{ pages.page }}</strong></h2></div>
+                </a>
+                <br>
+                <div class="page_timeline_information" style="text-align: center">
+                    {#                    {% if not admin_status %}#}
+                    {#                        <button class="btn" style="background-color: greenyellow;">Follow</button>#}
+                    {#                    {% endif %}#}
+                    <div class="timeline_username"><h4><strong>Admin:</strong> {{pages.admin}}</h4></div>
+                    <h3 style="text-align: center"><strong>About</strong></h3>
+                    <div class="group_timeline_desc" style="text-align: center"> <h4 style="justify-content: flex-start">{{ pages.biography }}</h4></div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" style="margin-left: 11%">
+                <br>
+                {% if admin_status %}
+                    <div class="jumbotron">
+                        <form action="{% url 'create_page_post' pages.page%}" enctype="multipart/form-data" class="form-horizontal" method="POST">
+                            {% csrf_token %}
+                            <h4>Add Post</h4>
+                            <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title"
+                                   name="title" required style="width: 100%">
+                            <br><br>
+                            <div class="form-group" style="margin-left: 0%;width: 100%">
+                                <textarea class="form-control input-lg" placeholder="Update your status" name="text"
+                                          id="id_text"></textarea>
+                            </div>
+                            <br>
+                            <label for="id_post_pic">Post pic:</label>
+                            <input id="id_post_pic" type="file" accept="image/*" name="post_pic" required>
+                            <br>
+                            <button class="btn btn-primary pull-right" type="submit">Post</button>
+                        </form>
+                    </div>
+                {% endif %}
+                <br><br>
+                <h3 style="color:darkslategrey;"><strong>{{ pages.page }}'s Posts</strong></h3><br>
+                {% for post in posts %}
+                    {% if post.post_pic.url %}
+                        <div class="page_posts">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <img src="{{ post.post_pic.url }}">
+                                </div>
+                                <div class="col-sm-7" style="text-align: justify;">
+                                    <h3 >{{ post.title }}</h3>
+                                    <h3 >{{ post.text }}</h3>
+                                </div>
+                                <div class="time_of_post"><i class="glyphicon glyphicon-time"></i>{{ post.created_date}}</div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!--Update profile image-->
+    <div class="modal fade" id="update-avatar-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Update Page Logo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'update_page_pic' pages.page%}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input id="id_page_pic" type="file" accept="image/*" class="btn btn-sm btn-secondary" name="page_pic">
+                                <img id="profile_pic_preview" class="img-preview" src="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

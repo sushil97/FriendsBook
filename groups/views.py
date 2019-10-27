@@ -435,7 +435,6 @@ def update_group_profile_pic(request, name=None):
         image_form = GroupProfilePicUpdateForm(request.POST, request.FILES)
         if request.method == 'POST' and image_form.is_valid():
             profile = GroupProfileInfo.objects.get(group=group.id)
-            profile.group_pic.delete(False)
             profile.group_pic = image_form.cleaned_data['group_pic']
             profile.save()
         return HttpResponseRedirect('/group_profile/' + name + '/')

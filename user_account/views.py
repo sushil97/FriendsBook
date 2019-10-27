@@ -6,6 +6,7 @@ from groups.models import GroupRequestInfo,GroupProfileInfo
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
+
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from user_account.models import Post
@@ -42,12 +43,10 @@ def my_timeline(request):
         user = User.objects.get(id=request.user.id)
         user_profile = UserProfileInfo.objects.get(user_id=user.id)
         friends_list = Friend.objects.friends(request.user)
-        print(friends_list)
         friend_users=[]
         friend_users=friends_list.copy() #copy to prevent the change of list of friends
         friend_users.insert(0,user)
-        print(friend_users)
-        print(friends_list)
+
         # for i in friends_list:
         #     friend_users = User.objects.filter(Q(username=i))
         # print(friend_users)
@@ -72,8 +71,6 @@ def my_timeline(request):
         #     friend_id=friend_user.id
         posts_list=Post.objects.all().order_by('-created_date')
         group_list=Group.objects.filter(user=request.user)
-        print(posts_list)
-        print(group_list)
         context ={
             'user': user,
             'user_profile': user_profile,
@@ -143,8 +140,6 @@ def search(request):
         groups_list = Group.objects.filter(Q(name__contains=query))
         users_info_list=[]
         groups_info_list=[]
-        print(users_list)
-        print(groups_list)
         users_info_list = UserProfileInfo.objects.none()
         groups_info_list = GroupProfileInfo.objects.none()
         for i in users_list:
