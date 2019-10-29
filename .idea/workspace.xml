@@ -2,55 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/Kishan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/Kishan_SBZ3chO.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/Signature.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/Signature_iljUhwx.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/logo_4D8xdA0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/logo_FrUsck3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_profile_pic/Kishan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_profile_pic/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/profile_pics/Kishan_h2wWA7Z.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0002_auto_20191027_0651.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0003_pagepost_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0004_auto_20191027_1331.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0005_auto_20191027_1334.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0006_remove_pagepost_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0007_pagepost_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0008_auto_20191027_1404.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0009_auto_20191027_1410.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0010_auto_20191027_1418.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0011_auto_20191027_1430.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0012_auto_20191027_1442.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0013_auto_20191027_1608.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0014_pagefollowinfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0015_auto_20191027_1753.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0016_auto_20191027_1802.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/0017_auto_20191027_1804.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/CSS/page_timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/create_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/page_timeline.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0019_auto_20191027_2024.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/default_pic/default_pic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/group_profile_pics/Kishan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/group_profile_pics/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/Kishan_DpeRQro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/logo_Q7KetEP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/logo_ezOH5IR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/migrations/0018_auto_20191027_2024.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/groups/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/group_profile_pics/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/Kishan_sVaHcBr.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/group_timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/group_timeline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/page_timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/page_timeline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/profiling.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/profiling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/timeline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/group.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/group.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/django_messages/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_messages/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/groups/group.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/groups/group.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/groups/group_timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/groups/group_timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/create_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/create_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/page_timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/page_timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/random_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/random_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/settings/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings/privacy.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,7 +80,7 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="pages_pagepost: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="pages_pagefollowinfo: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -119,8 +108,8 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -148,19 +137,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/CSS" />
-      <recent name="$PROJECT_DIR$/templates/pages" />
-      <recent name="$PROJECT_DIR$/templates/groups" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/templates/settings" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/media/group_profile_pics" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/CSS" />
       <recent name="$PROJECT_DIR$/django_messages" />
       <recent name="$PROJECT_DIR$/friendship" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/media/default_pic" />
+      <recent name="$PROJECT_DIR$/static/CSS" />
+      <recent name="$PROJECT_DIR$/templates/pages" />
+      <recent name="$PROJECT_DIR$/templates/groups" />
+      <recent name="$PROJECT_DIR$/static/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -234,22 +223,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@9bfb1dd7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@9bfb1dd7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6e9c16db" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@9bfb1dd7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@36e14f58" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -301,7 +275,8 @@
       <workItem from="1571996008963" duration="16421000" />
       <workItem from="1572080336341" duration="4383000" />
       <workItem from="1572138918135" duration="10706000" />
-      <workItem from="1572172670080" duration="7207000" />
+      <workItem from="1572172670080" duration="15813000" />
+      <workItem from="1572342227718" duration="5586000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

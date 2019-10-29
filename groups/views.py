@@ -430,13 +430,19 @@ def update_group_bio(request, name=None):
 @csrf_exempt
 def update_group_profile_pic(request, name=None):
     user = request.user
+    default = 'default_pic/default_pic.jpg'
     if request.user.is_authenticated:
         group = Group.objects.get(name=name)
         image_form = GroupProfilePicUpdateForm(request.POST, request.FILES)
         if request.method == 'POST' and image_form.is_valid():
             profile = GroupProfileInfo.objects.get(group=group.id)
-            profile.group_pic = image_form.cleaned_data['group_pic']
-            profile.save()
+            if profile.group_pic == default:
+                profile.group_pic = image_form.cleaned_data['group_pic']
+                profile.save()
+            else:
+                profile.group_pic.delete(False)
+                profile.group_pic = image_form.cleaned_data['group_pic']
+                profile.save()
         return HttpResponseRedirect('/group_profile/' + name + '/')
     return HttpResponseRedirect('/login/')
 

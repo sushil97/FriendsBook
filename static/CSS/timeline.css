@@ -120,3 +120,31 @@
     width: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
+.timeline .timeline_post{
+    border: none;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+    padding:10px;
+    background: #DAD299;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fdfcfb, #ebedee);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fdfcfb, #ebedee); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.timeline .timeline_post .post_author
+{
+    font-size: 30px;
+    text-underline: black;
+}
+.timeline .timeline_post .timeline_time
+{
+    text-align: right;
+}
+.timeline .timeline_post a{
+    text-decoration: none;
+}
+.timeline .timeline_post .post_title{
+    font-size: 30px;
+}
+.timeline .timeline_post hr{
+    border-top: 1px dashed red;
+}

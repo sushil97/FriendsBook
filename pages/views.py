@@ -1,9 +1,9 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, render_to_response
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, render_to_response, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-
+from django.contrib.auth.models import User
 from pages.models import PageProfileInfo, PagePost, PageFollowInfo
-from pages.forms import PageProfileInfoForm, PagePostForm, PageProfilePicUpdateForm, PageUnFollowInfoForm, PageFollowInfoForm
+from pages.forms import PageProfileInfoForm, PagePostForm, PageUpdateForm, PageProfilePicUpdateForm, PageUnFollowInfoForm, PageFollowInfoForm
 
 
 # Create your views here.
@@ -81,26 +81,6 @@ def create_page_post(request, page=None):
     else:
         return HttpResponseRedirect('/login/')
 
-@csrf_exempt
-def update_page_pic(request,page=None):
-    user = request.user
-    pages = PageProfileInfo.objects.get(page=page)
-    if request.user.is_authenticated:
-        image_form = PageProfilePicUpdateForm(request.POST, request.FILES)
-        print(image_form.is_valid())
-        if user == pages.admin:
-            if request.method == 'POST' and image_form.is_valid() :
-                # profile = PageProfileInfo.objects.get(user_id=user.id)
-                pages.page_pic.delete(False)
-                pages.page_pic = image_form.cleaned_data['page_pic']
-                pages.save()
-            else:
-                print(image_form.errors)
-            return HttpResponseRedirect('/page_timeline/'+page+'/')
-        else:
-            return HttpResponseRedirect('/timeline/')
-    else:
-        return HttpResponseRedirect('/login/')
 
 @csrf_exempt
 def follow_page(request,page=None):
@@ -133,8 +113,59 @@ def unfollow_page(request,page=None):
     else:
         return HttpResponseRedirect('/login/')
 
+@csrf_exempt
+def validate_pagename(request):
+    page = request.GET.get('page', None)
+    if PageProfileInfo.objects.filter(page__iexact=page).exists():
+        print("Username NOT available")
+        return HttpResponse(True)
+    else:
+        print("Username Available")
+        return HttpResponse(False)
+
 def launch_create_page(request):
     if request.user.is_authenticated:
         return render(request, 'pages/create_page.html')
+    else:
+        return HttpResponseRedirect('/login/')
+
+@csrf_exempt
+def update_page_pic(request,page=None):
+    user = request.user
+    pages = PageProfileInfo.objects.get(page=page)
+    if request.user.is_authenticated:
+        image_form = PageProfilePicUpdateForm(request.POST, request.FILES)
+        print(image_form.is_valid())
+        if user == pages.admin:
+            if request.method == 'POST' and image_form.is_valid() :
+                # profile = PageProfileInfo.objects.get(user_id=user.id)
+                pages.page_pic.delete(False)
+                pages.page_pic = image_form.cleaned_data['page_pic']
+                pages.save()
+            else:
+                print(image_form.errors)
+            return HttpResponseRedirect('/page_timeline/'+page+'/')
+        else:
+            return HttpResponseRedirect('/page_timeline/')
+    else:
+        return HttpResponseRedirect('/login/')
+
+
+@csrf_exempt
+def update_page_bio(request, page=None):
+    user =request.user
+    pages = PageProfileInfo.objects.get(page=page)
+    obj = get_object_or_404(PageProfileInfo, page=page)
+    if request.user.is_authenticated:
+        bio_form = PageUpdateForm(request.POST, instance=obj)
+        if user == pages.admin:
+            if request.method == 'POST' and bio_form.is_valid():
+                obj = bio_form.save(commit=False)
+                obj.save()
+            else:
+                print(bio_form.errors)
+            return HttpResponseRedirect('/page_timeline/' + page + '/')
+        else:
+            return HttpResponseRedirect('/page_timeline/')
     else:
         return HttpResponseRedirect('/login/')

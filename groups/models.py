@@ -6,7 +6,7 @@ class GroupProfileInfo(models.Model):
     group = models.OneToOneField(Group, on_delete=models.CASCADE)
     admin = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     type = models.CharField(max_length=10)
-    group_pic = models.ImageField(upload_to='group_profile_pics/', default='group_profile_pics/logo.png', blank=True)
+    group_pic = models.ImageField(upload_to='group_profile_pics/', default='default_pic/default_pic.jpg', blank=True)
     biography = models.TextField(max_length=200, blank=False)
     fee = models.IntegerField(default=0,null=False)
 

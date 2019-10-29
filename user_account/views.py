@@ -6,7 +6,7 @@ from groups.models import GroupRequestInfo,GroupProfileInfo
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
-
+from pages.models import PageFollowInfo, PageProfileInfo, PagePost
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from user_account.models import Post
@@ -46,38 +46,19 @@ def my_timeline(request):
         friend_users=[]
         friend_users=friends_list.copy() #copy to prevent the change of list of friends
         friend_users.insert(0,user)
-
-        # for i in friends_list:
-        #     friend_users = User.objects.filter(Q(username=i))
-        # print(friend_users)
-        # original_user = User.objects.filter(id=request.user.id)
-        #
-        # print(friend_user_list)
-        # for j in friend_user_list:
-        #     friendship_ids.append(j.id)
-        # print(friendship_ids)
-        # friendship_ids.append(request.user.id)
-        # print(friendship_ids)
-        # for i in friendship_ids:
-        #     posts_list = Post.objects.filter(Q(author_id=i)).order_by('created_date')
-        # print(posts_list)
-        # for i in posts_list:
-        #     posts_ids.append(i.author_id)
-        # print(posts_ids)
-        # for i in posts_ids:
-        #     posts_user = User.objects.filter(Q(id=i))
-        # print(posts_user)
-        # for friend_user in friend_user_list:
-        #     friend_id=friend_user.id
         posts_list=Post.objects.all().order_by('-created_date')
         group_list=Group.objects.filter(user=request.user)
+        my_pages_list=PageProfileInfo.objects.filter(admin=request.user)
+        following_pages_list=PageFollowInfo.objects.filter(from_user=request.user)
         context ={
             'user': user,
             'user_profile': user_profile,
             'friends_list':friends_list,
             'post_lists':posts_list,
             'group_lists':group_list,
-            'friend_users':friend_users
+            'friend_users':friend_users,
+            'my_pages_list':my_pages_list,
+            'following_pages_list':following_pages_list
         }
         return render_to_response('profile/timeline.html',context)
     else:
@@ -86,13 +67,18 @@ def my_timeline(request):
 @csrf_exempt
 def update_profile_pic(request):
     user = request.user
+    default = 'default_pic/default_pic.jpg'
     if request.user.is_authenticated:
         image_form = ProfilePicUpdateForm(request.POST, request.FILES)
         if request.method == 'POST' and image_form.is_valid():
             profile = UserProfileInfo.objects.get(user_id=user.id)
-            profile.profile_pic.delete(False)
-            profile.profile_pic = image_form.cleaned_data['profile_pic']
-            profile.save()
+            if profile.profile_pic == default:
+                profile.profile_pic = image_form.cleaned_data['profile_pic']
+                profile.save()
+            else:
+                profile.profile_pic.delete(False)
+                profile.profile_pic = image_form.cleaned_data['profile_pic']
+                profile.save()
         return HttpResponseRedirect('/profile/')
     return HttpResponseRedirect('/login/')
 
@@ -138,6 +124,7 @@ def search(request):
         query = request.GET.get('search')
         users_list = User.objects.filter(Q(username__contains=query) | Q(email=query) | Q(first_name__contains=query) | Q(last_name__contains=query),is_staff=False)
         groups_list = Group.objects.filter(Q(name__contains=query))
+        pages_info_list = PageProfileInfo.objects.filter(Q(page__contains=query))
         users_info_list=[]
         groups_info_list=[]
         users_info_list = UserProfileInfo.objects.none()
@@ -153,13 +140,15 @@ def search(request):
             groups_info_list = groups_info_list | queryset
         print(users_info_list)
         print(groups_info_list)
+        print(pages_info_list)
         context={
             'user':user,
             'this_user_list': users_list,
             'this_user_profile_list':users_info_list,
             'query':query,
             'groups_info_list':groups_info_list,
-            'groups_list':groups_list
+            'groups_list':groups_list,
+            'pages_info_list':pages_info_list
         }
         return render_to_response('profile/search.html',context)
     else:

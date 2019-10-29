@@ -13,12 +13,13 @@
                             <form method="POST" enctype="multipart/form-data" action="{% url 'create_page' %}">
                                 {% csrf_token %}
                                 <input type="text" id="id_page" name="page" required class="form-control input-lg" placeholder="Page Name"  autocomplete="off"/><br />
+                                <p id="pagename_status" style="display: none; color: red">Page Name already taken</p>
                                 <label >Page Description</label>
                                 <textarea placeholder="Page Discription" class="form-control input-lg" rows="5" id="id_biography" name="biography" required></textarea><br>
                                 <label for="id_group_profile_pic">Page Logo</label>
                                 <input type="file" name="page_pic" accept="image/*" id="id_page_pic" required>
                                 <br/>
-                                <button class="btn btn-lg btn-primary btn-block signup-btn" id="#" type="submit">Create page
+                                <button class="btn btn-lg btn-primary btn-block signup-btn" id="create_p" type="submit">Create page
                                 </button>
                                 <br/>
                             </form>

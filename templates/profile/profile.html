@@ -72,19 +72,17 @@
             </div>
         </div>
     </div>
-
+    <div class="container profile_timeline">
     {% for post in post_lists %}
-            <div class="container">
-                <div class="jumbotron">
-                    <h3>Author: {{ post.author}}</h3>
-                    <h3>Title: {{ post.title }}</h3>
-                    <h4>Content: {{ post.text }}</h4>
-                    <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
+                <div class="profile_post">
+                    <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
+                    <hr>
+                    <div class="post_title">{{ post.title }}</div>
+                    <p style="text-align: justify"> {{ post.text }}</p>
+                    <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
                 </div>
-            </div>
     {% endfor %}
-
-
+    </div>
 
     <!-- Update Biography Modal -->
     <div class="modal fade" id="update-bio-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

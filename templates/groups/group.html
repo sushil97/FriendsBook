@@ -9,7 +9,7 @@
             <div class="container" id="wrap">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3"><h1>Create group</h1><br>
-                        <form method="POST" class="form" action="/create_group/">
+                        <form method="POST" class="form" action="/create_group/" enctype="multipart/form-data">
                             {% csrf_token %}
                             <input type="text" id="id_name" name="name" required class="form-control input-lg" placeholder="Group Name"  autocomplete="off"/><br />
                             <p id="groupname_status" style="display: none; color: red">Name already taken</p>

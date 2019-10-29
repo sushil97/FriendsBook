@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-6" style="margin-left: 2%">
+            <div class="col-sm-6 group_timeline" style="margin-left: 2%">
                 <br>
                 <div class="jumbotron">
                     <form action="{% url 'create_group_post' group.name user.username%}" class="form-horizontal" role="form" method="post">
@@ -38,13 +38,14 @@
                     </form>
                 </div>
                 <br><br>
-                {% for post in group_posts %}
-                    <div class="jumbotron">
-                        <h3>Author: {{ post.author }}</h3>
-                        <h3>Title: {{ post.title }}</h3>
-                        <h4>Content: {{ post.text }}</h4>
-                        <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
-                    </div>
+                  {% for post in group_posts %}
+                   <div class="timeline_post">
+                            <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
+                            <hr>
+                            <div class="post_title">{{ post.title }}</div>
+                            <p style="text-align: justify"> {{ post.text }}</p>
+                            <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
+                        </div>
                 {% endfor %}
 
             </div>

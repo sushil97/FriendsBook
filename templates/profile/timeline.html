@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-6" style="margin-left: 2%">
+            <div class="col-sm-6 timeline" style="margin-left: 2%">
                 <br>
                 <div class="jumbotron">
                     <form action="{% url 'create_post' %}" class="form-horizontal" role="form" method="post">
@@ -79,11 +79,12 @@
                 <br><br>
                 {% for post in post_lists %}
                     {% if post.author in friend_users and post.receiver_id == user.id %}
-                        <div class="jumbotron">
-                            <h3>Author: {{ post.author }}</h3>
-                            <h3>Title: {{ post.title }}</h3>
-                            <h4>Content: {{ post.text }}</h4>
-                            <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
+                        <div class="timeline_post">
+                            <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
+                            <hr>
+                            <div class="post_title">{{ post.title }}</div>
+                            <p style="text-align: justify"> {{ post.text }}</p>
+                            <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -97,6 +98,24 @@
                                    style="text-decoration: none">{{ friends.username }}</a></h2></li>
                     {% endfor %}
                 </ul>
+                {% if my_pages_list %}
+                    <h2 class="nav-header">Your Pages</h2>
+                    <ul class="nav ">
+                        {% for my_pages in my_pages_list %}
+                            <li><h2><a href="/page_timeline/{{ my_pages.page }}"
+                                       style="text-decoration: none">{{ my_pages.page }}</a></h2></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if following_pages_list %}
+                    <h2 class="nav-header">Pages you're following</h2>
+                    <ul class="nav ">
+                        {% for following_pages in following_pages_list %}
+                            <li><h2><a href="/page_timeline/{{ following_pages.page.page }}"
+                                       style="text-decoration: none">{{ following_pages.page.page }}</a></h2></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </div>

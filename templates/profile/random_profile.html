@@ -113,7 +113,6 @@
         </div>
     </div>
     {% if friends %}
-        <div class="container">
             <div class="jumbotron">
                 <form action="/create_post/{{ user.username }}/" class="form-horizontal" role="form" method="post">
                     {% csrf_token %}
@@ -126,21 +125,26 @@
                     <button class="btn btn-primary" type="submit">Create Post</button>
                 </form>
             </div>
-        </div>
     {% endif %}
-
+    <div class="profile_timeline">
     {% for post in post_lists %}
         {% if friends %}
-            <div class="container">
-                <div class="jumbotron">
-
-                    <h3>Author: {{ post.author}}</h3>
-                    <h3>Title: {{ post.title }}</h3>
-                    <h4>Content: {{ post.text }}</h4>
-                    <h4 style="color: red"><strong>Timestamp: {{ post.created_date }} </strong></h4>
+                <div class="profile_post">
+                    <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
+                    <hr>
+                    <div class="post_title">{{ post.title }}</div>
+                    <p style="text-align: justify"> {{ post.text }}</p>
+                    <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
                 </div>
-            </div>
+            {% elif not friends and user_profile.privacy_posts == "Everyone" %}
+                <div class="profile_post">
+                    <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
+                    <hr>
+                    <div class="post_title">{{ post.title }}</div>
+                    <p style="text-align: justify"> {{ post.text }}</p>
+                    <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
+                </div>
         {% endif %}
     {% endfor %}
-
+    </div>
 {% endblock %}

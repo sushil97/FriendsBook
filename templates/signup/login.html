@@ -10,21 +10,25 @@
                             <h1>Login here </h1><br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="login[email]" required type="text" class="form-control input-lg" name="username" value="" onfocusin="hidekeyboard()" onclick="hidekeyboard()" placeholder="Username">
+                                <input id="login[email]" required type="text" class="form-control input-lg" name="username" value="" placeholder="Username">
                             </div>
                             <br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-{#                                make id=login to work with virtual keyboard#}
-                                <input id="login" required type="password" class="form-control input-lg" name="password" value="" placeholder="Password" onclick="showkeyboard()" onfocusin="showkeyboard()" onkeydown="return false;">
+                                {#                                make id=login to work with virtual keyboard#}
+                                <input id="login" required type="password" class="form-control input-lg" name="password" value="" placeholder="Password">
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-lg btn-primary btn-block signup-btn" value="Login" onfocusin="hidekeyboard()" onclick="hidekeyboard()">Login</button>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block signup-btn" value="Login" id="login-button" onfocusin="hidekeyboard()" onclick="hidekeyboard()">Login</button>
+                            <br>
+                            {% if invalid_credentials %}
+                                <div id="group_signup" style="color: red;">Invalid Login Credentials</div>
+                            {% endif %}
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    <div id="keyboard" style="display: none"></div>
+{#        <div id="keyboard" style="display: none"></div>#}
     </div>
 {% endblock %}

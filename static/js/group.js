@@ -63,5 +63,4 @@ $("#invite").click(function (e) {
             }
         });
     }
-
 });

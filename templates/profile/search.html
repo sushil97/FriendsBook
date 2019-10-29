@@ -4,6 +4,7 @@
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#people">People</a></li>
             <li><a data-toggle="tab" href="#groups">Groups</a></li>
+            <li><a data-toggle="tab" href="#pages">Pages</a></li>
         </ul>
         <div class="tab-content">
             <div id="people" class="tab-pane fade in active">
@@ -68,7 +69,7 @@
                                 {% ifequal group.id group_profile.group_id%}
                                     <article class="search-result row">
                                         <div class="col-xs-12 col-sm-12 col-md-3">
-                                            <a href="/group_profile/{{ group.name }}/" title="{{group.name}}" class="thumbnail"><img src="{{group_profile.group_pic.url}}" alt="{{group.name}}" /></a>
+                                            <a href="/group_profile/{{ group.name }}/" title="{{group.name}}" class="thumbnail"><img src="{{group_profile.group_pic.url}}" alt="{{group.name}}" style="width: 150px;height: 150px"/></a>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-2">
                                             <ul class="meta-search">
@@ -86,6 +87,43 @@
                                     </article>
                                 {% endifequal %}
                             {% endfor %}
+                        {% endfor %}
+                    </section>
+                {% endif %}
+            </div>
+
+
+
+            <div id="pages" class="tab-pane fade">
+                {% if not pages_info_list %}
+                    <hgroup class="mb20" style="margin-top: 1%">
+                        <h1>Search Results</h1>
+                        <h2 class="lead"><strong class="text-danger"></strong> No results found for <strong class="text-danger">{{query}}</strong></h2>
+                    </hgroup>
+                {% else %}
+                    <hgroup class="mb20" style="margin-top: 1%">
+                        <h1>Search Results</h1>
+                        <h2 class="lead"><strong class="text-danger">{{ pages_info_list|length }}</strong> results were found for the search for <strong class="text-danger">{{query}}</strong></h2>
+                    </hgroup>
+                    <section class="col-xs-12 col-sm-6 col-md-12">
+                        {% for pages in pages_info_list %}
+                                    <article class="search-result row">
+                                        <div class="col-xs-12 col-sm-12 col-md-3">
+                                            <a href="/page_timeline/{{ pages.page }}/" title="{{pages.page}}" class="thumbnail"><img src="{{pages.page_pic.url}}" alt="{{pages.page}}" style="width: 150px;height: 150px"/></a>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-2">
+                                            <ul class="meta-search">
+                                                <li><i class="glyphicon glyphicon-gift"></i> <span>Commercial Page</span></li>
+                                                <li><i>Admin</i> <span>{{pages.admin.username}}</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                                            <h3><a href="/page_timeline/{{ pages.page }}/" style="text-decoration: none">{{pages.page}}</a></h3>
+                                            <p>{{ pages.biography }}</p>
+                                            <span class="plus"><a href="/page_timeline/{{ pages.page }}/" title="View Page Timeline"><i class="glyphicon glyphicon-plus"></i></a></span>
+                                        </div>
+                                        <span class="clearfix borda"></span>
+                                    </article>
                         {% endfor %}
                     </section>
                 {% endif %}

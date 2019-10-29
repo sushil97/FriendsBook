@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group, User
 class PageProfileInfo(models.Model):
     page = models.CharField(max_length=30,null=False,blank=False,primary_key=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-    page_pic = models.ImageField(upload_to='page_profile_pic/', default='group_profile_pics/logo.png', blank=True)
+    page_pic = models.ImageField(upload_to='page_profile_pic/',blank=False,null=False)
     biography = models.TextField(max_length=200, blank=False)
 
 class PageFollowInfo(models.Model):
