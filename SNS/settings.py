@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'friendship',
     'django_messages',
     'groups',
-    'pages'
+    'pages',
+    'wallet',
 ]
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -89,6 +90,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'SNS.wsgi.application'
 LOGIN_REDIRECT_URL = '/profile/'
@@ -142,3 +145,13 @@ STATICFILES_DIRS = (
 )
 
 SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'vishalshrm539'
+EMAIL_HOST_PASSWORD = 'Ravi*#000'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True

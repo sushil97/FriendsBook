@@ -21,6 +21,7 @@
                             <br>
                             <button type="submit" class="btn btn-lg btn-primary btn-block signup-btn" value="Login" id="login-button" onfocusin="hidekeyboard()" onclick="hidekeyboard()">Login</button>
                             <br>
+                        <a href="{% url 'password_reset' %}">Forgot Password</a>
                             {% if invalid_credentials %}
                                 <div id="group_signup" style="color: red;">Invalid Login Credentials</div>
                             {% endif %}

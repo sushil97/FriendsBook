@@ -86,6 +86,13 @@ urlpatterns = [
     url(r'^follow_page/(?P<page>.+)/$', pages.views.follow_page, name='follow_page'),
     url(r'^unfollow_page/(?P<page>.+)/$', pages.views.unfollow_page, name='unfollow_page'),
     url(r'^update_page_bio/(?P<page>.+)/$', pages.views.update_page_bio, name='update_page_bio'),
+    path('wallet/', include('wallet.urls'), name='wallet_url'),
+    path('wallet/transfer/', include('wallet.urls'), name='transfer_url'),
+
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('signup.urls')),
+    path('account_settings/', user_account.views.account_settings, name='account_settings'),
+    path('change_password/', user_account.views.change_password, name='change_password'),
 
 ]
 

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class UserProfileInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -14,6 +15,8 @@ class UserProfileInfo(models.Model):
     privacy_dob = models.CharField(max_length=10, default="Everyone")
     privacy_phone = models.CharField(max_length=10, default="Everyone")
     privacy_posts = models.CharField(max_length=10, default="Everyone")
+    balance = models.CharField(max_length=15, default=5000)
+
 
 def __str__(self):
     return self.user.username

@@ -1,4 +1,8 @@
+import datetime
+
 from django.contrib.auth.models import Group, Permission, User
+from django.core.mail import EmailMessage
+from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, render_to_response, get_object_or_404
 from groups.forms import GroupForm, GroupProfileInfoForm, GroupProfilePicUpdateForm, GroupRequestInfoForm, \
@@ -7,6 +11,8 @@ from groups.models import GroupProfileInfo, GroupRequestInfo, GroupPost, GroupIn
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from django.http import JsonResponse
+from signup.models import UserProfileInfo
+from wallet.views import username, amount
 
 
 @csrf_exempt
@@ -93,17 +99,19 @@ def groups_requests(request, name=None):
             if group_request_form.is_valid():
                 groupprofileinfo = GroupProfileInfo.objects.get(group=group.id)
                 print(groupprofileinfo)
+                requester = UserProfileInfo.objects.get(user=request.user)
                 admin = User.objects.get(id=groupprofileinfo.admin_id)
                 from_user = request.user
                 print(admin)
                 print(from_user)
                 group_request = group_request_form.save(commit=False)
-                # group_request.created = datetime.datetime.now()
+                group_request.created = datetime.datetime.now()
                 group_request.from_user = from_user
                 # print(group_request.from_user)
                 group_request.to_admin = admin
                 group_request.group = group
                 group_request.save()
+
             else:
                 print(group_request_form.errors)
         else:
@@ -122,6 +130,7 @@ def cancel_requests(request, name=None):
             admin = User.objects.get(id=groupprofileinfo.admin_id)
             GroupRequestInfo.objects.filter(from_user_id=request.user.id, to_admin_id=admin.id,
                                             group_id=group.id).delete()
+
         return HttpResponseRedirect('/group_profile/' + name + '/')
     else:
         return HttpResponseRedirect('/login/')
@@ -233,7 +242,7 @@ def group_request_reject(request, name=None, username=None):
             #     group_request = group_request_form.save(commit=False)
             #     group_request.rejected = timezone.now()
             #     group_request.save()
-            GroupRequestInfo.objects.filter(from_user=user,to_admin=admin,group=group).delete()
+            GroupRequestInfo.objects.filter(from_user=user, to_admin=admin, group=group).delete()
             return HttpResponseRedirect('/show_group_members/' + name + '/')
         else:
             return HttpResponseRedirect('/timeline/')
@@ -357,13 +366,14 @@ def invitation_detail(request, name=None):
 
 @csrf_exempt
 def accept_invitation(request, name=None):
-    if request.user.is_authenticated and request.method=='POST':
+    if request.user.is_authenticated and request.method == 'POST':
         group = Group.objects.get(name=name)
-        GroupInvitation.objects.filter(to_user=request.user,group=group).delete()
+        GroupInvitation.objects.filter(to_user=request.user, group=group).delete()
         group.user_set.add(request.user)
-        return HttpResponseRedirect('/group_profile/'+name+'/')
+        return HttpResponseRedirect('/group_profile/' + name + '/')
     else:
         return HttpResponseRedirect('/login/')
+
 
 @csrf_exempt
 def reject_invitation(request, name=None):
@@ -376,7 +386,7 @@ def reject_invitation(request, name=None):
         #     invitation_request.rejected = timezone.now()
         #     invitation_request.save()
         GroupInvitation.objects.filter(to_user=request.user, group=group).delete()
-        return HttpResponseRedirect('/group_profile/'+name+'/')
+        return HttpResponseRedirect('/group_profile/' + name + '/')
     else:
         return HttpResponseRedirect('/login/')
 

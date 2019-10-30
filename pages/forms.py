@@ -4,7 +4,7 @@ from pages.models import PagePost, PageProfileInfo, PageFollowInfo
 class PageProfileInfoForm(forms.ModelForm):
     class Meta():
         model = PageProfileInfo
-        fields = ('page', 'page_pic','biography',)
+        fields = ('page','biography',)
 
 
 class PageProfilePicUpdateForm(forms.ModelForm):

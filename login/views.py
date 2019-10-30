@@ -20,6 +20,7 @@ def special(request):
 @login_required
 def user_logout(request):
     logout(request)
+    print('logout')
     return HttpResponseRedirect(reverse('index'))
 
 def user_login(request):

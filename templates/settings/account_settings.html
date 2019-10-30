@@ -10,7 +10,7 @@
                                 <a href="#" class="active" id="edit_details">Edit details</a>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#" id="change_password_setting">Change Password</a>
+                                <a href="{% url 'password_change' %}" id="change_password_setting">Change Password</a>
                             </div>
                         </div>
                         <hr>
@@ -18,19 +18,16 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <form id="account-form" action="#" method="post" role="form" style="display: block;">
+                                <form id="account-form" action="{% url 'account_settings' %}" method="post" role="form" style="display: block;">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name" required>
+                                        <input type="text" name="f_name" class="form-control" placeholder="First Name"  required >
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name">
+                                        <input type="text" name="l_name" class="form-control" placeholder="Last Name"  >
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder=Email Address" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Mobile Number">
+                                        <input type="email" name="email" class="form-control" placeholder="Email Address" required  >
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
@@ -41,19 +38,19 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="password-change-form" action="#" method="post" role="form"
+                                <form id="password-change-form" action="{% url 'change_password' %}" method="post" role="form"
                                       style="display: none;">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Existing Password" required>
+                                        <input type="password" name="current" class="form-control" placeholder="Existing Password" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="account_password" onkeyup="validateAccountPassword()" autocomplete="off"
+                                        <input type="password" name="new" class="form-control" id="account_password" onkeyup="validateAccountPassword()" autocomplete="off"
                                                placeholder="New Password" required>
                                         <span class="form-row" id="account_strength" ></span><br/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="account_password1" placeholder="Confirm Password" onkeyup="checkRepassword()" autocomplete="off" required>
+                                        <input type="password" name="new1" class="form-control" id="account_password1" placeholder="Confirm Password" onkeyup="checkRepassword()" autocomplete="off" required>
                                         <span class="form-row" id="account_matching_error"></span><br/>
                                     </div>
                                     <div class="form-group">
