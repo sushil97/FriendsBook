@@ -285,6 +285,23 @@ def remove_friend(request, username=None):
 def upgrade(request):
     if request.user.is_authenticated:
         userprofile = UserProfileInfo.objects.get(user=request.user)
-        return render(request, 'Wallet/userUpgrade.html',{'userprofile':userprofile})
+        if userprofile.user_type != "Commercial":
+            return render(request, 'Wallet/userUpgrade.html',{'userprofile':userprofile})
+        else:
+            return HttpResponseRedirect('/timeline/')
+    else:
+        return HttpResponseRedirect('/login/')
+
+def validate_reset_email(request):
+    if request.user.is_authenticated:
+        email = request.GET.get('email', None)
+        if User.objects.filter(email__iexact=email).exists():
+            requser = User.objects.get(email__iexact=email)
+            if requser == request.user:
+                return HttpResponse(False)
+            else:
+                return HttpResponse(True)
+        else:
+            return HttpResponse(False)
     else:
         return HttpResponseRedirect('/login/')

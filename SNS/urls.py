@@ -92,10 +92,9 @@ urlpatterns = [
     url(r'^unfollow_page/(?P<page>.+)/$', pages.views.unfollow_page, name='unfollow_page'),
     url(r'^update_page_bio/(?P<page>.+)/$', pages.views.update_page_bio, name='update_page_bio'),
     url(r'^upgrade/$', user_account.views.upgrade, name='upgrade'),
-
+    url(r'^validate_reset_email/$', user_account.views.validate_reset_email, name='validate_reset_email'),
     path('wallet/', include('wallet.urls'), name='wallet_url'),
     path('wallet/transfer/', include('wallet.urls'), name='transfer_url'),
-    # path('wallet/', include('wallet.urls'), name='transfer_upgrade'),
 
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('signup.urls')),

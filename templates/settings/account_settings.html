@@ -27,13 +27,14 @@
                                         <input type="text" name="l_name" class="form-control" placeholder="Last Name" value="{{ userProfile.last_name }}"  >
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Email Address" required value="{{ userProfile.email }}"  >
+                                        <input type="email" name="email" id="account_email" class="form-control" placeholder="Email Address" required value="{{ userProfile.email }}"  >
+                                        <p id="email_reset_status" style="display: none; color: red">Email already taken</p>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
                                                 <input type="submit" class="form-control btn btn-save"
-                                                       value="SAVE CHANGES">
+                                                       id="update_a" value="SAVE CHANGES">
                                             </div>
                                         </div>
                                     </div>

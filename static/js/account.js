@@ -53,3 +53,26 @@ function checkRepassword(){
         return false;
     }
 }
+
+$("#account_email").keyup(function () {
+    var email = $(this).val();
+    if (email.length > 0) {
+        $.ajax({
+            url: '/validate_reset_email/',
+            data: {
+                'email': email
+            },
+            success: function (data) {
+                if (data === 'True') {
+                    $("#email_reset_status").css({"display": "block"});
+                    $('#update_a').attr('disabled','disabled');
+                }
+                else {
+                    $("#email_reset_status").css({"display": "none"});
+                    $('#update_a').removeAttr('disabled');
+
+                }
+            }
+        });
+    }
+});

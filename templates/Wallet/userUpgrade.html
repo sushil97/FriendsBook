@@ -2,50 +2,57 @@
 {% load static %}
 {% block body_block %}
     <div class="container" style="margin-top: 60px">
-        <div class="jumbotron">
-            <h1>My Wallet</h1>
-            <p>Your Wallet Balance is: {{ userprofile.balance }}</p>
-            <p>Transfer Money</p>
-            <form method="post" action="{% url 'upgradePay' %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Select type of User</label>
-                    <select class="form-control" id="formselect" name="type_user" onchange="GetSelectedTextValue(this)">
-                        <option value="">Select Options</option>
-                        {% ifequal userprofile.user_type "Casual" %}
-                            <option value="50">Silver User</option>
-                            <option value="100">Gold User</option>
-                            <option value="150">Platinum User</option>
-                            <option value="5000">Commercial User</option>
-                        {% endifequal %}
-                        {% ifequal userprofile.user_type "Silver" %}
-                            <option value="100">Gold User</option>
-                            <option value="150">Platinum User</option>
-                            <option value="5000">Commercial User</option>
-                        {% endifequal %}
-                        {% ifequal userprofile.user_type "Gold" %}
-                            <option value="50">Silver User</option>
-                            <option value="150">Platinum User</option>
-                            <option value="5000">Commercial User</option>
-                        {% endifequal %}
-                        {% ifequal userprofile.user_type "Platinum" %}
-                            <option value="50">Silver User</option>
-                            <option value="100">Gold User</option>
-                            <option value="5000">Commercial User</option>
-                        {% endifequal %}
-                        {% ifequal userprofile.user_type "Commercial" %}
-                            <option value="50">Silver User</option>
-                            <option value="100">Gold User</option>
-                            <option value="150">Platinum User</option>
-                        {% endifequal %}
-                    </select>
-                    <br>
-                    <input type="number" id="id_amount" name="amount" required class="form-control input-lg"
-                           placeholder="Amount" autocomplete="off" readonly/><br/>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel panel-account">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-left: -10px">Upgrade User</div>
+                            <div class="col-sm-6" style="color: deepskyblue;font-size: 15px;font-weight: bold;">Current Balance: {{ userprofile.balance }}</div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form method="post" role="form" action="{% url 'upgradePay' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Select type of User</label>
+                                        <select class="form-control" id="formselect" name="type_user" onchange="GetSelectedTextValue(this)">
+                                            <option value="">Select Options</option>
+                                            {% ifequal userprofile.user_type "Casual" %}
+                                                <option value="50">Silver User</option>
+                                                <option value="100">Gold User</option>
+                                                <option value="150">Platinum User</option>
+                                                <option value="5000">Commercial User</option>
+                                            {% endifequal %}
+                                            {% ifequal userprofile.user_type "Silver" %}
+                                                <option value="100">Gold User</option>
+                                                <option value="150">Platinum User</option>
+                                                <option value="5000">Commercial User</option>
+                                            {% endifequal %}
+                                            {% ifequal userprofile.user_type "Gold" %}
+                                                <option value="150">Platinum User</option>
+                                                <option value="5000">Commercial User</option>
+                                            {% endifequal %}
+                                            {% ifequal userprofile.user_type "Platinum" %}
+                                                <option value="5000">Commercial User</option>
+                                            {% endifequal %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" id="id_amount" name="amount" required class="form-control input-lg"
+                                               placeholder="Amount" autocomplete="off" readonly/><br/>
 
-                    <button type="submit" class="btn btn-success" id="pay_upgrade" disabled>Pay</button>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-lg" id="pay_upgrade" style="width: 100%" disabled>Pay</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 {% endblock %}

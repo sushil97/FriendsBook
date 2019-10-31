@@ -57,24 +57,4 @@ def validate_email(request):
     else:
         return HttpResponse(False)
 
-#
-# def user_login(request):
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         #identity = User.objects.only('id').get(username=username).id
-#         #print(identity)
-#         user = authenticate(username=username, password=password)
-#         if user:
-#             if user.is_active:
-#                 login(request, user)
-#                 #userprofileinfo = UserProfileInfo.objects.filter(user_id=identity)
-#                 return HttpResponseRedirect(reverse('index'))
-#             else:
-#                 return HttpResponse("Your account was inactive.")
-#         else:
-#             print("Someone tried to login and failed.")
-#             print("They used username: {} and password: {}".format(username, password))
-#             return HttpResponse("Invalid login details given")
-#     else:
-#         return render(request, 'signup/login.html', {})
+

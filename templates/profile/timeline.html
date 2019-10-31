@@ -10,17 +10,19 @@
                     <div class="timeline_name">{{ user.first_name }} {{ user.last_name }}</div>
                     <div class="timeline_username"><i class="glyphicon glyphicon-link"></i> {{ user.username }}</div>
                     <div class="timeline_email"><i class="glyphicon glyphicon-envelope"></i> {{ user.email }}</div>
+                    <div class="timeline_email"><i class="glyphicon glyphicon-user"></i> {{ user_profile.user_type }}
+                    </div>
                     {% if user_profile.country %}
                         <div class="timeline_country"><i
                                 class="glyphicon glyphicon-map-marker"></i> {{ user_profile.country }}</div>
                     {% endif %}
                 </div>
-                <div class="group">
+                <div class="group ">
                     {% ifnotequal user_profile.user_type "Casual" %}
                         <p>
-                        <form action="/launch_create_group/">
+                        <form action="/launch_create_group/" class="form-inline">
                             {% csrf_token %}
-                            <button class="btn btn-primary" role="button" type="submit">
+                            <button class="btn btn-primary btn-lg" role="button" type="submit">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 Create Group
                             </button>
@@ -28,9 +30,9 @@
                         </p>
                     {% endifnotequal %}
                     {% ifequal user_profile.user_type "Commercial" %}<p>
-                        <form action="{% url 'launch_create_page' %}">
+                        <form action="{% url 'launch_create_page' %}" class="form-inline">
                             {% csrf_token %}
-                            <button class="btn btn-primary" role="button" type="submit">
+                            <button class="btn btn-primary btn-lg" role="button" type="submit">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 Create Page
                             </button>
@@ -77,19 +79,21 @@
                 <br>
             </div>
             <div class="col-sm-5 sidebar-offcanvas-right">
-                <p>
-                <form action="{% url 'upgrade' %}">
-                    {% csrf_token %}
-                    <button class="btn btn-success" role="button" type="submit">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        Upgrade Your Account
-                    </button>
-                </form>
-                </p>
+                {% ifnotequal user_profile.user_type "Commercial" %}
+                    <p>
+                    <form action="{% url 'upgrade' %}" style="margin-bottom: 25px">
+                        {% csrf_token %}
+                        <button class="btn btn-warning btn-lg" role="button" type="submit">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            Upgrade Your Account
+                        </button>
+                    </form>
+                    </p>
+                {% endifnotequal %}
                 <p>
                 <form action="{% url 'launch_transaction_status' %}">
                     {% csrf_token %}
-                    <button class="btn btn-success" role="button" type="submit">
+                    <button class="btn btn-primary btn-lg" role="button" type="submit">
                         <i class="glyphicon glyphicon-plus"></i>
                         Check Transaction Status
                     </button>

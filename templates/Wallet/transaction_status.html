@@ -13,7 +13,8 @@
         </div>
         {% if transaction_found %}
             <div class="row">
-                <div class="jumbotron">
+                <div style="border: solid;padding: 20px;margin-bottom: 20px;background: #DAD299;background: -webkit-linear-gradient(to right, #fdfcfb, #ebedee);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fdfcfb, #ebedee);"/>
                     <h2>Transaction ID: {{ transaction.trans_id }}</h2><br>
                     <h2>Sender Name: {{ transaction.sender.username }}</h2>
                     <br>
