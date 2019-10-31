@@ -13,3 +13,4 @@ function hidekeyboard()
 {
     document.getElementById('keyboard').style.display="none";
 }
+

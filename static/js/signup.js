@@ -99,3 +99,37 @@ $("#id_username").keyup(function () {
         });
     }
 });
+
+$("#id_email").keyup(function () {
+    var email = $(this).val();
+    if (email.length > 0) {
+        $.ajax({
+            url: '/validate_email/',
+            data: {
+                'email': email
+            },
+            success: function (data) {
+                if (data === 'True') {
+                    $("#email_status").css({"display": "block"});
+                    $('#create_a').attr('disabled','disabled');
+
+                }
+
+                else {
+                    $("#email_status").css({"display": "none"});
+                    $('#create_a').removeAttr('disabled');
+
+                }
+            }
+        });
+    }
+});
+
+$(document).ready(function() {
+      $(window).keydown(function(event){
+        if(event.keyCode == 116) {
+          event.preventDefault();
+          return false;
+        }
+      });
+    });

@@ -7,25 +7,32 @@ from pages.forms import PageProfileInfoForm, PagePostForm, PageUpdateForm, PageP
 
 
 # Create your views here.
+from signup.models import UserProfileInfo
+
+
 def create_page(request):
     created = False
     user = request.user
     if request.user.is_authenticated:
-        if request.method == 'POST':
-            page_name = request.POST.get('page')
-            page_profile_form = PageProfileInfoForm(data=request.POST)
-            if page_profile_form.is_valid():
-                page_profile = page_profile_form.save(commit=False)
-                page_profile.admin = request.user
-                if 'page_pic' in request.FILES:
-                    page_profile.page_pic = request.FILES['page_pic']
-                page_profile.save()
-                created = True
+        userprofile = UserProfileInfo.objects.get(user=request.user)
+        if userprofile.user_type=="Commercial":
+            if request.method == 'POST':
+                page_name = request.POST.get('page')
+                page_profile_form = PageProfileInfoForm(data=request.POST)
+                if page_profile_form.is_valid():
+                    page_profile = page_profile_form.save(commit=False)
+                    page_profile.admin = request.user
+                    if 'page_pic' in request.FILES:
+                        page_profile.page_pic = request.FILES['page_pic']
+                    page_profile.save()
+                    created = True
+                else:
+                    print(page_profile_form.errors)
             else:
-                print(page_profile_form.errors)
+                page_profile_form = PageProfileInfoForm()
+            return render(request, 'pages/create_page.html', {'created': created,'page_name':page_name})
         else:
-            page_profile_form = PageProfileInfoForm()
-        return render(request, 'pages/create_page.html', {'created': created,'page_name':page_name})
+            return HttpResponseRedirect('/timeline/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -58,8 +65,6 @@ def create_page_post(request, page=None):
     user = request.user
     pages = PageProfileInfo.objects.get(page=page)
     if user.is_authenticated:
-        print(pages.admin)
-        print(user)
         if user==pages.admin and request.method=='POST':
             post_form = PagePostForm(data=request.POST)
             print(request.FILES)
@@ -77,7 +82,7 @@ def create_page_post(request, page=None):
                 post_form = PagePostForm()
             return HttpResponseRedirect('/page_timeline/'+page+'/')
         else:
-            return HttpResponseRedirect('/timeline/')
+            return HttpResponseRedirect('/page_timeline/'+page+'/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -86,14 +91,17 @@ def create_page_post(request, page=None):
 def follow_page(request,page=None):
     if request.user.is_authenticated:
         pages = PageProfileInfo.objects.get(page=page)
-        if request.method=='POST':
-            follow_form = PageFollowInfoForm(request.POST)
-            if follow_form.is_valid():
-                follow = follow_form.save(commit=False)
-                follow.from_user = request.user
-                follow.page = pages
-                follow.save()
-                return HttpResponseRedirect('/page_timeline/' + page + '/')
+        if pages.admin != request.user:
+            if request.method=='POST':
+                follow_form = PageFollowInfoForm(request.POST)
+                if follow_form.is_valid():
+                    follow = follow_form.save(commit=False)
+                    follow.from_user = request.user
+                    follow.page = pages
+                    follow.save()
+                    return HttpResponseRedirect('/page_timeline/' + page + '/')
+            else:
+                return HttpResponseRedirect('/page_timeline/'+page+'/')
         else:
             return HttpResponseRedirect('/page_timeline/'+page+'/')
     else:
@@ -103,13 +111,16 @@ def follow_page(request,page=None):
 def unfollow_page(request,page=None):
     if request.user.is_authenticated:
         pages = PageProfileInfo.objects.get(page=page)
-        if request.method=='POST':
-            follow_form = PageUnFollowInfoForm(request.POST)
-            if follow_form.is_valid():
-                PageFollowInfo.objects.filter(from_user=request.user,page=pages).delete()
-                return HttpResponseRedirect('/page_timeline/' + page + '/')
+        if pages.admin != request.user:
+            if request.method=='POST':
+                follow_form = PageUnFollowInfoForm(request.POST)
+                if follow_form.is_valid():
+                    PageFollowInfo.objects.filter(from_user=request.user,page=pages).delete()
+                    return HttpResponseRedirect('/page_timeline/' + page + '/')
+            else:
+                return HttpResponseRedirect('/page_timeline/'+page+'/')
         else:
-            return HttpResponseRedirect('/page_timeline/'+page+'/')
+            return HttpResponseRedirect('/page_timeline/' + page + '/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -125,7 +136,11 @@ def validate_pagename(request):
 
 def launch_create_page(request):
     if request.user.is_authenticated:
-        return render(request, 'pages/create_page.html')
+        user_profile = UserProfileInfo.objects.get(user=request.user)
+        if user_profile.user_type=="Commercial":
+            return render(request, 'pages/create_page.html')
+        else:
+            return HttpResponseRedirect('/timeline/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -146,7 +161,7 @@ def update_page_pic(request,page=None):
                 print(image_form.errors)
             return HttpResponseRedirect('/page_timeline/'+page+'/')
         else:
-            return HttpResponseRedirect('/page_timeline/')
+            return HttpResponseRedirect('/page_timeline/'+page+'/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -166,6 +181,6 @@ def update_page_bio(request, page=None):
                 print(bio_form.errors)
             return HttpResponseRedirect('/page_timeline/' + page + '/')
         else:
-            return HttpResponseRedirect('/page_timeline/')
+            return HttpResponseRedirect('/page_timeline/'+page+'/')
     else:
         return HttpResponseRedirect('/login/')

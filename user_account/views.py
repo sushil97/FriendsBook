@@ -109,18 +109,22 @@ def update_bio(request):
 def privacy_info(request):
     user = request.user
     obj = get_object_or_404(UserProfileInfo, user_id=user.id)
-
+    userprofile = UserProfileInfo.objects.get(user=user)
     if request.user.is_authenticated:
         privacy_form = PrivacyInfoForm(request.POST, instance=obj)
         print(privacy_form.is_valid())
-        if privacy_form.is_valid() and request.method == 'POST':
-            obj = privacy_form.save(commit=False)
-            obj.save()
+        if request.method == 'POST':
+            if privacy_form.is_valid():
+                obj = privacy_form.save(commit=False)
+                obj.save()
+                return HttpResponseRedirect('/profile/')
+            else:
+                print(privacy_form.errors)
+                return HttpResponseRedirect('/settings/privacy/')
         else:
-            print(privacy_form.errors)
+            return render_to_response('settings/privacy.html',{'user':request.user, 'userprofile':userprofile})
     else:
-        privacy_form = PrivacyInfoForm()
-    return render(request, 'settings/privacy.html')
+        return HttpResponseRedirect('/login/')
 
 
 def search(request):
@@ -278,60 +282,9 @@ def remove_friend(request, username=None):
     else:
         return HttpResponseRedirect('/profile/')
 
-# @csrf_exempt
-# def add_friend(
-#     request, to_username, template_name="friendship/friend/add.html"
-# ):
-#     """ Create a FriendshipRequest """
-#     ctx = {"to_username": to_username}
-#
-#     if request.method == "POST":
-#         to_user = User.objects.get(username=to_username)
-#         from_user = request.user
-#         try:
-#             Friend.objects.add_friend(from_user, to_user)
-#         except AlreadyExistsError as e:
-#             ctx["errors"] = ["%s" % e]
-#         else:
-#             return redirect("friendship_request_list")
-#
-#     return render(request, template_name, ctx)
-#
-# def friend_requestlist(request):
-#     if request.user.is_authenticated:
-#         req_list = Friend.objects.unread_requests(user=request.user)
-#         context={
-#             'user':request.user,
-#             'req_list': req_list
-#         }
-#         return render_to_response('profile/requests_list.html',context)
-#     else:
-#         return HttpResponseRedirect('/login/')
-#
-# def friendship_requests_detail(
-#     request, friendship_request_id, template_name="friendship/friend/request.html"
-# ):
-#     """ View a particular friendship request """
-#     f_request = get_object_or_404(FriendshipRequest, id=friendship_request_id)
-#
-#     return render(request, template_name, {"friendship_request": f_request})
-
-# def add_friend(
-#     request, to_username, template_name="profile/random_profile.html"
-# ):
-#     """ Create a FriendshipRequest """
-#     ctx = {"to_username": to_username}
-#
-#     if request.method == "POST":
-#         to_user = User.objects.get(username=to_username)
-#         from_user = request.user
-#         ctx ={
-#             'user': to_user,
-#         }
-#         try:
-#             Friend.objects.add_friend(from_user, to_user)
-#         except AlreadyExistsError as e:
-#             ctx["errors"] = ["%s" % e]
-#         else:
-#             return redirect("request_list")
-#     return render(request, template_name, ctx)
+def upgrade(request):
+    if request.user.is_authenticated:
+        userprofile = UserProfileInfo.objects.get(user=request.user)
+        return render(request, 'Wallet/userUpgrade.html',{'userprofile':userprofile})
+    else:
+        return HttpResponseRedirect('/login/')

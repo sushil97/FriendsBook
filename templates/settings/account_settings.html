@@ -21,13 +21,13 @@
                                 <form id="account-form" action="{% url 'account_settings' %}" method="post" role="form" style="display: block;">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="text" name="f_name" class="form-control" placeholder="First Name"  required >
+                                        <input type="text" name="f_name" class="form-control" placeholder="First Name" value="{{ userProfile.first_name }}"  required >
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="l_name" class="form-control" placeholder="Last Name"  >
+                                        <input type="text" name="l_name" class="form-control" placeholder="Last Name" value="{{ userProfile.last_name }}"  >
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Email Address" required  >
+                                        <input type="email" name="email" class="form-control" placeholder="Email Address" required value="{{ userProfile.email }}"  >
                                     </div>
                                     <div class="form-group">
                                         <div class="row">

@@ -20,42 +20,64 @@ def create_group(request):
     created = False
     user = request.user
     if request.user.is_authenticated:
-        if request.method == 'POST':
-            group_name = request.POST['name']
-            # group_form = GroupForm(data=request.POST)
-            group_profile_form = GroupProfileInfoForm(data=request.POST)
-            if group_profile_form.is_valid():
-                group = Group.objects.create(name=group_name)
-                group.user_set.add(user)
-                group_profile = group_profile_form.save(commit=False)
-                group_profile.group = group
-                group_profile.admin = request.user
-                if 'group_pic' in request.FILES:
-                    group_profile.group_pic = request.FILES['group_pic']
-                group_profile.save()
-                created = True
+        userprofile = UserProfileInfo.objects.get(user=user)
+        if userprofile.user_type != "Casual":
+            if request.method == 'POST':
+                group_name = request.POST['name']
+                group_profile_form = GroupProfileInfoForm(data=request.POST)
+                if group_profile_form.is_valid():
+                    if userprofile.user_type == "Silver":
+                        if userprofile.group_count<2:
+                            group = Group.objects.create(name=group_name)
+                            group.user_set.add(user)
+                            group_profile = group_profile_form.save(commit=False)
+                            group_profile.group = group
+                            group_profile.admin = request.user
+                            if 'group_pic' in request.FILES:
+                                group_profile.group_pic = request.FILES['group_pic']
+                            group_profile.save()
+                            userprofile.group_count=userprofile.group_count+1
+                            userprofile.save()
+                            created = True
+                        else:
+                            return HttpResponse("Group Count Exceeded :( Upgrade to a better Plan")
+                    elif userprofile.user_type == "Gold":
+                        if userprofile.group_count < 4:
+                            group = Group.objects.create(name=group_name)
+                            group.user_set.add(user)
+                            group_profile = group_profile_form.save(commit=False)
+                            group_profile.group = group
+                            group_profile.admin = request.user
+                            if 'group_pic' in request.FILES:
+                                group_profile.group_pic = request.FILES['group_pic']
+                            group_profile.save()
+                            userprofile.group_count = userprofile.group_count + 1
+                            userprofile.save()
+                            created = True
+                        else:
+                            return HttpResponse("Group Count Exceeded :( Upgrade to a better Plan")
+                    else:
+                        group = Group.objects.create(name=group_name)
+                        group.user_set.add(user)
+                        group_profile = group_profile_form.save(commit=False)
+                        group_profile.group = group
+                        group_profile.admin = request.user
+                        if 'group_pic' in request.FILES:
+                            group_profile.group_pic = request.FILES['group_pic']
+                        group_profile.save()
+                        userprofile.group_count = userprofile.group_count + 1
+                        userprofile.save()
+                        created = True
+                else:
+                    print(group_profile_form.errors)
             else:
-                print(group_profile_form.errors)
+                group_profile_form = GroupProfileInfoForm()
+            return HttpResponseRedirect('/group_profile/' + group_name + '/')
         else:
-            group_profile_form = GroupProfileInfoForm()
-        return HttpResponseRedirect('/group_profile/' + group_name + '/')
-        # return render(request, 'groups/group.html',{'created':created})
+            return HttpResponseRedirect('/timeline/')
     else:
         return HttpResponseRedirect('/login/')
 
-    #         group_name = request.POST['group_name']
-    #         if Group.objects.filter(name=group_name).exists():
-    #             # group = Group.objects.get(name=group_name)
-    #             # group.user_set.add(user)
-    #             return HttpResponse('Group Already Exists')
-    #         else:
-    #             group, created = Group.objects.get_or_create(name=group_name)
-    #             group.user_set.add(user)
-    #             # perm1 = Permission.objects.get(name='Can change group')
-    #             # perm2 = Permission.objects.get(name='Can delete group')
-    #             # user.user_permissions.add(perm1, perm2)
-    #             return HttpResponse(True)
-    # return HttpResponse(False)
 
 
 def profile(request, name=None):
@@ -85,7 +107,11 @@ def profile(request, name=None):
 
 def launch_create_group(request):
     if request.user.is_authenticated:
-        return render(request, 'groups/group.html')
+        userprofile = UserProfileInfo.objects.get(user=request.user)
+        if userprofile.user_type != "Casual":
+            return render(request, 'groups/group.html')
+        else:
+            return HttpResponseRedirect('/timeline/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -107,7 +133,6 @@ def groups_requests(request, name=None):
                 group_request = group_request_form.save(commit=False)
                 group_request.created = datetime.datetime.now()
                 group_request.from_user = from_user
-                # print(group_request.from_user)
                 group_request.to_admin = admin
                 group_request.group = group
                 group_request.save()
@@ -168,7 +193,7 @@ def group_invite(request):
                 return HttpResponse('username_error')
             return HttpResponse('invitation_sent')
         else:
-            group_invite_form = GroupInvitationInfoForm()
+            return HttpResponseRedirect('/group_profile/'+name+'/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -185,6 +210,8 @@ def view_group_requests(request, name=None):
                 'group_requests': group_requests
             }
             return render(request, 'groups/group_request.html', context)
+        elif request.user in group.user_set.all():
+            return HttpResponseRedirect('/group_timeline/'+name+'/')
         else:
             return HttpResponseRedirect('/timeline/')
     else:
@@ -201,6 +228,8 @@ def group_requests_detail(request, name=None, username=None):
         if request.user == admin:
             g_request = get_object_or_404(GroupRequestInfo, from_user=user, group=group)
             return render(request, 'groups/group_request_view.html', {"group_request": g_request})
+        elif request.user in group.user_set.all():
+            return HttpResponseRedirect('/group_timeline/' + name + '/')
         else:
             return HttpResponseRedirect('/timeline/')
     else:
@@ -218,10 +247,10 @@ def group_request_accept(request, name=None, username=None):
             if request.method == "POST":
                 GroupRequestInfo.objects.filter(to_admin=request.user, from_user=user, group=group).delete()
                 group.user_set.add(user)
-                # make perfect response page after accepting the request
-                # make webpage for showing members of the group
                 return HttpResponseRedirect('/show_group_members/' + name + '/')
             return HttpResponseRedirect('/show_group_members/' + name + '/')
+        elif request.user in group.user_set.all():
+            return HttpResponseRedirect('/group_timeline/' + name + '/')
         else:
             return HttpResponseRedirect('/timeline/')
     else:
@@ -236,16 +265,12 @@ def group_request_reject(request, name=None, username=None):
     admin = User.objects.get(id=groupprofileinfo.admin_id)
     if request.user.is_authenticated:
         if request.user == admin:
-            # obj = get_object_or_404(GroupRequestInfo, from_user=user, group=group)
-            # group_request_form = GroupRequestInfoForm(data=request.POST, instance=obj)
-            # if request.method == 'POST' and group_request_form.is_valid():
-            #     group_request = group_request_form.save(commit=False)
-            #     group_request.rejected = timezone.now()
-            #     group_request.save()
             GroupRequestInfo.objects.filter(from_user=user, to_admin=admin, group=group).delete()
             return HttpResponseRedirect('/show_group_members/' + name + '/')
+        elif request.user in group.user_set.all():
+            return HttpResponseRedirect('/group_profile/' + name + '/')
         else:
-            return HttpResponseRedirect('/timeline/')
+            return HttpResponseRedirect('/group_profile/'+name+'/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -259,16 +284,19 @@ def show_group_members(request, name=None):
     admin = User.objects.get(id=groupprofileinfo.admin_id)
     if request.user.is_authenticated:
         members = group.user_set.all().order_by('username')
-        if user == admin:
-            admin_flag = True
-        context = {
-            'user': user,
-            'admin': admin,
-            'group': group,
-            'members': members,
-            'admin_flag': admin_flag
-        }
-        return render_to_response('groups/user_list.html', context)
+        if user in group.user_set.all():
+            if user == admin:
+                admin_flag = True
+            context = {
+                'user': user,
+                'admin': admin,
+                'group': group,
+                'members': members,
+                'admin_flag': admin_flag
+            }
+            return render_to_response('groups/user_list.html', context)
+        else:
+            return HttpResponseRedirect('/group_profile/'+name+'/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -311,8 +339,10 @@ def remove_group_member(request, name=None, username=None):
         if request.user == admin:
             group.user_set.remove(user)
             return HttpResponseRedirect('/show_group_members/' + name + '/')
-        else:
+        elif request.user in group.user_set.all():
             return HttpResponseRedirect('/group_profile/' + name + '/')
+        else:
+            return HttpResponseRedirect('/timeline/')
     else:
         return HttpResponseRedirect('/login/')
 
@@ -343,7 +373,6 @@ def create_group_post(request, name=None, username=None):
 
 @csrf_exempt
 def view_invitations(request):
-    # groups = request.user.groups.values_list('name', flat=True)  # QuerySet Object
     if request.user.is_authenticated:
         invitations = GroupInvitation.objects.filter(to_user=request.user).order_by('created')
         print(invitations)
@@ -379,12 +408,6 @@ def accept_invitation(request, name=None):
 def reject_invitation(request, name=None):
     if request.user.is_authenticated:
         group = Group.objects.get(name=name)
-        # obj = get_object_or_404(GroupInvitation, to_user=request.user, group=group)
-        # invitation_form = GroupInvitationInfoForm(data=request.POST, instance=obj)
-        # if request.method == 'POST' and invitation_form.is_valid():
-        #     invitation_request = invitation_form.save(commit=False)
-        #     invitation_request.rejected = timezone.now()
-        #     invitation_request.save()
         GroupInvitation.objects.filter(to_user=request.user, group=group).delete()
         return HttpResponseRedirect('/group_profile/' + name + '/')
     else:
@@ -400,6 +423,8 @@ def delete_group(request, name=None):
         if request.user == admin:
             group.delete()
             return HttpResponseRedirect('/timeline/')
+        elif request.user in group.user_set.all():
+            return HttpResponseRedirect('/group_timeline/'+name+'/')
         else:
             return HttpResponseRedirect('/timeline/')
     else:
@@ -433,7 +458,9 @@ def update_group_bio(request, name=None):
         if request.method == 'POST' and bio_form.is_valid() and request.user == admin:
             obj = bio_form.save(commit=False)
             obj.save()
-        return HttpResponseRedirect('/group_profile/' + name + '/')
+            return HttpResponseRedirect('/group_profile/' + name + '/')
+        else:
+            return HttpResponseRedirect('/group_profile/'+name+'/')
     return HttpResponseRedirect('/login/')
 
 
@@ -443,26 +470,37 @@ def update_group_profile_pic(request, name=None):
     default = 'default_pic/default_pic.jpg'
     if request.user.is_authenticated:
         group = Group.objects.get(name=name)
+        groupprofileinfo = GroupProfileInfo.objects.get(group=group.id)
+        admin = User.objects.get(id=groupprofileinfo.admin_id)
         image_form = GroupProfilePicUpdateForm(request.POST, request.FILES)
-        if request.method == 'POST' and image_form.is_valid():
-            profile = GroupProfileInfo.objects.get(group=group.id)
-            if profile.group_pic == default:
-                profile.group_pic = image_form.cleaned_data['group_pic']
-                profile.save()
-            else:
-                profile.group_pic.delete(False)
-                profile.group_pic = image_form.cleaned_data['group_pic']
-                profile.save()
-        return HttpResponseRedirect('/group_profile/' + name + '/')
+        if request.method == 'POST' and request.user==admin:
+            if image_form.is_valid():
+                profile = GroupProfileInfo.objects.get(group=group.id)
+                if profile.group_pic == default:
+                    profile.group_pic = image_form.cleaned_data['group_pic']
+                    profile.save()
+                else:
+                    profile.group_pic.delete(False)
+                    profile.group_pic = image_form.cleaned_data['group_pic']
+                    profile.save()
+            return HttpResponseRedirect('/group_profile/' + name + '/')
+        elif request.user in group.user_set.all():
+            return HttpResponseRedirect('/group_profile/'+name+'/')
+        else:
+            return HttpResponseRedirect('/timeline/')
     return HttpResponseRedirect('/login/')
 
 
 @csrf_exempt
 def validate_groupname(request):
     name = request.GET.get('name', None)
-    if Group.objects.filter(name__iexact=name).exists():
-        print("Username NOT available")
-        return HttpResponse(True)
+    if request.user.is_authenticated:
+        if request.user != "Casual":
+            if Group.objects.filter(name__iexact=name).exists():
+                return HttpResponse(True)
+            else:
+                return HttpResponse(False)
+        else:
+            return HttpResponseRedirect('/timeline/')
     else:
-        print("Username Available")
-        return HttpResponse(False)
+        return HttpResponseRedirect('/login/')

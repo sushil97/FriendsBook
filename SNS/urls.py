@@ -23,7 +23,9 @@ import login
 import signup
 import user_account
 import django_mfa
+import wallet
 import pages
+from wallet import views
 from pages import views
 from groups import views
 from user_account import views
@@ -49,6 +51,7 @@ urlpatterns = [
     url(r'^update_bio/$', user_account.views.update_bio, name='update_bio'),
     url(r'^search/$', user_account.views.search, name='search'),
     url(r'^validate_username/$', signup.views.validate_username, name='validate_username'),
+    url(r'^validate_email/$', signup.views.validate_email, name='validate_email'),
     url(r'^validate_groupname/$', groups.views.validate_groupname, name='validate_groupname'),
     url(r'^validate_pagename/$', pages.views.validate_pagename, name='validate_pagename'),
     url(r'^create_post/$',user_account.views.create_post,name='create_post'),
@@ -59,6 +62,8 @@ urlpatterns = [
     url(r'^launch_create_group/$',groups.views.launch_create_group, name='launch_create_group'),
     url(r'^create_group/$',groups.views.create_group, name='create_group'),
     url(r'^group_profile/(?P<name>.+)/$', groups.views.profile, name='group_profile'),
+    url(r'^launch_transaction_status/$', wallet.views.launch_transaction_status, name='launch_transaction_status'),
+    url(r'^check_status/$', wallet.views.check_status, name='check_status'),
     url(r'^update_group_bio/(?P<name>.+)/$', groups.views.update_group_bio, name='update_group_bio'),
     url(r'^update_group_profile_pic/(?P<name>.+)/$', groups.views.update_group_profile_pic, name='update_group_profile_pic'),
     url(r'^group_requests/(?P<name>.+)/$', groups.views.groups_requests,name='group_requests'),
@@ -86,8 +91,11 @@ urlpatterns = [
     url(r'^follow_page/(?P<page>.+)/$', pages.views.follow_page, name='follow_page'),
     url(r'^unfollow_page/(?P<page>.+)/$', pages.views.unfollow_page, name='unfollow_page'),
     url(r'^update_page_bio/(?P<page>.+)/$', pages.views.update_page_bio, name='update_page_bio'),
+    url(r'^upgrade/$', user_account.views.upgrade, name='upgrade'),
+
     path('wallet/', include('wallet.urls'), name='wallet_url'),
     path('wallet/transfer/', include('wallet.urls'), name='transfer_url'),
+    # path('wallet/', include('wallet.urls'), name='transfer_upgrade'),
 
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('signup.urls')),

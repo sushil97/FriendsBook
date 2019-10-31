@@ -1,0 +1,11 @@
+{% extends 'signup/base.html' %}
+
+
+{% block body_block %}
+
+    <form method="post" action="{% url 'transfer_upgrade' %}">{% csrf_token %}
+     <h2>Enter OTP please to complete the transaction</h2>
+    <input type="password" name="otp" title="Enter OTP please"/>
+    <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

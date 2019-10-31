@@ -6,24 +6,32 @@
             <div class="col-sm-2" style="position: fixed">
                 <a style="text-decoration: none" href="/group_profile/{{ group.name }}/">
                     <div class="group_timeline_profile-img" style="text-align: center">
-                        <img src="{{ group_profile.group_pic.url}}" id="group_timeline_profile_pic1">
+                        <img src="{{ group_profile.group_pic.url }}" id="group_timeline_profile_pic1">
                     </div>
-                    <div class="group_timeline_name" style="text-align: center"><h2 id="group_name" style="color: #117a8b"><strong>{{ group.name }}</strong></h2></div>
+                    <div class="group_timeline_name" style="text-align: center"><h2 id="group_name"
+                                                                                    style="color: #117a8b">
+                        <strong>{{ group.name }}</strong></h2></div>
                 </a>
                 <br>
                 <div class="group_timeline_information" style="text-align: center">
-                    <div class="timeline_type"><h4><strong>Group Type:</strong> {{group_profile.type}}</h4></div>
-                    <div class="timeline_username"><h4><strong>Admin:</strong> {{group_profile.admin}}</h4></div>
+                    {% if group_profile.fee == 0 %}
+                        <div class="timeline_type"><h4><strong>Group Type:</strong>Free</h4></div>
+                    {% else %}
+                        <div class="timeline_type"><h4><strong>Group Type:</strong>Paid</h4></div>
+                    {% endif %}
+                    <div class="timeline_username"><h4><strong>Admin:</strong> {{ group_profile.admin }}</h4></div>
                     <div class="timeline_email"><h4><strong>Entry Fee:</strong> {{ group_profile.fee }}</h4></div>
                     <h3 style="text-align: center"><strong>About</strong></h3>
-                    <div class="group_timeline_desc" style="text-align: center"> <h4 style="justify-content: flex-start">{{ group_profile.biography }}</h4></div>
+                    <div class="group_timeline_desc" style="text-align: center"><h4
+                            style="justify-content: flex-start">{{ group_profile.biography }}</h4></div>
                 </div>
             </div>
             <div class="col-sm-2"></div>
             <div class="col-sm-6 group_timeline" style="margin-left: 2%">
                 <br>
                 <div class="jumbotron">
-                    <form action="{% url 'create_group_post' group.name user.username%}" class="form-horizontal" role="form" method="post">
+                    <form action="{% url 'create_group_post' group.name user.username %}" class="form-horizontal"
+                          role="form" method="post">
                         {% csrf_token %}
                         <h4>Add group post</h4>
                         <input type="text" class="form-control input-lg" placeholder="Enter Title" id="id_title"
@@ -38,14 +46,15 @@
                     </form>
                 </div>
                 <br><br>
-                  {% for post in group_posts %}
-                   <div class="timeline_post">
-                            <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
-                            <hr>
-                            <div class="post_title">{{ post.title }}</div>
-                            <p style="text-align: justify"> {{ post.text }}</p>
-                            <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
+                {% for post in group_posts %}
+                    <div class="timeline_post">
+                        <div class="post_author"><a href="/profile/{{ post.author }}/">{{ post.author }}</a></div>
+                        <hr>
+                        <div class="post_title">{{ post.title }}</div>
+                        <p style="text-align: justify"> {{ post.text }}</p>
+                        <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}
                         </div>
+                    </div>
                 {% endfor %}
 
             </div>
@@ -53,16 +62,25 @@
                 {% if admin_flag %}
                     <form>
                         <div class="col-xs-8">
-                            <input type="text" id="id_invite_username" size="30" name="username" required class="form-control input-lg" placeholder="Enter username to invite"  autocomplete="off"/><br/>
+                            <input type="text" id="id_invite_username" size="30" name="username" required
+                                   class="form-control input-lg" placeholder="Enter username to invite"
+                                   autocomplete="off"/><br/>
                         </div>
-                        <button class="btn-lg btn-primary" role="button" id="invite">Invite</button><br><br>
-                        <div id="username_avail" style="display: none; color: red; margin-left: 4%">There is no such user registered on FSB</div>
+                        <button class="btn-lg btn-primary" role="button" id="invite">Invite</button>
+                        <br><br>
+                        <div id="username_avail" style="display: none; color: red; margin-left: 4%">There is no such
+                            user registered on FSB
+                        </div>
                         <div id="group_signup" style="display: none; color: red; margin-left: 4%">Already in Group</div>
-                        <div id="already_sent" style="display: none; color: red; margin-left: 4%">Invitation already sent</div>
-                        <div id="sent" style="display: none; color: green; margin-left: 4%"><strong>Invitaion Sent</strong></div>
+                        <div id="already_sent" style="display: none; color: red; margin-left: 4%">Invitation already
+                            sent
+                        </div>
+                        <div id="sent" style="display: none; color: green; margin-left: 4%"><strong>Invitaion
+                            Sent</strong></div>
                     </form><br>
                 {% endif %}
-                <h2 style="color: #117a8b"><strong><a id="group_name" style="text-decoration: none" href="">{{ group.name }}</a> Members</strong></h2>
+                <h2 style="color: #117a8b"><strong><a id="group_name" style="text-decoration: none"
+                                                      href="">{{ group.name }}</a> Members</strong></h2>
                 {% for member in members %}
                     <i>
                         <h2 class="nav-header">

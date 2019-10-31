@@ -3,7 +3,8 @@
 
 {% block body_block %}
 
-<div class="jumbotron" style="margin-top: 60px">
+<div class="container" style="margin-top: 60px">
 <h1>Transaction has been successful,Your current Wallet Balance is {{ wallet.balance}}</h1>
+<h2>Your Transaction ID is: <div class="inline" style="background-color: #ff8820"> {{ transaction_id.trans_id }}</div></h2>
 </div>
 {% endblock %}

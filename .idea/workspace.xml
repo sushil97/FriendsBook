@@ -2,50 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/Q4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_profile_pic/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signup/migrations/0016_auto_20191029_1732.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signup/migrations/0017_userprofileinfo_balance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Wallet/fail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Wallet/otpVerify.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Wallet/success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Wallet/wallet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_change_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_change_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/migrations/0002_remove_transaction_t_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/migrations/0003_remove_transaction_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SNS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SNS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/migrations/0020_remove_groupprofileinfo_type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/group_profile_pics/Q41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/group_profile_pics/Screenshot_from_2019-10-12_12-40-22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/group_profile_pics/Screenshot_from_2019-10-12_12-40-22_OmbzPyC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/page_post_pic/rsa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/page_profile_pic/Q42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/aes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/rc4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/spider.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/trap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signup/migrations/0018_userprofileinfo_user_type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signup/migrations/0019_userprofileinfo_group_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signup/migrations/0020_userprofileinfo_transaction_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/compose.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/password_reset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/wallet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Wallet/Retry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Wallet/otpUpgrade.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Wallet/payupgrade.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Wallet/transaction_status.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Wallet/userUpgrade.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/migrations/0004_auto_20191030_2009.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/migrations/0005_transaction_trans_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/migrations/0006_auto_20191031_0106.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/migrations/0007_auto_20191031_0126.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/migrations/0008_auto_20191031_0129.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/migrations/0009_otp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bbcd471c-223b-420f-8500-617b9a76c028.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/groups/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/groups/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signup/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/group.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/group.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Wallet/fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/fail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Wallet/otpVerify.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/otpVerify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Wallet/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Wallet/wallet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/wallet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/django_messages/compose.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_messages/compose.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/groups/group.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/groups/group.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/groups/group_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/groups/group_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/groups/group_timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/groups/group_timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/timeline.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_reset_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/settings/account_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings/account_settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/settings/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings/privacy.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +142,13 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="wallet_otp: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
         <item name="wallet_transaction: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
       <path>
@@ -119,9 +169,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -137,7 +187,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/GWallet" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/bootstrap/js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -149,19 +199,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/GWallet" />
-      <recent name="$PROJECT_DIR$/templates/registration" />
-      <recent name="$PROJECT_DIR$/templates/Wallet" />
-      <recent name="$PROJECT_DIR$/media/group_profile_pics" />
-      <recent name="$PROJECT_DIR$/static/js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/bootstrap" />
       <recent name="$PROJECT_DIR$/media/default_pic" />
       <recent name="$PROJECT_DIR$/static/CSS" />
       <recent name="$PROJECT_DIR$/templates/pages" />
       <recent name="$PROJECT_DIR$/templates/groups" />
-      <recent name="$PROJECT_DIR$/static/js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/bootstrap/js" />
+      <recent name="$PROJECT_DIR$/templates/GWallet" />
+      <recent name="$PROJECT_DIR$/templates/registration" />
+      <recent name="$PROJECT_DIR$/templates/Wallet" />
+      <recent name="$PROJECT_DIR$/media/group_profile_pics" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -238,12 +288,17 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4a71581b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d3e21883" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4a71581b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5a3d564b" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d3e21883" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6e42f416" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d3e21883" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1e3d9435" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +356,8 @@
       <workItem from="1572342227718" duration="5586000" />
       <workItem from="1572348677410" duration="8142000" />
       <workItem from="1572373724876" duration="15767000" />
-      <workItem from="1572425026706" duration="13100000" />
+      <workItem from="1572425026706" duration="30353000" />
+      <workItem from="1572457088715" duration="27444000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

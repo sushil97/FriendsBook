@@ -1,23 +1,44 @@
 {% extends 'signup/base.html' %}
 
 {% block body_block %}
-    <div class="container" style="margin-top: 60px">
-        <div class="jumbotron">
-            <h1>My Wallet</h1>
 
-            <p>Your Wallet Balance is: {{ wallet.balance }}</p>
-
-            <p>Transfer Money</p>
-            <form method="post" action="{% url 'paymentInit' %}">{% csrf_token %}
-                <p>Enter Amount :</p>
-                <input type="text" name="amount" title="Enter Amount"/>
-                <br>
-                <p>To: </p>
-                <input type="text" name="username" title="Enter username of recipient"/>
-                {#        <a href="{% url 'genotp' %}">Request OTP</a>#}
-                {#        <input type="number" name="otp" title="Enter OTP"/>#}
-                <input type="submit" value="Transfer"/>
-            </form>
+   <div class="container" style="margin-top: 60px">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel panel-account">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-left: -10px">My Wallet</div>
+                            <div class="col-sm-6" style="color: deepskyblue;font-size: 15px;font-weight: bold;">Current Balance: {{ wallet.balance }}</div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form method="post" role="form" action="{% url 'paymentInit' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="number" name="amount" title="Enter Amount" placeholder="Enter Amount To Be Transferred" class="form-control input-lg" autocomplete="off" required min="0"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="wallet_user" title="Enter username of recipient" placeholder="Enter The Recipient Name" class="form-control" autocomplete="off" required/>
+                                        <p id="username_status" style="display: none; color: red">Invalid Username</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" id="payment_a" class="form-control btn btn-save"
+                                                       value="Transfer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

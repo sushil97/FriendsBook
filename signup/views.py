@@ -50,6 +50,13 @@ def validate_username(request):
         print("Username Available")
         return HttpResponse(False)
 
+def validate_email(request):
+    email = request.GET.get('email', None)
+    if User.objects.filter(email__iexact=email).exists():
+        return HttpResponse(True)
+    else:
+        return HttpResponse(False)
+
 #
 # def user_login(request):
 #     if request.method == 'POST':

@@ -47,7 +47,7 @@ function checkRepassword(){
         return true;
     }
     else{
-        document.getElementById('id_password1').style.background='rgba(255,10,0,0.19)';
+        document.getElementById('account_password1').style.background='rgba(255,10,0,0.19)';
         document.getElementById('account_matching_error').style.color='red';
         document.getElementById('account_matching_error').innerHTML = "Password doesn't match";
         return false;

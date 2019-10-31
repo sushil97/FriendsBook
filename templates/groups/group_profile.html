@@ -31,9 +31,17 @@
                             <h4><i class="glyphicon glyphicon-phone"></i><strong> Fee </strong><br><input type="text"
                                                                                                           value="{{ groupprofileinfo.fee }}"
                                                                                                           readonly></h4>
-                            <h4><i class="glyphicon glyphicon-gift"></i><strong> Type </strong><br><input type="text"
-                                                                                                          value="{{ groupprofileinfo.type }}"
-                                                                                                          readonly></h4>
+                            {% if groupprofileinfo.fee == 0 %}
+                                <h4><i class="glyphicon glyphicon-gift"></i><strong> Type </strong><br><input
+                                        type="text"
+                                        value="Free"
+                                        readonly></h4>
+                            {% else %}
+                                <h4><i class="glyphicon glyphicon-gift"></i><strong> Type </strong><br><input
+                                        type="text"
+                                        value="Paid"
+                                        readonly></h4>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-md-4 col-eq" id="group_profile_div">
@@ -48,6 +56,7 @@
                 </div>
             </div>
             <div class="row">
+            {% if user in group_members %}
                 <div style="float: left; margin-left: 15px">
                     <div class="upload-btn-wrapper-submit">
                         <form method="get" action="{% url 'show_group_members' group.name %}">
@@ -56,6 +65,7 @@
                         </form>
                     </div>
                 </div>
+            {% endif %}
                 {% if user in group_members %}
                     <div style="float: left; margin-left:33px">
                         <div class="upload-btn-wrapper-submit">
@@ -131,7 +141,7 @@
                             aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'update_group_bio' group.name%}" enctype="multipart/form-data" method="post">
+                <form action="{% url 'update_group_bio' group.name %}" enctype="multipart/form-data" method="post">
                     {% csrf_token %}
                     <div class="modal-body">
                         <div class="row">
@@ -139,19 +149,7 @@
                                 <label>Group Description</label>
                                 <textarea id="" class="form-control input-lg" value="" name="biography"
                                           required>{{ groupprofileinfo.biography }}</textarea><br>
-                                <label>Group Type</label><br>
-                                {% ifequal groupprofileinfo.type "Private" %}
-                                    <label class="radio-inline">
-                                        <input type="radio" name="type" value="Public" id="id_type" required/>Public</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="type" value="Private" id="id_type" checked/>Private</label>
-                                {% else %}
-                                    <label class="radio-inline">
-                                        <input type="radio" name="type" value="Public" checked id="id_type" required/>Public</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="type" value="Private" id="id_type" />Private</label>
-                                {% endifequal %}
-                                <br><br>
+                                <br>
                                 <label>Fee</label>
                                 <input id="" type="text" class="form-control input-lg" required name="fee"
                                        value="{{ groupprofileinfo.fee }}"><br>

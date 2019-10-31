@@ -16,7 +16,9 @@ class UserProfileInfo(models.Model):
     privacy_phone = models.CharField(max_length=10, default="Everyone")
     privacy_posts = models.CharField(max_length=10, default="Everyone")
     balance = models.CharField(max_length=15, default=5000)
-
+    user_type = models.CharField(max_length=30,default="Casual")
+    group_count = models.IntegerField(default=0)
+    transaction_count = models.IntegerField(default=0)
 
 def __str__(self):
     return self.user.username

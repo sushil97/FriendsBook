@@ -35,6 +35,7 @@
                                 <input type="password" id="id_password1" name="password1" required class="form-control input-lg" placeholder="Re-Enter Password"  onkeyup="checkpass()" autocomplete="off"/>
                                 <span class="form-row" id="pass_match_error"></span><br/>
                                 <input type="email" id="id_email" name="email" required class="form-control input-lg" placeholder="Your Email"  autocomplete="off"/><br />
+                                <p id="email_status" style="display: none; color: red">Email already taken</p>
                                 <label>Birth Date</label>
                                 <input type="date" name="dob" id="id_dob" class="form-control input-lg" onkeydown="return false" placeholder="Enter your date of birth" autocomplete="off" required/><br />
                                 <label for="id_profile_pic">Profile pic:</label>

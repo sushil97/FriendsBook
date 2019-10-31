@@ -16,41 +16,26 @@
                     {% endif %}
                 </div>
                 <div class="group">
-                    {#                    <h3><i class="glyphicon glyphicon-plus"></i> Create Group</h3>#}
-                    <p>
-                    <form action="/launch_create_group/">
-                        {% csrf_token %}
-                        <button class="btn btn-primary" role="button" type="submit">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            Create Group
-                        </button>
-                    </form>
-                    </p>
-                    <p>
-                    <form action="{% url 'launch_create_page' %}">
-                        {% csrf_token %}
-                        <button class="btn btn-primary" role="button" type="submit">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            Create Page
-                        </button>
-                    </form>
-                    </p>
-                    {#                    <div class="collapse" id="collapseExample">#}
-                    {#                        <div class="card card-body">#}
-                    {#                            <div>#}
-                    {#                                {% csrf_token %}#}
-                    {#                                <div class="form-group row">#}
-                    {#                                    <div class="col-sm-8">#}
-                    {#                                        <input type="text" class="form-control" id="group_name"#}
-                    {#                                               placeholder="Enter group name">#}
-                    {#                                    </div>#}
-                    {#                                    <div class="col-sm-4">#}
-                    {#                                        <button class="btn btn-primary" id="create_group_btn" data-username="{{ user.username }}">Add</button>#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {#                            </div>#}
-                    {#                        </div>#}
-                    {#                    </div>#}
+                    {% ifnotequal user_profile.user_type "Casual" %}
+                        <p>
+                        <form action="/launch_create_group/">
+                            {% csrf_token %}
+                            <button class="btn btn-primary" role="button" type="submit">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                Create Group
+                            </button>
+                        </form>
+                        </p>
+                    {% endifnotequal %}
+                    {% ifequal user_profile.user_type "Commercial" %}<p>
+                        <form action="{% url 'launch_create_page' %}">
+                            {% csrf_token %}
+                            <button class="btn btn-primary" role="button" type="submit">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                Create Page
+                            </button>
+                        </form>
+                        </p>{% endifequal %}
                     <h3><i class="glyphicon glyphicon-chevron-down"></i> List of Groups</h3>
                     {% for group in group_lists %}
                         <strong><a href="/group_profile/{{ group.name }}/" style="text-decoration: none">
@@ -80,18 +65,38 @@
                 {% for post in post_lists %}
                     {% if post.author in friend_users and post.receiver_id == user.id %}
                         <div class="timeline_post">
-                            <div class="post_author"><a href="/profile/{{ post.author}}/">{{ post.author}}</a></div>
+                            <div class="post_author"><a href="/profile/{{ post.author }}/">{{ post.author }}</a></div>
                             <hr>
                             <div class="post_title">{{ post.title }}</div>
                             <p style="text-align: justify"> {{ post.text }}</p>
-                            <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}</div>
+                            <div class="timeline_time"><i class="glyphicon glyphicon-time"></i> {{ post.created_date }}
+                            </div>
                         </div>
                     {% endif %}
                 {% endfor %}
                 <br>
             </div>
             <div class="col-sm-5 sidebar-offcanvas-right">
-                <h2 class="nav-header">Friends</h2>
+                <p>
+                <form action="{% url 'upgrade' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-success" role="button" type="submit">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        Upgrade Your Account
+                    </button>
+                </form>
+                </p>
+                <p>
+                <form action="{% url 'launch_transaction_status' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-success" role="button" type="submit">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        Check Transaction Status
+                    </button>
+                </form>
+                </p>
+                <br>
+                <h2 class="nav-header"><strong><i>Friends</i></strong></h2>
                 <ul class="nav ">
                     {% for friends in friends_list %}
                         <li><h2><a href="/profile/{{ friends.username }}"
@@ -99,7 +104,7 @@
                     {% endfor %}
                 </ul>
                 {% if my_pages_list %}
-                    <h2 class="nav-header">Your Pages</h2>
+                    <h2 class="nav-header"><strong><i>Your Pages</i></strong></h2>
                     <ul class="nav ">
                         {% for my_pages in my_pages_list %}
                             <li><h2><a href="/page_timeline/{{ my_pages.page }}"
@@ -108,7 +113,7 @@
                     </ul>
                 {% endif %}
                 {% if following_pages_list %}
-                    <h2 class="nav-header">Pages you're following</h2>
+                    <h2 class="nav-header"><strong><i>Pages you're following</i></strong></h2>
                     <ul class="nav ">
                         {% for following_pages in following_pages_list %}
                             <li><h2><a href="/page_timeline/{{ following_pages.page.page }}"

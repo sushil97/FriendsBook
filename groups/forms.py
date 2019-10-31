@@ -2,8 +2,6 @@ from django import forms
 from groups.models import GroupProfileInfo, GroupRequestInfo, GroupPost, GroupInvitation
 from django.contrib.auth.models import Group
 
-TYPE_CHOICES = [('Public', 'Public'),
-                  ('Private', 'Private')]
 
 class GroupForm(forms.ModelForm):
     class Meta():
@@ -11,11 +9,10 @@ class GroupForm(forms.ModelForm):
         fields = ('name',)
 
 class GroupProfileInfoForm(forms.ModelForm):
-    type = forms.ChoiceField(choices=TYPE_CHOICES, widget=forms.RadioSelect())
 
     class Meta():
         model = GroupProfileInfo
-        fields = ('type', 'group_pic', 'biography','fee',)
+        fields = ('group_pic', 'biography','fee',)
 
 class GroupProfilePicUpdateForm(forms.ModelForm):
     group_pic = forms.ImageField()
@@ -25,11 +22,10 @@ class GroupProfilePicUpdateForm(forms.ModelForm):
         fields = ('group_pic',)
 
 class GroupProfileUpdateForm(forms.ModelForm):
-    type = forms.ChoiceField(choices=TYPE_CHOICES, widget=forms.RadioSelect())
 
     class Meta:
         model = GroupProfileInfo
-        fields = ('biography','type','fee')
+        fields = ('biography','fee')
 
 class GroupRequestInfoForm(forms.ModelForm):
     class Meta:

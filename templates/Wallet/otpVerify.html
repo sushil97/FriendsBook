@@ -2,10 +2,39 @@
 
 
 {% block body_block %}
-
-    <form method="post" action="{% url 'transfer' %}">{% csrf_token %}
-     <h2>Enter OTP please to complete the transaction</h2>
-    <input type="password" name="otp" title="Enter OTP please"/>
-    <input type="submit" value="Submit"/>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel panel-account">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6">Enter OTP</div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form method="post" action="{% url 'transfer' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="password" id="login" name="otp" title="Enter OTP" placeholder="Please Enter Your OTP" class="form-control" autocomplete="off" required  onkeydown="return false" onclick="showkeyboard()"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" class="form-control btn btn-save"
+                                                       value="submit" onclick="hidekeyboard()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="keyboard" style="display: none"></div>
+    </div>
 {% endblock %}
