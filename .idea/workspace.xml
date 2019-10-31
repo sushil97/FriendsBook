@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32de0676-a654-46cc-b97b-1977230ce872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/page_post_pic/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/page_profile_pic/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Wallet/Monthly_limit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SNS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SNS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SNS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/CSS/timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/timeline.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Wallet/Retry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/Retry.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Wallet/otpUpgrade.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/otpUpgrade.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Wallet/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Wallet/transaction_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/transaction_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Wallet/userUpgrade.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/userUpgrade.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Wallet/wallet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Wallet/wallet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/django_messages/compose.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/django_messages/compose.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/timeline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/settings/account_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings/account_settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SNS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SNS/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -289,7 +268,7 @@
       <workItem from="1572373724876" duration="15767000" />
       <workItem from="1572425026706" duration="30353000" />
       <workItem from="1572457088715" duration="27444000" />
-      <workItem from="1572501236828" duration="12384000" />
+      <workItem from="1572501236828" duration="12678000" />
     </task>
     <task id="LOCAL-00001" summary="Updated view for Templates">
       <created>1570750615976</created>

@@ -68,10 +68,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'SNS.urls'
 
-MFA_ISSUER_NAME = "Google Authenticator"
+MFA_ISSUER_NAME = "Friendsbook"
 
-MFA_REMEMBER_MY_BROWSER = True
-MFA_REMEMBER_DAYS = 90
 
 TEMPLATES = [
     {
@@ -151,7 +149,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'kishansingh47'
-EMAIL_HOST_PASSWORD = 'Kishansingh47'
+EMAIL_HOST_USER = 'fcs_group8'
+EMAIL_HOST_PASSWORD = 'kishanmt19066'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
